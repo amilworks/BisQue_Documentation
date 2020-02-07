@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 BisQue Cloud Service | BisQue_Documentation.utf8</title>
+  <title>1.7 Plant Cell Segmentation | BisQue_Documentation.utf8</title>
   <meta name="description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 BisQue Cloud Service | BisQue_Documentation.utf8" />
+  <meta property="og:title" content="1.7 Plant Cell Segmentation | BisQue_Documentation.utf8" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 BisQue Cloud Service | BisQue_Documentation.utf8" />
+  <meta name="twitter:title" content="1.7 Plant Cell Segmentation | BisQue_Documentation.utf8" />
   
   <meta name="twitter:description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
   <meta name="twitter:image" content="images/cover.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="bisque-installation.html"/>
-<link rel="next" href="how-to-login-or-create-a-new-user.html"/>
+<link rel="prev" href="cellprofiler-module.html"/>
+<link rel="next" href="module-development.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -249,22 +249,122 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> BisQue Cloud Service</h1>
+<div id="plant-cell-segmentation" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Plant Cell Segmentation</h2>
+<div id="overview-3" class="section level3 unnumbered" number="">
+<h3>Overview</h3>
+<p>This module is for segmenting 3D membrane tagged cell images. The workflow is as follows: 3D UNet to output the probability map of a cell boundary, 3D watershed to get the initial cell label, and 3D Conditional Random Field (CRF) to refine the segmentation label.</p>
 <div class="figure">
-<img src="images/homepage.png" alt="" />
-<p class="caption"><strong>Homepage of BisQue. </strong> The landing page of BisQue enables users to interact with sample datasets and view the current analysis modules implemented today.</p>
+<img src="images/CellECT.png" alt="" />
+<p class="caption"><strong>CellECT 2.0 Module Homepage.</strong> Here is the landing page for the GPU-enabled CellECT 2.0 module.</p>
 </div>
-<p><a href="https://bisque.ece.ucsb.edu">BisQue</a> is a web-based platform specifically designed to provide researchers with organizational and quantitative analysis tools for 5D image data. Users can extend Bisque with both data model and analysis extensions in order to adapt the system to local needs. Bisque’s extensibility stems from two core concepts: flexible metadata facility and an open web-based architecture. Together these empower researchers to create, develop and share novel bioimage analyses.</p>
-<p>Bisque is implemented as a scalable and modular web-service architecture. Image Servers store and manipulate images. Data servers provide flexible metadata storage. Execution servers house executable modules. The client-server architecture seamlessly integrates services across storage and processing hardware. Communication between various components is performed in a RESTful manner through HTTP requests carrying XML and JSON. Web clients use dynamic web components built with AJAX. Backends seamlessly provide access to local resources as well as large scalable resources like Amazon S3 or iRODS for data storage or Condor grids for computation.</p> 
+<div class="figure">
+<img src="images/tom_moduleflow.svg" alt="" />
+<p class="caption"><strong>CellECT 2.0 Module Homepage.</strong> Here is the landing page for the GPU-enabled CellECT 2.0 module.</p>
 </div>
+<div class="figure">
+<img src="images/tom_workflow.svg" alt="" />
+<p class="caption"><strong>Sample Plant Cell Images.</strong> These images are taken from time series data stored in <code>TIFF</code> files.</p>
+</div>
+</div>
+<div id="input" class="section level3 unnumbered" number="">
+<h3>Input</h3>
+<div class="figure">
+<img src="images/tiff_images.svg" alt="" />
+<p class="caption"><strong>Sample Plant Cell Images.</strong> These images are taken from time series data stored in <code>TIFF</code> files.</p>
+</div>
+<ul>
+<li><code>TIFF Image</code> with minimum <span class="math inline">\(z &gt; 1\)</span></li>
+</ul>
+</div>
+<div id="hyperparameters" class="section level3 unnumbered" number="">
+<h3>Hyperparameters</h3>
+<ul>
+<li><p><code>Threshold</code> - The bilateral standard deviation (threshold) for CRF define how much intensity-homogeneity is required within a region. Higher values allow greater variations under the same label.</p></li>
+<li><p><code>Label Threshold</code> - The minimum possible volume of cells to avoid segmenting intercellular space as an individual cell.</p></li>
+<li><p><code>Minimum Distance</code> - In the seeds detection for watershed, the minimum possible distance between two seeds. The lower the value is, the more likely to have over-segmentation.</p></li>
+<li><p><code>Minimum Cell Size</code> -</p></li>
+</ul>
+</div>
+<div id="cell-features" class="section level3 unnumbered" number="">
+<h3>Cell Features</h3>
+<ul>
+<li><code>Cell Number</code> - The number of cells in each image stack.</li>
+<li><code>Cell Volume</code> - The size of each cell in terms of number of voxels.</li>
+<li><code>Cell Center</code> - The centroid of each cell.</li>
+<li><code>Cell Coordinates</code> - The surface coordinate of each cell.</li>
+<li><code>Adjacency Table</code> - The graph represents the neighbor of each cell</li>
+<li><code>3-way Conjunction Points</code> - The touch points of 3 neighboring cells to a.</li>
+</ul>
+</div>
+<div id="output" class="section level3 unnumbered" number="">
+<h3>Output</h3>
+<ul>
+<li><code>Segmented TIFF Image</code></li>
+<li><code>HDF5 Table with Cell Features</code></li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="plant-cell-segmentation.html#cb19-1"></a>tom &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="st">&#39;CellNumber&#39;</span>=<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="st">&quot;CellVolume&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">9832</span>, <span class="dv">2387</span>, <span class="dv">945</span>, <span class="dv">2843</span>, <span class="dv">1029</span>), <span class="st">&quot;CellCenter&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;[5, 57, 5]&#39;</span>, <span class="st">&#39;[5, 87, 5]&#39;</span>, <span class="st">&#39;[5, 23, 5]&#39;</span>, <span class="st">&#39;[5, 38, 5]&#39;</span>, <span class="st">&#39;[5, 27, 5]&#39;</span>), <span class="st">&quot;SegmentedImage&quot;</span> =<span class="st"> &#39;SEGMENTED TIFF as ARRAY&#39;</span>, <span class="st">&quot;SurfaceCoordinates&quot;</span> =<span class="st"> &#39;ARRAY of Surface Coordinates&#39;</span>)</span>
+<span id="cb19-2"><a href="plant-cell-segmentation.html#cb19-2"></a>knitr<span class="op">::</span><span class="kw">kable</span>(tom, <span class="dt">booktabs=</span><span class="ot">TRUE</span>, <span class="dt">caption =</span> <span class="st">&quot;Sample HDF5 Table with Cell Features&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-1">TABLE 1.1: </span>Sample HDF5 Table with Cell Features</caption>
+<thead>
+<tr class="header">
+<th align="right">CellNumber</th>
+<th align="right">CellVolume</th>
+<th align="left">CellCenter</th>
+<th align="left">SegmentedImage</th>
+<th align="left">SurfaceCoordinates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">9832</td>
+<td align="left">[5, 57, 5]</td>
+<td align="left">SEGMENTED TIFF as ARRAY</td>
+<td align="left">ARRAY of Surface Coordinates</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2387</td>
+<td align="left">[5, 87, 5]</td>
+<td align="left">SEGMENTED TIFF as ARRAY</td>
+<td align="left">ARRAY of Surface Coordinates</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">945</td>
+<td align="left">[5, 23, 5]</td>
+<td align="left">SEGMENTED TIFF as ARRAY</td>
+<td align="left">ARRAY of Surface Coordinates</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2843</td>
+<td align="left">[5, 38, 5]</td>
+<td align="left">SEGMENTED TIFF as ARRAY</td>
+<td align="left">ARRAY of Surface Coordinates</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1029</td>
+<td align="left">[5, 27, 5]</td>
+<td align="left">SEGMENTED TIFF as ARRAY</td>
+<td align="left">ARRAY of Surface Coordinates</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="bisque-installation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="how-to-login-or-create-a-new-user.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="cellprofiler-module.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="module-development.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
