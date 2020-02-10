@@ -178,7 +178,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="module-development.html"><a href="module-development.html"><i class="fa fa-check"></i><b>2</b> Module Development</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a></li>
+<li class="chapter" data-level="" data-path="module-development.html"><a href="module-development.html#how-should-i-begin-building-modules"><i class="fa fa-check"></i>How Should I Begin Building Modules</a></li>
+<li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a>
+<ul>
+<li><a href="dockerfile.html#example."><strong>Example.</strong></a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="module-xml.html"><a href="module-xml.html"><i class="fa fa-check"></i><b>2.2</b> Module XML</a>
 <ul>
 <li><a href="module-xml.html#example"><strong>Example</strong></a></li>
@@ -254,22 +258,114 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>BisQue Modules are analysis extensions to the bisque system that allow users to incorporate their own custom analysis scripts written in <code>Python, C++, Java, MATLAB, etc.</code> that perform high-end computations such as deep learning based methods for use by the system and others.</p>
 </blockquote>
+<p>One of the main reasons to convert your source code into a BisQue module is for reproducibility. Researchers in the field have exceptional work, but poor coding practices hinders the widespread adoption and justification of their findings. This is by no means their fault, but luckily help is here.</p>
 <div class="figure">
-<img src="images/bisqueModuleIntegration.svg" alt="" />
+<img src="images/moduleexplanation.svg" alt="" />
 <p class="caption"><strong>Module Files.</strong> There are six files that are needed for a module to be built and deployed on the BisQue platform.</p>
 </div>
-<p><strong><a href="dockerfile.html#dockerfile">Dockerfile</a></strong></p>
-<p>Docker can build images automatically by reading the instructions from a <code>Dockerfile.</code> A <code>Dockerfile</code> is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession.</p>
-<p><strong><a href="module-xml.html#module-xml">Module XML</a></strong></p>
-<p>The module XML file provides the user interface for a module. Instead of writing <code>HTML</code>, fill in the fields necessary for your module such as the input should be an image and the output should be an image as well, i.e. a segmented image.</p>
+<div id="how-should-i-begin-building-modules" class="section level3 unnumbered" number="">
+<h3>How Should I Begin Building Modules</h3>
+<div id="step-1.-source-code-prep" class="section level4 unnumbered" number="">
+<h4><strong>STEP 1.</strong> Source Code Prep</h4>
 <p><strong><a href="source-code.html#source-code">Source Code</a></strong></p>
-<p>The source code of a module can be written in almost any language. The way the code author structures their code—either in multiple files and folders or one large file—is also not an issue. Just make sure to copy all source code files into the Docker container.</p>
+<p>Building modules requires, of course, source code. Your first order of business is to upload your code to GitHub so you have a copy of your entire codebase in the event <code>rm -rf *</code> happens. Next, verify that your source code and <code>README</code> are clear enough for someone to run and understand. <em>Do not skip this step</em>. I have provided an example <code>README</code> below to get you started. You solved a problem, now share the solution!</p>
+<p> 
+ </p>
+<hr />
+</div>
+<div id="project-title" class="section level4 unnumbered" number="">
+<h4>Project Title</h4>
+<p>One Paragraph of project description goes here</p>
+</div>
+<div id="getting-started-1" class="section level4 unnumbered" number="">
+<h4>Getting Started</h4>
+<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.</p>
+</div>
+<div id="prerequisites" class="section level4 unnumbered" number="">
+<h4>Prerequisites</h4>
+<p>What things you need to install the software and how to install them. Probably a requirements.txt, perhaps?</p>
+</div>
+<div id="installing" class="section level4 unnumbered" number="">
+<h4>Installing</h4>
+<p>A step by step series of examples that tell you how to get a development env running</p>
+<p>Say what the step will be</p>
+<p><code>turn on computer</code></p>
+<p>And repeat</p>
+<p><code>python module4000.py</code></p>
+</div>
+<div id="deployment" class="section level4 unnumbered" number="">
+<h4>Deployment</h4>
+<p>Add notes about how to deploy this on a live system</p>
+</div>
+<div id="built-with" class="section level4 unnumbered" number="">
+<h4>Built With</h4>
+<ul>
+<li><a href="https://scikit-learn.org/stable/index.html">Sklearn</a> - Machine Learning Library</li>
+</ul>
+</div>
+<div id="contributing" class="section level4 unnumbered" number="">
+<h4>Contributing</h4>
+<p>Please read <code>CONTRIBUTING.md</code> for details on our code of conduct, and the process for submitting pull requests to us.</p>
+</div>
+<div id="versioning" class="section level4 unnumbered" number="">
+<h4>Versioning</h4>
+<p>GitHub is also good for versioning as well. Use whatever you want.</p>
+</div>
+<div id="authors" class="section level4 unnumbered" number="">
+<h4>Authors</h4>
+<ul>
+<li>Amil Khan (UCSB BisQue Team)</li>
+<li>Satish Kumar (UCSB BisQue Team)</li>
+</ul>
+</div>
+<div id="license" class="section level4 unnumbered" number="">
+<h4>License</h4>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details</p>
+</div>
+<div id="acknowledgments" class="section level4 unnumbered" number="">
+<h4>Acknowledgments</h4>
+<ul>
+<li>Hat tip to anyone whose code was used</li>
+<li>Inspiration</li>
+<li>etc</li>
+</ul>
+<hr />
+<p> 
+ </p>
+<p>Once you have working source code that others have tested to make sure it runs, you can begin the process of building your very own BisQue module.</p>
+</div>
+<div id="step-2.-fill-out-the-module-xml" class="section level4 unnumbered" number="">
+<h4>STEP 2. Fill Out the Module XML</h4>
+<p><strong><a href="module-xml.html#module-xml">Module XML</a></strong></p>
+<p>This file should tell the user what to input. For example, if your module segments pictures of cats and dogs, you should probably have something like this:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb20-1"><a href="module-development.html#cb20-1"></a><span class="kw">&lt;tag</span><span class="ot"> name=</span><span class="st">&quot;accepted_type&quot;</span><span class="ot"> value=</span><span class="st">&quot;image&quot;</span> <span class="kw">/&gt;</span></span></code></pre></div>
+<p>Similarly, you should define your output to be what you are outputting. For example, if the output is a segmented image of a dog, you should have something like this:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb21-1"><a href="module-development.html#cb21-1"></a><span class="kw">&lt;tag</span><span class="ot"> name=</span><span class="st">&quot;Segmentation&quot;</span><span class="ot"> type=</span><span class="st">&quot;image&quot;</span><span class="kw">&gt;</span></span></code></pre></div>
+<p>The main purpose of the XML is to put your focus on filling out relevant information instead of learning <code>HTML</code>. BisQue uses the information in the XML to build the user interface for your module so you don’t have to.</p>
+</div>
+<div id="step-3.-write-the-dockerfile" class="section level4 unnumbered" number="">
+<h4>STEP 3. Write the Dockerfile</h4>
+<p><strong><a href="dockerfile.html#dockerfile">Dockerfile</a></strong></p>
+<p>Probably the most important part to your module—the <code>Dockerfile</code>. Feel free to use example Dockerfiles from the community to get started. The main tasks you need to do are define your working directory as <code>module</code> and COPY all the necessary files needed to run your source code:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="module-development.html#cb22-1"></a><span class="ex">WORKDIR</span> /module</span>
+<span id="cb22-2"><a href="module-development.html#cb22-2"></a><span class="ex">COPY</span> predict_strength.py /module/</span>
+<span id="cb22-3"><a href="module-development.html#cb22-3"></a><span class="co">#  COPY ./source /module/source   &lt;--- If you have a source folder</span></span></code></pre></div>
+<p>There is plenty to do while creating and building the Dockerfile so please read the full description carefully. The best tip we can give you is try to replicate your current setup where your code ran successfully. If you are using Ubuntu 16.04, define that as your base image and continue to build your Dockerfile from there. Now, do not go crazy and add every pip install package you have on your system. Remember, keep your container as light as possible. Only install the necessary packages needed for your source code to run in the container.</p>
+</div>
+<div id="step-4.-modify-the-python-script-wrapper" class="section level4 unnumbered" number="">
+<h4>STEP 4. Modify the Python Script Wrapper</h4>
 <p><strong><a href="python-script-wrapper.html#python-script-wrapper">Python Script Wrapper</a></strong></p>
-<p>This script will enable the communication between the module and BisQue. If this script is not present, good luck.</p>
-<p><strong><a href="python-setup.html#python-setup">Python Setup</a></strong></p>
-<p>The <code>python setup.py</code> script is a standard in the python community. This will build the module.</p>
+<p>Similar to how you would run your source code locally, the <code>PythonScriptWrapper.py</code> will help communicate the input from and output to BisQue. The main change to make is what file does the module need to run for the analysis. For instance, let’s say I have a <code>predict_strength.py</code> file with a <code>predict</code> function that will do everything. Then I would simply import the file and modify the outputs variable to be:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="module-development.html#cb23-1"></a>outputs <span class="op">=</span> predict( bq, log, <span class="op">**</span><span class="va">self</span>.options.__dict__ )</span></code></pre></div>
+<p>Feel free to add any logging and catches you wish while diagnosing your module. This script will be your main point of contact when attempting to pinpoint missing files and dependencies, Python related issues, and many more. Look for the <code>PythonScript.log</code> file when testing your module.</p>
+</div>
+<div id="step-5.-modify-the-runtime-config-file" class="section level4 unnumbered" number="">
+<h4>STEP 5. Modify the Runtime Config File</h4>
 <p><strong><a href="runtime-module-configuration.html#runtime-module-configuration">Runtime Module Configuration</a></strong></p>
-<p>This configuration script is simple: give a name to the module docker container. The other arguments can be left alone.</p> 
+<p>Give a name to the module docker container. The other arguments can be left alone. Use this as a means to control versioning. For instance,</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="module-development.html#cb24-1"></a><span class="ex">docker.image</span> = cellseg-3dunet-v2  <span class="co">#  ---&gt;  cellseg-3dunet-v{}</span></span></code></pre></div>
+</div>
+</div> 
 </div>
             </section>
 

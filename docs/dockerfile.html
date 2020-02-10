@@ -178,7 +178,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="module-development.html"><a href="module-development.html"><i class="fa fa-check"></i><b>2</b> Module Development</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a></li>
+<li class="chapter" data-level="" data-path="module-development.html"><a href="module-development.html#how-should-i-begin-building-modules"><i class="fa fa-check"></i>How Should I Begin Building Modules</a></li>
+<li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a>
+<ul>
+<li><a href="dockerfile.html#example."><strong>Example.</strong></a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="module-xml.html"><a href="module-xml.html"><i class="fa fa-check"></i><b>2.2</b> Module XML</a>
 <ul>
 <li><a href="module-xml.html#example"><strong>Example</strong></a></li>
@@ -257,40 +261,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Typically, a <code>Dockerfile</code> will include a base image such as <code>FROM ubuntu:xenial</code> at the top of the file. We highly recommend using the Ubuntu Xenial 16.04 image for your module as it has been tested rigorously and is the base image we use for BisQue.</p>
 <p><strong>NOTE.</strong> If you would like to use a different Ubuntu flavor like 18.04 Bionic, we encourage you to do so and let us know of any problems you encounter.</p>
 <p>We typically start off our module Dockerfiles with the following lines:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="dockerfile.html#cb20-1"></a><span class="ex">FROM</span> ubuntu:xenial</span>
-<span id="cb20-2"><a href="dockerfile.html#cb20-2"></a><span class="ex">ENV</span> DEBIAN_FRONTEND noninteractive</span>
-<span id="cb20-3"><a href="dockerfile.html#cb20-3"></a><span class="ex">RUN</span> apt-get -y update   <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb20-4"><a href="dockerfile.html#cb20-4"></a>    <span class="ex">apt-get</span> -y upgrade  <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb20-5"><a href="dockerfile.html#cb20-5"></a>    <span class="ex">apt-get</span> -y install python</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="dockerfile.html#cb25-1"></a><span class="ex">FROM</span> ubuntu:xenial</span>
+<span id="cb25-2"><a href="dockerfile.html#cb25-2"></a><span class="ex">ENV</span> DEBIAN_FRONTEND noninteractive</span>
+<span id="cb25-3"><a href="dockerfile.html#cb25-3"></a><span class="ex">RUN</span> apt-get -y update   <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
+<span id="cb25-4"><a href="dockerfile.html#cb25-4"></a>    <span class="ex">apt-get</span> -y upgrade  <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
+<span id="cb25-5"><a href="dockerfile.html#cb25-5"></a>    <span class="ex">apt-get</span> -y install python</span></code></pre></div>
 <p>After these lines, we need to add dependencies for our module such as pip, headers, and any compilers. The next few lines are where we put any <code>apt-get</code> installs. Usually this is good practice since some pip install packages require a compiler. If one is not present in the container, it might be hard to debug what is missing.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="dockerfile.html#cb21-1"></a><span class="ex">RUN</span> apt-get -y install python-pip liblapack3 libblas-dev liblapack-dev gfortran</span>
-<span id="cb21-2"><a href="dockerfile.html#cb21-2"></a><span class="ex">RUN</span> apt-get update   <span class="co"># &lt;--- Run before pip installs</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="dockerfile.html#cb26-1"></a><span class="ex">RUN</span> apt-get -y install python-pip liblapack3 libblas-dev liblapack-dev gfortran</span>
+<span id="cb26-2"><a href="dockerfile.html#cb26-2"></a><span class="ex">RUN</span> apt-get update   <span class="co"># &lt;--- Run before pip installs</span></span></code></pre></div>
 <p>Now we add any pip installs that our module may need such as <code>numpy</code>, <code>pandas</code>, <code>Tensorflow</code>, and any others. If you used a virtual environment to develop module locally, and hopefully you did, then simply use <code>pip freeze &gt; requirements.txt</code>. This will give you a text file with all the packages you are using in your virtual environment for your module. If you are a diligent person, you probably do not use one virtual environment for all your development in, say, Python 3.6. Hence, you will only have the necessary packages in the <code>requirements.txt</code> file. From this file, fill in the necessary pip installs within the Dockerfile.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="dockerfile.html#cb22-1"></a><span class="ex">RUN</span> pip install numpy pandas tensorflow</span>
-<span id="cb22-2"><a href="dockerfile.html#cb22-2"></a><span class="ex">RUN</span> pip install scikit-learn==0.19.1   <span class="co"># &lt;--- For specific versions</span></span>
-<span id="cb22-3"><a href="dockerfile.html#cb22-3"></a><span class="ex">RUN</span> pip install -i https://biodev.ece.ucsb.edu/py/bisque/prod/+simple bisque-api==0.5.9</span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="dockerfile.html#cb23-1"></a><span class="ex">FROM</span> ubuntu:xenial</span>
-<span id="cb23-2"><a href="dockerfile.html#cb23-2"></a><span class="ex">ENV</span> DEBIAN_FRONTEND noninteractive</span>
-<span id="cb23-3"><a href="dockerfile.html#cb23-3"></a><span class="ex">RUN</span> apt-get -y update                                            <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb23-4"><a href="dockerfile.html#cb23-4"></a>    <span class="ex">apt-get</span> -y upgrade                                           <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
-<span id="cb23-5"><a href="dockerfile.html#cb23-5"></a>    <span class="ex">apt-get</span> -y install                                              \</span>
-<span id="cb23-6"><a href="dockerfile.html#cb23-6"></a>      python</span>
-<span id="cb23-7"><a href="dockerfile.html#cb23-7"></a><span class="ex">RUN</span> apt-get -y install python-lxml python-numpy</span>
-<span id="cb23-8"><a href="dockerfile.html#cb23-8"></a><span class="ex">RUN</span> apt-get -y install python-pip liblapack3 libblas-dev liblapack-dev gfortran</span>
-<span id="cb23-9"><a href="dockerfile.html#cb23-9"></a><span class="ex">RUN</span> apt-get -y install python-scipy python-configparser python-h5py</span>
-<span id="cb23-10"><a href="dockerfile.html#cb23-10"></a><span class="ex">RUN</span> apt-get update</span>
-<span id="cb23-11"><a href="dockerfile.html#cb23-11"></a><span class="ex">RUN</span> pip install pymks</span>
-<span id="cb23-12"><a href="dockerfile.html#cb23-12"></a><span class="ex">RUN</span> pip install tables scipy</span>
-<span id="cb23-13"><a href="dockerfile.html#cb23-13"></a><span class="ex">RUN</span> pip install --user --install-option=<span class="st">&quot;--prefix=&quot;</span> -U scikit-learn==0.19.1</span>
-<span id="cb23-14"><a href="dockerfile.html#cb23-14"></a><span class="ex">RUN</span> pip install -i https://biodev.ece.ucsb.edu/py/bisque/prod/+simple bisque-api==0.5.9</span>
-<span id="cb23-15"><a href="dockerfile.html#cb23-15"></a><span class="ex">RUN</span> pip install requests==2.10.0</span>
-<span id="cb23-16"><a href="dockerfile.html#cb23-16"></a><span class="ex">WORKDIR</span> /module</span>
-<span id="cb23-17"><a href="dockerfile.html#cb23-17"></a><span class="ex">COPY</span> PythonScriptWrapper /module/</span>
-<span id="cb23-18"><a href="dockerfile.html#cb23-18"></a><span class="ex">COPY</span> PythonScriptWrapper.py /module/</span>
-<span id="cb23-19"><a href="dockerfile.html#cb23-19"></a><span class="ex">COPY</span> predict_strength.py /module/</span>
-<span id="cb23-20"><a href="dockerfile.html#cb23-20"></a><span class="ex">COPY</span> pydist /module/pydist/</span>
-<span id="cb23-21"><a href="dockerfile.html#cb23-21"></a><span class="ex">ENV</span> PATH /module:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span>
-<span id="cb23-22"><a href="dockerfile.html#cb23-22"></a><span class="ex">CMD</span> [ <span class="st">&#39;PythonScriptWrapper&#39;</span> ]</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="dockerfile.html#cb27-1"></a><span class="ex">RUN</span> pip install numpy pandas tensorflow</span>
+<span id="cb27-2"><a href="dockerfile.html#cb27-2"></a><span class="ex">RUN</span> pip install scikit-learn==0.19.1   <span class="co"># &lt;--- For specific versions</span></span>
+<span id="cb27-3"><a href="dockerfile.html#cb27-3"></a><span class="ex">RUN</span> pip install -i https://biodev.ece.ucsb.edu/py/bisque/prod/+simple bisque-api==0.5.9</span></code></pre></div>
+<div id="example." class="section level3 unnumbered" number="">
+<h3><strong>Example.</strong></h3>
+<p>The Composite Strength module</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="dockerfile.html#cb28-1"></a><span class="ex">FROM</span> ubuntu:xenial</span>
+<span id="cb28-2"><a href="dockerfile.html#cb28-2"></a><span class="ex">ENV</span> DEBIAN_FRONTEND noninteractive</span>
+<span id="cb28-3"><a href="dockerfile.html#cb28-3"></a><span class="ex">RUN</span> apt-get -y update                                            <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
+<span id="cb28-4"><a href="dockerfile.html#cb28-4"></a>    <span class="ex">apt-get</span> -y upgrade                                           <span class="kw">&amp;&amp;</span> <span class="kw">\</span></span>
+<span id="cb28-5"><a href="dockerfile.html#cb28-5"></a>    <span class="ex">apt-get</span> -y install                                              \</span>
+<span id="cb28-6"><a href="dockerfile.html#cb28-6"></a>      python</span>
+<span id="cb28-7"><a href="dockerfile.html#cb28-7"></a><span class="ex">RUN</span> apt-get -y install python-lxml python-numpy</span>
+<span id="cb28-8"><a href="dockerfile.html#cb28-8"></a><span class="ex">RUN</span> apt-get -y install python-pip liblapack3 libblas-dev liblapack-dev gfortran</span>
+<span id="cb28-9"><a href="dockerfile.html#cb28-9"></a><span class="ex">RUN</span> apt-get -y install python-scipy python-configparser python-h5py</span>
+<span id="cb28-10"><a href="dockerfile.html#cb28-10"></a><span class="ex">RUN</span> apt-get update</span>
+<span id="cb28-11"><a href="dockerfile.html#cb28-11"></a><span class="ex">RUN</span> pip install pymks</span>
+<span id="cb28-12"><a href="dockerfile.html#cb28-12"></a><span class="ex">RUN</span> pip install tables scipy</span>
+<span id="cb28-13"><a href="dockerfile.html#cb28-13"></a><span class="ex">RUN</span> pip install --user --install-option=<span class="st">&quot;--prefix=&quot;</span> -U scikit-learn==0.19.1</span>
+<span id="cb28-14"><a href="dockerfile.html#cb28-14"></a><span class="ex">RUN</span> pip install -i https://biodev.ece.ucsb.edu/py/bisque/prod/+simple bisque-api==0.5.9</span>
+<span id="cb28-15"><a href="dockerfile.html#cb28-15"></a><span class="ex">RUN</span> pip install requests==2.10.0</span>
+<span id="cb28-16"><a href="dockerfile.html#cb28-16"></a><span class="ex">WORKDIR</span> /module</span>
+<span id="cb28-17"><a href="dockerfile.html#cb28-17"></a><span class="ex">COPY</span> PythonScriptWrapper /module/</span>
+<span id="cb28-18"><a href="dockerfile.html#cb28-18"></a><span class="ex">COPY</span> PythonScriptWrapper.py /module/</span>
+<span id="cb28-19"><a href="dockerfile.html#cb28-19"></a><span class="ex">COPY</span> predict_strength.py /module/</span>
+<span id="cb28-20"><a href="dockerfile.html#cb28-20"></a><span class="ex">COPY</span> pydist /module/pydist/</span>
+<span id="cb28-21"><a href="dockerfile.html#cb28-21"></a><span class="ex">ENV</span> PATH /module:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</span>
+<span id="cb28-22"><a href="dockerfile.html#cb28-22"></a><span class="ex">CMD</span> [ <span class="st">&#39;PythonScriptWrapper&#39;</span> ]</span></code></pre></div>
+</div>
 </div>
             </section>
 

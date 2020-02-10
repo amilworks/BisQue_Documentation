@@ -178,7 +178,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="module-development.html"><a href="module-development.html"><i class="fa fa-check"></i><b>2</b> Module Development</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a></li>
+<li class="chapter" data-level="" data-path="module-development.html"><a href="module-development.html#how-should-i-begin-building-modules"><i class="fa fa-check"></i>How Should I Begin Building Modules</a></li>
+<li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a>
+<ul>
+<li><a href="dockerfile.html#example."><strong>Example.</strong></a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="module-xml.html"><a href="module-xml.html"><i class="fa fa-check"></i><b>2.2</b> Module XML</a>
 <ul>
 <li><a href="module-xml.html#example"><strong>Example</strong></a></li>
@@ -258,20 +262,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="example.-composite-strength-module" class="section level3 unnumbered" number="">
 <h3><em>Example.</em> Composite Strength Module</h3>
 <p>Let’s take a look at the structure of the Composite Strength module. In this example, we only have one <code>Python</code> file that contains all of our source code, <code>predict_strength.py</code>.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb131-1"><a href="source-code.html#cb131-1"></a><span class="ex">TwoPhasePrediction/</span></span>
-<span id="cb131-2"><a href="source-code.html#cb131-2"></a>├── <span class="ex">Dockerfile</span></span>
-<span id="cb131-3"><a href="source-code.html#cb131-3"></a>├── <span class="ex">PythonScriptWrapper</span></span>
-<span id="cb131-4"><a href="source-code.html#cb131-4"></a>├── <span class="ex">PythonScriptWrapper.py</span></span>
-<span id="cb131-5"><a href="source-code.html#cb131-5"></a>├── <span class="ex">TwoPhasePrediction.xml</span></span>
-<span id="cb131-6"><a href="source-code.html#cb131-6"></a>├── <span class="ex">predict_strength.py</span>   <span class="co"># &lt;----- Source file</span></span>
-<span id="cb131-7"><a href="source-code.html#cb131-7"></a>├── <span class="ex">public</span></span>
-<span id="cb131-8"><a href="source-code.html#cb131-8"></a>│   ├── <span class="ex">help.html</span></span>
-<span id="cb131-9"><a href="source-code.html#cb131-9"></a>│   ├── <span class="ex">marat_workflow.png</span></span>
-<span id="cb131-10"><a href="source-code.html#cb131-10"></a>│   ├── <span class="ex">thumbnail.png</span></span>
-<span id="cb131-11"><a href="source-code.html#cb131-11"></a>│   ├── <span class="ex">webapp.css</span></span>
-<span id="cb131-12"><a href="source-code.html#cb131-12"></a>│   └── <span class="ex">webapp.js</span></span>
-<span id="cb131-13"><a href="source-code.html#cb131-13"></a>├── <span class="ex">runtime-module.cfg</span></span>
-<span id="cb131-14"><a href="source-code.html#cb131-14"></a>└── <span class="ex">setup.py</span></span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb136-1"><a href="source-code.html#cb136-1"></a><span class="ex">TwoPhasePrediction/</span></span>
+<span id="cb136-2"><a href="source-code.html#cb136-2"></a>├── <span class="ex">Dockerfile</span></span>
+<span id="cb136-3"><a href="source-code.html#cb136-3"></a>├── <span class="ex">PythonScriptWrapper</span></span>
+<span id="cb136-4"><a href="source-code.html#cb136-4"></a>├── <span class="ex">PythonScriptWrapper.py</span></span>
+<span id="cb136-5"><a href="source-code.html#cb136-5"></a>├── <span class="ex">TwoPhasePrediction.xml</span></span>
+<span id="cb136-6"><a href="source-code.html#cb136-6"></a>├── <span class="ex">predict_strength.py</span>   <span class="co"># &lt;----- Source file</span></span>
+<span id="cb136-7"><a href="source-code.html#cb136-7"></a>├── <span class="ex">public</span></span>
+<span id="cb136-8"><a href="source-code.html#cb136-8"></a>│   ├── <span class="ex">help.html</span></span>
+<span id="cb136-9"><a href="source-code.html#cb136-9"></a>│   ├── <span class="ex">marat_workflow.png</span></span>
+<span id="cb136-10"><a href="source-code.html#cb136-10"></a>│   ├── <span class="ex">thumbnail.png</span></span>
+<span id="cb136-11"><a href="source-code.html#cb136-11"></a>│   ├── <span class="ex">webapp.css</span></span>
+<span id="cb136-12"><a href="source-code.html#cb136-12"></a>│   └── <span class="ex">webapp.js</span></span>
+<span id="cb136-13"><a href="source-code.html#cb136-13"></a>├── <span class="ex">runtime-module.cfg</span></span>
+<span id="cb136-14"><a href="source-code.html#cb136-14"></a>└── <span class="ex">setup.py</span></span></code></pre></div>
 </div>
 </div>
             </section>

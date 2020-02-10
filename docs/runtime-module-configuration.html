@@ -178,7 +178,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="module-development.html"><a href="module-development.html"><i class="fa fa-check"></i><b>2</b> Module Development</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a></li>
+<li class="chapter" data-level="" data-path="module-development.html"><a href="module-development.html#how-should-i-begin-building-modules"><i class="fa fa-check"></i>How Should I Begin Building Modules</a></li>
+<li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a>
+<ul>
+<li><a href="dockerfile.html#example."><strong>Example.</strong></a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="module-xml.html"><a href="module-xml.html"><i class="fa fa-check"></i><b>2.2</b> Module XML</a>
 <ul>
 <li><a href="module-xml.html#example"><strong>Example</strong></a></li>
@@ -258,33 +262,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>docker.image = NAME_OF_MODULE</code> This should be the name of the docker image of the module. Hence, when the module is run, it will look for that specific docker image. Good practice would be to use different names when the module is updated <code>NAME_OF_MODULE-v2</code> or include a tag, such as <code>stable</code> or <code>latest</code>.</li>
 </ul>
-<div class="sourceCode" id="cb132"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb132-1"><a href="runtime-module-configuration.html#cb132-1"></a><span class="co">#  Module configuration file for local execution of modules</span></span>
-<span id="cb132-2"><a href="runtime-module-configuration.html#cb132-2"></a><span class="ex">runtime.platforms</span> = command</span>
-<span id="cb132-3"><a href="runtime-module-configuration.html#cb132-3"></a></span>
-<span id="cb132-4"><a href="runtime-module-configuration.html#cb132-4"></a><span class="co">#  Module configuration file for local execution of modules</span></span>
-<span id="cb132-5"><a href="runtime-module-configuration.html#cb132-5"></a><span class="ex">module_enabled</span> = True</span>
-<span id="cb132-6"><a href="runtime-module-configuration.html#cb132-6"></a><span class="ex">runtime.platforms</span>=command</span>
-<span id="cb132-7"><a href="runtime-module-configuration.html#cb132-7"></a></span>
-<span id="cb132-8"><a href="runtime-module-configuration.html#cb132-8"></a>[<span class="ex">command</span>]</span>
-<span id="cb132-9"><a href="runtime-module-configuration.html#cb132-9"></a><span class="ex">docker.image</span> = NAME_OF_MODULE</span>
-<span id="cb132-10"><a href="runtime-module-configuration.html#cb132-10"></a><span class="ex">environments</span> = Staged,Docker</span>
-<span id="cb132-11"><a href="runtime-module-configuration.html#cb132-11"></a><span class="ex">executable</span> = python PythonScriptWrapper.py</span>
-<span id="cb132-12"><a href="runtime-module-configuration.html#cb132-12"></a><span class="ex">files</span> = pydist, PythonScriptWrapper.py</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb137-1"><a href="runtime-module-configuration.html#cb137-1"></a><span class="co">#  Module configuration file for local execution of modules</span></span>
+<span id="cb137-2"><a href="runtime-module-configuration.html#cb137-2"></a><span class="ex">runtime.platforms</span> = command</span>
+<span id="cb137-3"><a href="runtime-module-configuration.html#cb137-3"></a></span>
+<span id="cb137-4"><a href="runtime-module-configuration.html#cb137-4"></a><span class="co">#  Module configuration file for local execution of modules</span></span>
+<span id="cb137-5"><a href="runtime-module-configuration.html#cb137-5"></a><span class="ex">module_enabled</span> = True</span>
+<span id="cb137-6"><a href="runtime-module-configuration.html#cb137-6"></a><span class="ex">runtime.platforms</span>=command</span>
+<span id="cb137-7"><a href="runtime-module-configuration.html#cb137-7"></a></span>
+<span id="cb137-8"><a href="runtime-module-configuration.html#cb137-8"></a>[<span class="ex">command</span>]</span>
+<span id="cb137-9"><a href="runtime-module-configuration.html#cb137-9"></a><span class="ex">docker.image</span> = NAME_OF_MODULE</span>
+<span id="cb137-10"><a href="runtime-module-configuration.html#cb137-10"></a><span class="ex">environments</span> = Staged,Docker</span>
+<span id="cb137-11"><a href="runtime-module-configuration.html#cb137-11"></a><span class="ex">executable</span> = python PythonScriptWrapper.py</span>
+<span id="cb137-12"><a href="runtime-module-configuration.html#cb137-12"></a><span class="ex">files</span> = pydist, PythonScriptWrapper.py</span></code></pre></div>
 <div id="example.-composite-strength-module-1" class="section level3 unnumbered" number="">
 <h3><em>Example.</em> Composite Strength Module</h3>
 <p>In this example, we see that the name of the docker image is <code>predict_strength</code>. So, when a user hits <strong>Run</strong> on the Composite Strength module page, BisQue will always pull the latest image of <code>predict_strength</code>.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb133-1"><a href="runtime-module-configuration.html#cb133-1"></a><span class="co">#  Module configuration file for local execution of modules</span></span>
-<span id="cb133-2"><a href="runtime-module-configuration.html#cb133-2"></a><span class="ex">runtime.platforms</span> = command</span>
-<span id="cb133-3"><a href="runtime-module-configuration.html#cb133-3"></a></span>
-<span id="cb133-4"><a href="runtime-module-configuration.html#cb133-4"></a><span class="co">#  Module configuration file for local execution of modules</span></span>
-<span id="cb133-5"><a href="runtime-module-configuration.html#cb133-5"></a><span class="ex">module_enabled</span> = True</span>
-<span id="cb133-6"><a href="runtime-module-configuration.html#cb133-6"></a><span class="ex">runtime.platforms</span>=command</span>
-<span id="cb133-7"><a href="runtime-module-configuration.html#cb133-7"></a></span>
-<span id="cb133-8"><a href="runtime-module-configuration.html#cb133-8"></a>[<span class="ex">command</span>]</span>
-<span id="cb133-9"><a href="runtime-module-configuration.html#cb133-9"></a><span class="ex">docker.image</span> = predict_strength</span>
-<span id="cb133-10"><a href="runtime-module-configuration.html#cb133-10"></a><span class="ex">environments</span> = Staged,Docker</span>
-<span id="cb133-11"><a href="runtime-module-configuration.html#cb133-11"></a><span class="ex">executable</span> = python PythonScriptWrapper.py</span>
-<span id="cb133-12"><a href="runtime-module-configuration.html#cb133-12"></a><span class="ex">files</span> = pydist, PythonScriptWrapper.py</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb138-1"><a href="runtime-module-configuration.html#cb138-1"></a><span class="co">#  Module configuration file for local execution of modules</span></span>
+<span id="cb138-2"><a href="runtime-module-configuration.html#cb138-2"></a><span class="ex">runtime.platforms</span> = command</span>
+<span id="cb138-3"><a href="runtime-module-configuration.html#cb138-3"></a></span>
+<span id="cb138-4"><a href="runtime-module-configuration.html#cb138-4"></a><span class="co">#  Module configuration file for local execution of modules</span></span>
+<span id="cb138-5"><a href="runtime-module-configuration.html#cb138-5"></a><span class="ex">module_enabled</span> = True</span>
+<span id="cb138-6"><a href="runtime-module-configuration.html#cb138-6"></a><span class="ex">runtime.platforms</span>=command</span>
+<span id="cb138-7"><a href="runtime-module-configuration.html#cb138-7"></a></span>
+<span id="cb138-8"><a href="runtime-module-configuration.html#cb138-8"></a>[<span class="ex">command</span>]</span>
+<span id="cb138-9"><a href="runtime-module-configuration.html#cb138-9"></a><span class="ex">docker.image</span> = predict_strength</span>
+<span id="cb138-10"><a href="runtime-module-configuration.html#cb138-10"></a><span class="ex">environments</span> = Staged,Docker</span>
+<span id="cb138-11"><a href="runtime-module-configuration.html#cb138-11"></a><span class="ex">executable</span> = python PythonScriptWrapper.py</span>
+<span id="cb138-12"><a href="runtime-module-configuration.html#cb138-12"></a><span class="ex">files</span> = pydist, PythonScriptWrapper.py</span></code></pre></div>
 </div>
 </div>
             </section>
