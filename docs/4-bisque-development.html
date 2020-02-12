@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Download an Array | Getting Started" />
+<meta property="og:title" content="4 BisQue Development | Getting Started" />
 <meta property="og:type" content="book" />
 
 <meta property="og:image" content="images/cover.png" />
@@ -23,7 +23,7 @@ MathJax.Hub.Config({
 
 <meta name="description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud.">
 
-<title>Download an Array | Getting Started</title>
+<title>4 BisQue Development | Getting Started</title>
 
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
@@ -249,127 +249,26 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="download-an-array" class="section level2 unnumbered" number="">
-<h2><strong>Download an Array</strong></h2>
-<div id="access-an-hdf5-table-from-bisque" class="section level3 unnumbered" number="">
-<h3>Access an HDF5 Table from BisQue</h3>
-<p>In this example, we will show you how to use the BQAPI to download a multidimensional array from within an HDF file and return it as a <code>numpy</code> array in <code>Python</code>.</p>
-<hr />
-<p>The API call goes as follows:</p>
-<ol style="list-style-type: decimal">
-<li>Get the logger</li>
-<li>Instantiate a BisQue session</li>
-<li>Login using <code>USERNAME</code> and <code>PASSWORD</code></li>
-<li>Instantiate the <code>table</code> service</li>
-<li>Use the table service to load the array</li>
-<li>Return the array</li>
-</ol>
-<hr />
-<div id="step-0.-import-dependencies" class="section level4 unnumbered" number="">
-<h4>Step 0. Import Dependencies</h4>
-<p>Before we can even attempt anything cool with the API, we need to import the necessary packages. In this case, we need the following packages:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb150-1"><a href="download-an-array.html#cb150-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb150-2"><a href="download-an-array.html#cb150-2"></a><span class="im">import</span> logging</span>
-<span id="cb150-3"><a href="download-an-array.html#cb150-3"></a></span>
-<span id="cb150-4"><a href="download-an-array.html#cb150-4"></a><span class="im">from</span> bqapi.services <span class="im">import</span> tables</span>
-<span id="cb150-5"><a href="download-an-array.html#cb150-5"></a><span class="im">from</span> bqapi <span class="im">import</span> BQSession</span>
-<span id="cb150-6"><a href="download-an-array.html#cb150-6"></a><span class="im">from</span> bqapi.util <span class="im">import</span> fetch_blob</span>
-<span id="cb150-7"><a href="download-an-array.html#cb150-7"></a><span class="im">from</span> bqapi.comm <span class="im">import</span> BQCommError</span>
-<span id="cb150-8"><a href="download-an-array.html#cb150-8"></a><span class="im">from</span> bqapi.comm <span class="im">import</span> BQSession</span></code></pre></div>
-<p>Place these at the top of your Jupyter notebook or <code>Python</code> script to ensure these run first. If you have not installed the BQAPI via pip, then <a href="3-bqapi.html#pip-install">install the BQAPI here.</a></p>
-</div>
-<div id="step-1.-get-the-logger" class="section level4 unnumbered" number="">
-<h4>Step 1. Get the Logger</h4>
-<p>The logger service allows us to debug if anything goes wrong during the process of pulling our array. We use this in the BisQue core development as well, so feel free to gain greater insight into our other logger services as well.</p>
-<p>We will define the <code>get_table</code> logger here.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="download-an-array.html#cb151-1"></a>log <span class="op">=</span> logging.getLogger(<span class="st">&#39;get_table&#39;</span>)</span></code></pre></div>
-</div>
-<div id="step-2.-instantiate-a-bisque-session" class="section level4 unnumbered" number="">
-<h4>Step 2. Instantiate a BisQue session</h4>
-<p>This instantiation enables the user to effectively communicate with BisQue. Without this, you will not be able to login and interact with the API.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb152-1"><a href="download-an-array.html#cb152-1"></a>bq <span class="op">=</span> BQSession()</span></code></pre></div>
-</div>
-<div id="step-3.-login-using-bisque-credentials" class="section level4 unnumbered" number="">
-<h4>Step 3. Login using BisQue Credentials</h4>
-<p>Here is where we will login into our BisQue account to access the data we have uploaded. We show an alternative chained version (line 2) of the commands here to instantiate the BQSession and login at the same time.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="download-an-array.html#cb153-1"></a>bq.init_local(user, pwd, bisque_root<span class="op">=</span>root)</span>
-<span id="cb153-2"><a href="download-an-array.html#cb153-2"></a><span class="co"># bq = BQSession().init_local(user, pwd, bisque_root=root)</span></span></code></pre></div>
-<p><strong>Inputs</strong></p>
-<p>If you do not have an account on BisQue, <a href="https://bisque.ece.ucsb.edu/registration//new">make an account here</a>.</p>
+<div id="bisque-development" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> BisQue Development</h1>
+<p>This guide details the installation of a bisque server on an Ubuntu 16.04 LTS environment.</p>
+<p>Project Source</p>
 <ul>
-<li><code>USER</code> BisQue Username</li>
-<li><code>PASSWORD</code> BisQue Password</li>
-<li><code>bisque_root</code> “<a href="https://bisque.ece.ucsb.edu" class="uri">https://bisque.ece.ucsb.edu</a>”</li>
+<li>Github: <a href="https://github.com/UCSB-VRL/bisque" class="uri">https://github.com/UCSB-VRL/bisque</a></li>
 </ul>
-<p><strong>Example.</strong></p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="download-an-array.html#cb154-1"></a>bq.init_local(user<span class="op">=</span>amil_khan, <span class="cf">pass</span><span class="op">=</span>bisque1234,</span>
-<span id="cb154-2"><a href="download-an-array.html#cb154-2"></a>              bisque_root<span class="op">=</span><span class="st">&quot;https://bisque.ece.ucsb.edu&quot;</span>)</span></code></pre></div>
-</div>
-<div id="step-4.-instantiate-the-table-service" class="section level4 unnumbered" number="">
-<h4>Step 4. Instantiate the <code>table</code> service</h4>
-<p>Now we need to instantiate the table service. To do this, use <em>service</em> to call the table service. Simple, right?</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="download-an-array.html#cb155-1"></a>table_service <span class="op">=</span> bq.service (<span class="st">&#39;table&#39;</span>)</span></code></pre></div>
-</div>
-<div id="step-5.-using-the-table-service" class="section level4 unnumbered" number="">
-<h4>Step 5. Using the Table Service</h4>
-<p>In this example, we use the <code>load_array</code> function from the table service to return a <code>numpy</code> array from the respective HDF file on BisQue. What is most important is the input to this function, which is as follows:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="download-an-array.html#cb156-1"></a>data_array <span class="op">=</span> table_service.load_array(table_uniq, path, slices<span class="op">=</span>[])</span></code></pre></div>
-<p><strong>Inputs</strong></p>
+<p>Developer Installation</p>
 <ul>
-<li><code>table_uniq:</code> BisQue URI (<strong>Required</strong>)</li>
-<li><code>path      :</code> Path to table within HDF (<strong>Required</strong>)</li>
-<li><code>slices    :</code> Slice of an array (<strong>Optional</strong>)</li>
+<li>Bisque Github Pages: <a href="https://ucsb-vrl.github.io/bisque-dev/guides/bisque" class="uri">https://ucsb-vrl.github.io/bisque-dev/guides/bisque</a></li>
 </ul>
-<p><strong>What is the <code>table_uniq</code></strong></p>
-<p>The <code>table_uniq</code> argument comes from how BisQue handles resources. Let’s say you upload an image of a cat. BisQue will automatically assign a unique ID or, <strong>URI</strong>, to that image. Here is an example image:</p>
-<pre><code>https://bisque.ece.ucsb.edu/client_service/view?resource=https://bisque.ece.ucsb.edu/data_service/00-s5b358UmuziTaUqqYtTcPF</code></pre>
-<p>The last portion of the url is the URI. This is what you need to use as the input to the <code>table_uniq</code> argument.</p>
-<pre><code>https://bisque.ece.ucsb.edu/data_service/00-s5b358UmuziTaUqqYtTcPF
-                                         ^-----------------------^
-                                              COPY TABLE URI</code></pre>
-<p><strong>What is the <code>path</code></strong></p>
-<p>Say we have an array stored in a specific path in our HDF file. We can define a variable named <code>table_path</code> and place that after the <code>table_uniq</code> argument.</p>
-<p><strong>Example</strong></p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="download-an-array.html#cb159-1"></a>table_path <span class="op">=</span> <span class="st">&#39;PATH/TO/ARRAY/IN/HDF&#39;</span></span>
-<span id="cb159-2"><a href="download-an-array.html#cb159-2"></a>table_service.load_array(uri, table_path)</span></code></pre></div>
+<p>Reference</p>
+<ul>
+<li><a href="https://groups.google.com/forum/#!topic/bisque-bioimage/jwo_5sHFeHU">Bique Bioimage Google Groups</a></li>
+<li><a href="https://bitbucket.org/CBIucsb/bisque/src/default/README.md">Instructions on installing bisque using docker</a></li>
+</ul> 
 </div>
-<div id="example.-functionalizing-the-boring-stuff-get_table" class="section level4 unnumbered" number="">
-<h4>Example. Functionalizing the Boring Stuff: <code>get_table</code></h4>
-<p>Here we provide a full working example of how to functionalize the entire process. Overall, the structure is the same as the sum of its pieces, but now we can import many arrays into, say, our Jupyter Notebook for simple data processing tasks. You can also extend this example to upload the table back to BisQue once the data preprocessing is done.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="download-an-array.html#cb160-1"></a><span class="kw">def</span> get_table(user,pwd, table_PATH, uri<span class="op">=</span><span class="va">None</span>,root<span class="op">=</span><span class="st">&#39;https://bisque.ece.ucsb.edu&#39;</span>):</span>
-<span id="cb160-2"><a href="download-an-array.html#cb160-2"></a>    </span>
-<span id="cb160-3"><a href="download-an-array.html#cb160-3"></a>    log <span class="op">=</span> logging.getLogger(<span class="st">&#39;get_table&#39;</span>)</span>
-<span id="cb160-4"><a href="download-an-array.html#cb160-4"></a>    <span class="bu">print</span>(<span class="st">&quot;Starting Session...&quot;</span>)</span>
-<span id="cb160-5"><a href="download-an-array.html#cb160-5"></a>    </span>
-<span id="cb160-6"><a href="download-an-array.html#cb160-6"></a>    bq <span class="op">=</span> BQSession().init_local(user, pwd, bisque_root<span class="op">=</span>root)</span>
-<span id="cb160-7"><a href="download-an-array.html#cb160-7"></a>    <span class="bu">print</span>(<span class="st">&quot;BQSession Established. Attempting to fetch data...&quot;</span>)</span>
-<span id="cb160-8"><a href="download-an-array.html#cb160-8"></a>    </span>
-<span id="cb160-9"><a href="download-an-array.html#cb160-9"></a>    table_service <span class="op">=</span> bq.service (<span class="st">&#39;table&#39;</span>)</span>
-<span id="cb160-10"><a href="download-an-array.html#cb160-10"></a>    <span class="bu">print</span>(<span class="st">&quot;Successfully Retrieved Array!&quot;</span>)</span>
-<span id="cb160-11"><a href="download-an-array.html#cb160-11"></a>    logging.basicConfig()</span>
-<span id="cb160-12"><a href="download-an-array.html#cb160-12"></a></span>
-<span id="cb160-13"><a href="download-an-array.html#cb160-13"></a>    </span>
-<span id="cb160-14"><a href="download-an-array.html#cb160-14"></a>    <span class="cf">return</span> table_service.load_array(uri, table_PATH)</span></code></pre></div>
-<p><strong>Let’s run our function!</strong></p>
-<p>In this example, we are using the BQAPI to access an HDF file that contains a two-phase 3D microstructure.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="download-an-array.html#cb161-1"></a>ms <span class="op">=</span> get_table(amil_khan, bisque1234, </span>
-<span id="cb161-2"><a href="download-an-array.html#cb161-2"></a>              <span class="st">&#39;DataContainers/ImageDataContainer/CellData/Phases&#39;</span>,</span>
-<span id="cb161-3"><a href="download-an-array.html#cb161-3"></a>              <span class="st">&#39;00-orJQLiXgqh8K955C6qzhyC&#39;</span>)</span>
-<span id="cb161-4"><a href="download-an-array.html#cb161-4"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Shape of table: </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(ms.shape))</span></code></pre></div>
-<p><strong><code>Output:</code></strong></p>
-<pre><code>Starting Session...
-BQSession Established. Attempting to fetch data...
-Successfully Retrieved Array!
-
-Shape of table: (5, 5, 5, 1)</code></pre>
-
-</div>
-</div>
-</div>
-<!-- </div> -->
 <p style="text-align: center;">
-<a href="3-bqapi.html"><button class="btn btn-default">Previous</button></a>
-<a href="4-bisque-development.html"><button class="btn btn-default">Next</button></a>
+<a href="download-an-array.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-1-source-code-installation.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Download an Array | Getting Started" />
+<meta property="og:title" content="2 Module Development | Getting Started" />
 <meta property="og:type" content="book" />
 
 <meta property="og:image" content="images/cover.png" />
@@ -23,7 +23,7 @@ MathJax.Hub.Config({
 
 <meta name="description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud.">
 
-<title>Download an Array | Getting Started</title>
+<title>2 Module Development | Getting Started</title>
 
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
@@ -249,127 +249,123 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="download-an-array" class="section level2 unnumbered" number="">
-<h2><strong>Download an Array</strong></h2>
-<div id="access-an-hdf5-table-from-bisque" class="section level3 unnumbered" number="">
-<h3>Access an HDF5 Table from BisQue</h3>
-<p>In this example, we will show you how to use the BQAPI to download a multidimensional array from within an HDF file and return it as a <code>numpy</code> array in <code>Python</code>.</p>
+<div id="module-development" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Module Development</h1>
+<blockquote>
+<p>BisQue Modules are analysis extensions to the bisque system that allow users to incorporate their own custom analysis scripts written in <code>Python, C++, Java, MATLAB, etc.</code> that perform high-end computations such as deep learning based methods for use by the system and others.</p>
+</blockquote>
+<p>One of the main reasons to convert your source code into a BisQue module is for reproducibility. Researchers in the field have exceptional work, but poor coding practices hinders the widespread adoption and justification of their findings. This is by no means their fault, but luckily help is here.</p>
+<div class="figure">
+<img src="images/moduleexplanation.svg" alt="" />
+<p class="caption"><strong>Module Files.</strong> There are six files that are needed for a module to be built and deployed on the BisQue platform.</p>
+</div>
+<div id="how-to-begin-building-modules" class="section level3 unnumbered" number="">
+<h3><strong>How to Begin Building Modules</strong></h3>
+<div id="step-1.-source-code-prep" class="section level4 unnumbered" number="">
+<h4><strong>STEP 1.</strong> Source Code Prep</h4>
+<p><strong><a href="2-4-source-code.html#source-code">Source Code</a></strong></p>
+<p>Building modules requires, of course, source code. Your first order of business is to upload your code to GitHub so you have a copy of your entire codebase in the event <code>rm -rf *</code> happens. Next, verify that your source code and <code>README</code> are clear enough for someone to run and understand. <em>Do not skip this step</em>. I have provided an example <code>README</code> below to get you started. You solved a problem, now share the solution!</p>
+<p> 
+ </p>
 <hr />
-<p>The API call goes as follows:</p>
-<ol style="list-style-type: decimal">
-<li>Get the logger</li>
-<li>Instantiate a BisQue session</li>
-<li>Login using <code>USERNAME</code> and <code>PASSWORD</code></li>
-<li>Instantiate the <code>table</code> service</li>
-<li>Use the table service to load the array</li>
-<li>Return the array</li>
-</ol>
+</div>
+<div id="project-title" class="section level4 unnumbered" number="">
+<h4>Project Title</h4>
+<p>One Paragraph of project description goes here</p>
+</div>
+<div id="getting-started" class="section level4 unnumbered" number="">
+<h4>Getting Started</h4>
+<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.</p>
+</div>
+<div id="prerequisites" class="section level4 unnumbered" number="">
+<h4>Prerequisites</h4>
+<p>What things you need to install the software and how to install them. Probably a requirements.txt, perhaps?</p>
+</div>
+<div id="installing" class="section level4 unnumbered" number="">
+<h4>Installing</h4>
+<p>A step by step series of examples that tell you how to get a development env running</p>
+<p>Say what the step will be</p>
+<p><code>turn on computer</code></p>
+<p>And repeat</p>
+<p><code>python module4000.py</code></p>
+</div>
+<div id="deployment" class="section level4 unnumbered" number="">
+<h4>Deployment</h4>
+<p>Add notes about how to deploy this on a live system</p>
+</div>
+<div id="built-with" class="section level4 unnumbered" number="">
+<h4>Built With</h4>
+<ul>
+<li><a href="https://scikit-learn.org/stable/index.html">Sklearn</a> - Machine Learning Library</li>
+</ul>
+</div>
+<div id="contributing" class="section level4 unnumbered" number="">
+<h4>Contributing</h4>
+<p>Please read <code>CONTRIBUTING.md</code> for details on our code of conduct, and the process for submitting pull requests to us.</p>
+</div>
+<div id="versioning" class="section level4 unnumbered" number="">
+<h4>Versioning</h4>
+<p>GitHub is also good for versioning as well. Use whatever you want.</p>
+</div>
+<div id="authors" class="section level4 unnumbered" number="">
+<h4>Authors</h4>
+<ul>
+<li>Amil Khan (UCSB BisQue Team)</li>
+<li>Satish Kumar (UCSB BisQue Team)</li>
+</ul>
+</div>
+<div id="license" class="section level4 unnumbered" number="">
+<h4>License</h4>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details</p>
+</div>
+<div id="acknowledgments" class="section level4 unnumbered" number="">
+<h4>Acknowledgments</h4>
+<ul>
+<li>Hat tip to anyone whose code was used</li>
+<li>Inspiration</li>
+<li>etc</li>
+</ul>
 <hr />
-<div id="step-0.-import-dependencies" class="section level4 unnumbered" number="">
-<h4>Step 0. Import Dependencies</h4>
-<p>Before we can even attempt anything cool with the API, we need to import the necessary packages. In this case, we need the following packages:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb150-1"><a href="download-an-array.html#cb150-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb150-2"><a href="download-an-array.html#cb150-2"></a><span class="im">import</span> logging</span>
-<span id="cb150-3"><a href="download-an-array.html#cb150-3"></a></span>
-<span id="cb150-4"><a href="download-an-array.html#cb150-4"></a><span class="im">from</span> bqapi.services <span class="im">import</span> tables</span>
-<span id="cb150-5"><a href="download-an-array.html#cb150-5"></a><span class="im">from</span> bqapi <span class="im">import</span> BQSession</span>
-<span id="cb150-6"><a href="download-an-array.html#cb150-6"></a><span class="im">from</span> bqapi.util <span class="im">import</span> fetch_blob</span>
-<span id="cb150-7"><a href="download-an-array.html#cb150-7"></a><span class="im">from</span> bqapi.comm <span class="im">import</span> BQCommError</span>
-<span id="cb150-8"><a href="download-an-array.html#cb150-8"></a><span class="im">from</span> bqapi.comm <span class="im">import</span> BQSession</span></code></pre></div>
-<p>Place these at the top of your Jupyter notebook or <code>Python</code> script to ensure these run first. If you have not installed the BQAPI via pip, then <a href="3-bqapi.html#pip-install">install the BQAPI here.</a></p>
+<p> 
+ </p>
+<p>Once you have working source code that others have tested to make sure it runs, you can begin the process of building your very own BisQue module.</p>
 </div>
-<div id="step-1.-get-the-logger" class="section level4 unnumbered" number="">
-<h4>Step 1. Get the Logger</h4>
-<p>The logger service allows us to debug if anything goes wrong during the process of pulling our array. We use this in the BisQue core development as well, so feel free to gain greater insight into our other logger services as well.</p>
-<p>We will define the <code>get_table</code> logger here.</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="download-an-array.html#cb151-1"></a>log <span class="op">=</span> logging.getLogger(<span class="st">&#39;get_table&#39;</span>)</span></code></pre></div>
+<div id="step-2.-fill-out-the-module-xml" class="section level4 unnumbered" number="">
+<h4>STEP 2. Fill Out the Module XML</h4>
+<p><strong><a href="2-2-module-xml.html#module-xml">Module XML</a></strong></p>
+<p>This file should tell the user what to input. For example, if your module segments pictures of cats and dogs, you should probably have something like this:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb20-1"><a href="2-module-development.html#cb20-1"></a><span class="kw">&lt;tag</span><span class="ot"> name=</span><span class="st">&quot;accepted_type&quot;</span><span class="ot"> value=</span><span class="st">&quot;image&quot;</span> <span class="kw">/&gt;</span></span></code></pre></div>
+<p>Similarly, you should define your output to be what you are outputting. For example, if the output is a segmented image of a dog, you should have something like this:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb21-1"><a href="2-module-development.html#cb21-1"></a><span class="kw">&lt;tag</span><span class="ot"> name=</span><span class="st">&quot;Segmentation&quot;</span><span class="ot"> type=</span><span class="st">&quot;image&quot;</span><span class="kw">&gt;</span></span></code></pre></div>
+<p>The main purpose of the XML is to put your focus on filling out relevant information instead of learning <code>HTML</code>. BisQue uses the information in the XML to build the user interface for your module so you don’t have to.</p>
 </div>
-<div id="step-2.-instantiate-a-bisque-session" class="section level4 unnumbered" number="">
-<h4>Step 2. Instantiate a BisQue session</h4>
-<p>This instantiation enables the user to effectively communicate with BisQue. Without this, you will not be able to login and interact with the API.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb152-1"><a href="download-an-array.html#cb152-1"></a>bq <span class="op">=</span> BQSession()</span></code></pre></div>
+<div id="step-3.-write-the-dockerfile" class="section level4 unnumbered" number="">
+<h4>STEP 3. Write the Dockerfile</h4>
+<p><strong><a href="2-1-dockerfile.html#dockerfile">Dockerfile</a></strong></p>
+<p>Probably the most important part to your module—the <code>Dockerfile</code>. Feel free to use example Dockerfiles from the community to get started. The main tasks you need to do are define your working directory as <code>module</code> and COPY all the necessary files needed to run your source code:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="2-module-development.html#cb22-1"></a><span class="ex">WORKDIR</span> /module</span>
+<span id="cb22-2"><a href="2-module-development.html#cb22-2"></a><span class="ex">COPY</span> predict_strength.py /module/</span>
+<span id="cb22-3"><a href="2-module-development.html#cb22-3"></a><span class="co">#  COPY ./source /module/source   &lt;--- If you have a source folder</span></span></code></pre></div>
+<p>There is plenty to do while creating and building the Dockerfile so please read the full description carefully. The best tip we can give you is try to replicate your current setup where your code ran successfully. If you are using Ubuntu 16.04, define that as your base image and continue to build your Dockerfile from there. Now, do not go crazy and add every pip install package you have on your system. Remember, keep your container as light as possible. Only install the necessary packages needed for your source code to run in the container.</p>
 </div>
-<div id="step-3.-login-using-bisque-credentials" class="section level4 unnumbered" number="">
-<h4>Step 3. Login using BisQue Credentials</h4>
-<p>Here is where we will login into our BisQue account to access the data we have uploaded. We show an alternative chained version (line 2) of the commands here to instantiate the BQSession and login at the same time.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="download-an-array.html#cb153-1"></a>bq.init_local(user, pwd, bisque_root<span class="op">=</span>root)</span>
-<span id="cb153-2"><a href="download-an-array.html#cb153-2"></a><span class="co"># bq = BQSession().init_local(user, pwd, bisque_root=root)</span></span></code></pre></div>
-<p><strong>Inputs</strong></p>
-<p>If you do not have an account on BisQue, <a href="https://bisque.ece.ucsb.edu/registration//new">make an account here</a>.</p>
-<ul>
-<li><code>USER</code> BisQue Username</li>
-<li><code>PASSWORD</code> BisQue Password</li>
-<li><code>bisque_root</code> “<a href="https://bisque.ece.ucsb.edu" class="uri">https://bisque.ece.ucsb.edu</a>”</li>
-</ul>
-<p><strong>Example.</strong></p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="download-an-array.html#cb154-1"></a>bq.init_local(user<span class="op">=</span>amil_khan, <span class="cf">pass</span><span class="op">=</span>bisque1234,</span>
-<span id="cb154-2"><a href="download-an-array.html#cb154-2"></a>              bisque_root<span class="op">=</span><span class="st">&quot;https://bisque.ece.ucsb.edu&quot;</span>)</span></code></pre></div>
+<div id="step-4.-modify-the-python-script-wrapper" class="section level4 unnumbered" number="">
+<h4>STEP 4. Modify the Python Script Wrapper</h4>
+<p><strong><a href="2-3-python-script-wrapper.html#python-script-wrapper">Python Script Wrapper</a></strong></p>
+<p>Similar to how you would run your source code locally, the <code>PythonScriptWrapper.py</code> will help communicate the input from and output to BisQue. The main change to make is what file does the module need to run for the analysis. For instance, let’s say I have a <code>predict_strength.py</code> file with a <code>predict</code> function that will do everything. Then I would simply import the file and modify the outputs variable to be:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="2-module-development.html#cb23-1"></a>outputs <span class="op">=</span> predict( bq, log, <span class="op">**</span><span class="va">self</span>.options.__dict__ )</span></code></pre></div>
+<p>Feel free to add any logging and catches you wish while diagnosing your module. This script will be your main point of contact when attempting to pinpoint missing files and dependencies, Python related issues, and many more. Look for the <code>PythonScript.log</code> file when testing your module.</p>
 </div>
-<div id="step-4.-instantiate-the-table-service" class="section level4 unnumbered" number="">
-<h4>Step 4. Instantiate the <code>table</code> service</h4>
-<p>Now we need to instantiate the table service. To do this, use <em>service</em> to call the table service. Simple, right?</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="download-an-array.html#cb155-1"></a>table_service <span class="op">=</span> bq.service (<span class="st">&#39;table&#39;</span>)</span></code></pre></div>
+<div id="step-5.-modify-the-runtime-config-file" class="section level4 unnumbered" number="">
+<h4>STEP 5. Modify the Runtime Config File</h4>
+<p><strong><a href="2-5-runtime-module-configuration.html#runtime-module-configuration">Runtime Module Configuration</a></strong></p>
+<p>Give a name to the module docker container. The other arguments can be left alone. Use this as a means to control versioning. For instance,</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="2-module-development.html#cb24-1"></a><span class="ex">docker.image</span> = cellseg-3dunet-v2  <span class="co">#  ---&gt;  cellseg-3dunet-v{}</span></span></code></pre></div>
 </div>
-<div id="step-5.-using-the-table-service" class="section level4 unnumbered" number="">
-<h4>Step 5. Using the Table Service</h4>
-<p>In this example, we use the <code>load_array</code> function from the table service to return a <code>numpy</code> array from the respective HDF file on BisQue. What is most important is the input to this function, which is as follows:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="download-an-array.html#cb156-1"></a>data_array <span class="op">=</span> table_service.load_array(table_uniq, path, slices<span class="op">=</span>[])</span></code></pre></div>
-<p><strong>Inputs</strong></p>
-<ul>
-<li><code>table_uniq:</code> BisQue URI (<strong>Required</strong>)</li>
-<li><code>path      :</code> Path to table within HDF (<strong>Required</strong>)</li>
-<li><code>slices    :</code> Slice of an array (<strong>Optional</strong>)</li>
-</ul>
-<p><strong>What is the <code>table_uniq</code></strong></p>
-<p>The <code>table_uniq</code> argument comes from how BisQue handles resources. Let’s say you upload an image of a cat. BisQue will automatically assign a unique ID or, <strong>URI</strong>, to that image. Here is an example image:</p>
-<pre><code>https://bisque.ece.ucsb.edu/client_service/view?resource=https://bisque.ece.ucsb.edu/data_service/00-s5b358UmuziTaUqqYtTcPF</code></pre>
-<p>The last portion of the url is the URI. This is what you need to use as the input to the <code>table_uniq</code> argument.</p>
-<pre><code>https://bisque.ece.ucsb.edu/data_service/00-s5b358UmuziTaUqqYtTcPF
-                                         ^-----------------------^
-                                              COPY TABLE URI</code></pre>
-<p><strong>What is the <code>path</code></strong></p>
-<p>Say we have an array stored in a specific path in our HDF file. We can define a variable named <code>table_path</code> and place that after the <code>table_uniq</code> argument.</p>
-<p><strong>Example</strong></p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="download-an-array.html#cb159-1"></a>table_path <span class="op">=</span> <span class="st">&#39;PATH/TO/ARRAY/IN/HDF&#39;</span></span>
-<span id="cb159-2"><a href="download-an-array.html#cb159-2"></a>table_service.load_array(uri, table_path)</span></code></pre></div>
+</div> 
 </div>
-<div id="example.-functionalizing-the-boring-stuff-get_table" class="section level4 unnumbered" number="">
-<h4>Example. Functionalizing the Boring Stuff: <code>get_table</code></h4>
-<p>Here we provide a full working example of how to functionalize the entire process. Overall, the structure is the same as the sum of its pieces, but now we can import many arrays into, say, our Jupyter Notebook for simple data processing tasks. You can also extend this example to upload the table back to BisQue once the data preprocessing is done.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="download-an-array.html#cb160-1"></a><span class="kw">def</span> get_table(user,pwd, table_PATH, uri<span class="op">=</span><span class="va">None</span>,root<span class="op">=</span><span class="st">&#39;https://bisque.ece.ucsb.edu&#39;</span>):</span>
-<span id="cb160-2"><a href="download-an-array.html#cb160-2"></a>    </span>
-<span id="cb160-3"><a href="download-an-array.html#cb160-3"></a>    log <span class="op">=</span> logging.getLogger(<span class="st">&#39;get_table&#39;</span>)</span>
-<span id="cb160-4"><a href="download-an-array.html#cb160-4"></a>    <span class="bu">print</span>(<span class="st">&quot;Starting Session...&quot;</span>)</span>
-<span id="cb160-5"><a href="download-an-array.html#cb160-5"></a>    </span>
-<span id="cb160-6"><a href="download-an-array.html#cb160-6"></a>    bq <span class="op">=</span> BQSession().init_local(user, pwd, bisque_root<span class="op">=</span>root)</span>
-<span id="cb160-7"><a href="download-an-array.html#cb160-7"></a>    <span class="bu">print</span>(<span class="st">&quot;BQSession Established. Attempting to fetch data...&quot;</span>)</span>
-<span id="cb160-8"><a href="download-an-array.html#cb160-8"></a>    </span>
-<span id="cb160-9"><a href="download-an-array.html#cb160-9"></a>    table_service <span class="op">=</span> bq.service (<span class="st">&#39;table&#39;</span>)</span>
-<span id="cb160-10"><a href="download-an-array.html#cb160-10"></a>    <span class="bu">print</span>(<span class="st">&quot;Successfully Retrieved Array!&quot;</span>)</span>
-<span id="cb160-11"><a href="download-an-array.html#cb160-11"></a>    logging.basicConfig()</span>
-<span id="cb160-12"><a href="download-an-array.html#cb160-12"></a></span>
-<span id="cb160-13"><a href="download-an-array.html#cb160-13"></a>    </span>
-<span id="cb160-14"><a href="download-an-array.html#cb160-14"></a>    <span class="cf">return</span> table_service.load_array(uri, table_PATH)</span></code></pre></div>
-<p><strong>Let’s run our function!</strong></p>
-<p>In this example, we are using the BQAPI to access an HDF file that contains a two-phase 3D microstructure.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="download-an-array.html#cb161-1"></a>ms <span class="op">=</span> get_table(amil_khan, bisque1234, </span>
-<span id="cb161-2"><a href="download-an-array.html#cb161-2"></a>              <span class="st">&#39;DataContainers/ImageDataContainer/CellData/Phases&#39;</span>,</span>
-<span id="cb161-3"><a href="download-an-array.html#cb161-3"></a>              <span class="st">&#39;00-orJQLiXgqh8K955C6qzhyC&#39;</span>)</span>
-<span id="cb161-4"><a href="download-an-array.html#cb161-4"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Shape of table: </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(ms.shape))</span></code></pre></div>
-<p><strong><code>Output:</code></strong></p>
-<pre><code>Starting Session...
-BQSession Established. Attempting to fetch data...
-Successfully Retrieved Array!
-
-Shape of table: (5, 5, 5, 1)</code></pre>
-
-</div>
-</div>
-</div>
-<!-- </div> -->
 <p style="text-align: center;">
-<a href="3-bqapi.html"><button class="btn btn-default">Previous</button></a>
-<a href="4-bisque-development.html"><button class="btn btn-default">Next</button></a>
+<a href="1-7-plant-cell-segmentation.html"><button class="btn btn-default">Previous</button></a>
+<a href="2-1-dockerfile.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

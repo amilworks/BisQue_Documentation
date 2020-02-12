@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="4.5 Rancher Condor | Getting Started" />
+<meta property="og:type" content="book" />
+
+<meta property="og:image" content="images/cover.png" />
+<meta property="og:description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" type="text/javascript"></script>
+
+<meta name="description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud.">
+
+<title>4.5 Rancher Condor | Getting Started</title>
+
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#cloud-service-module-development-python-api">Cloud Service | Module Development | Python API</a>
+<ul>
+<li><a href="docker-installation.html#docker-installation"><strong>Docker Installation</strong></a>
+<ul>
+<li><a href="docker-installation.html#docker">Docker</a></li>
+</ul></li>
+</ul></li>
+<li><a href="1-intro.html#intro"><span class="toc-section-number">1</span> BisQue Cloud Service</a>
+<ul>
+<li><a href="1-1-how-to-login-or-create-a-new-user.html#how-to-login-or-create-a-new-user"><span class="toc-section-number">1.1</span> How to Login or Create a New User</a></li>
+<li><a href="1-2-how-to-upload-data.html#how-to-upload-data"><span class="toc-section-number">1.2</span> How to Upload Data</a>
+<ul>
+<li><a href="1-2-how-to-upload-data.html#step-1.-login">Step 1. Login</a></li>
+<li><a href="1-2-how-to-upload-data.html#step-2.-upload-file-or-folder">Step 2. Upload File or Folder</a></li>
+<li><a href="1-2-how-to-upload-data.html#step-3.-build-a-dataset">Step 3. Build a Dataset</a></li>
+<li><a href="1-2-how-to-upload-data.html#step-4.-setting-permissions">Step 4. Setting Permissions</a></li>
+</ul></li>
+<li><a href="1-3-how-to-add-annotations.html#how-to-add-annotations"><span class="toc-section-number">1.3</span> How to Add Annotations</a>
+<ul>
+<li><a href="1-3-how-to-add-annotations.html#overview">Overview</a></li>
+</ul></li>
+<li><a href="1-4-how-to-run-a-module.html#how-to-run-a-module"><span class="toc-section-number">1.4</span> How to Run a Module</a></li>
+<li><a href="1-5-imagej-module.html#imagej-module"><span class="toc-section-number">1.5</span> ImageJ Module</a>
+<ul>
+<li><a href="1-5-imagej-module.html#overview-1">Overview</a></li>
+<li><a href="1-5-imagej-module.html#uploading-of-imagej-pipelines">Uploading of ImageJ Pipelines</a></li>
+<li><a href="1-5-imagej-module.html#running-an-imagej-macro">Running an ImageJ Macro</a></li>
+<li><a href="1-5-imagej-module.html#special-bisque-extensions-for-imagej">Special BisQue extensions for ImageJ</a></li>
+</ul></li>
+<li><a href="1-6-cellprofiler-module.html#cellprofiler-module"><span class="toc-section-number">1.6</span> CellProfiler Module</a>
+<ul>
+<li><a href="1-6-cellprofiler-module.html#overview-2">Overview</a></li>
+<li><a href="1-6-cellprofiler-module.html#uploading-of-cellprofiler-pipelines">Uploading of CellProfiler Pipelines</a></li>
+<li><a href="1-6-cellprofiler-module.html#running-a-cellprofiler-pipeline">Running a CellProfiler Pipeline</a></li>
+<li><a href="1-6-cellprofiler-module.html#results">Results</a></li>
+</ul></li>
+<li><a href="1-7-plant-cell-segmentation.html#plant-cell-segmentation"><span class="toc-section-number">1.7</span> Plant Cell Segmentation</a>
+<ul>
+<li><a href="1-7-plant-cell-segmentation.html#overview-3">Overview</a></li>
+<li><a href="1-7-plant-cell-segmentation.html#input">Input</a></li>
+<li><a href="1-7-plant-cell-segmentation.html#hyperparameters">Hyperparameters</a></li>
+<li><a href="1-7-plant-cell-segmentation.html#cell-features">Cell Features</a></li>
+<li><a href="1-7-plant-cell-segmentation.html#output">Output</a></li>
+</ul></li>
+</ul></li>
+<li><a href="2-module-development.html#module-development"><span class="toc-section-number">2</span> Module Development</a>
+<ul>
+<li><a href="2-module-development.html#how-to-begin-building-modules"><strong>How to Begin Building Modules</strong></a></li>
+<li><a href="2-1-dockerfile.html#dockerfile"><span class="toc-section-number">2.1</span> Dockerfile</a>
+<ul>
+<li><a href="2-1-dockerfile.html#example-composite-strength"><strong>Example: Composite Strength</strong></a></li>
+</ul></li>
+<li><a href="2-2-module-xml.html#module-xml"><span class="toc-section-number">2.2</span> Module XML</a>
+<ul>
+<li><a href="2-2-module-xml.html#example"><strong>Example</strong></a></li>
+<li><a href="2-2-module-xml.html#module-description">Module Description</a></li>
+<li><a href="2-2-module-xml.html#configurations-for-images-datasets-and-resources">Configurations for Images, Datasets, and Resources</a></li>
+<li><a href="2-2-module-xml.html#data-parallel-execution">Data-Parallel Execution</a></li>
+</ul></li>
+<li><a href="2-3-python-script-wrapper.html#python-script-wrapper"><span class="toc-section-number">2.3</span> Python Script Wrapper</a>
+<ul>
+<li><a href="2-3-python-script-wrapper.html#example.-python-script-wrapper"><em>Example.</em> Python Script Wrapper</a></li>
+</ul></li>
+<li><a href="2-4-source-code.html#source-code"><span class="toc-section-number">2.4</span> Source Code</a>
+<ul>
+<li><a href="2-4-source-code.html#example.-composite-strength-module"><em>Example.</em> Composite Strength Module</a></li>
+</ul></li>
+<li><a href="2-5-runtime-module-configuration.html#runtime-module-configuration"><span class="toc-section-number">2.5</span> Runtime Module Configuration</a>
+<ul>
+<li><a href="2-5-runtime-module-configuration.html#example.-composite-strength-module-1"><em>Example.</em> Composite Strength Module</a></li>
+</ul></li>
+<li><a href="2-6-python-setup.html#python-setup"><span class="toc-section-number">2.6</span> Python Setup</a></li>
+</ul></li>
+<li><a href="3-bqapi.html#bqapi"><span class="toc-section-number">3</span> BQAPI</a>
+<ul>
+<li><a href="download-an-array.html#download-an-array"><strong>Download an Array</strong></a>
+<ul>
+<li><a href="download-an-array.html#access-an-hdf5-table-from-bisque">Access an HDF5 Table from BisQue</a></li>
+</ul></li>
+</ul></li>
+<li><a href="4-bisque-development.html#bisque-development"><span class="toc-section-number">4</span> BisQue Development</a>
+<ul>
+<li><a href="4-1-source-code-installation.html#source-code-installation"><span class="toc-section-number">4.1</span> Source Code Installation</a>
+<ul>
+<li><a href="4-1-source-code-installation.html#clone-the-repository-and-prepare-virtual-environment">Clone the repository and Prepare Virtual Environment</a></li>
+<li><a href="4-1-source-code-installation.html#configure-bisque-environment">Configure Bisque Environment</a></li>
+<li><a href="4-1-source-code-installation.html#run-bisque-server">Run Bisque Server</a></li>
+<li><a href="4-1-source-code-installation.html#upload-dataset">Upload Dataset</a></li>
+<li><a href="4-1-source-code-installation.html#module">Module</a></li>
+<li><a href="4-1-source-code-installation.html#debug-module">Debug Module</a></li>
+<li><a href="4-1-source-code-installation.html#g.-module-mexui">G. Module MEX/UI</a></li>
+</ul></li>
+<li><a href="4-2-planteome-deep-segment.html#planteome-deep-segment"><span class="toc-section-number">4.2</span> Planteome Deep Segment</a></li>
+<li><a href="4-3-rancher-2-0-setup-wkubernetes-engine.html#rancher-2.0-setup-wkubernetes-engine"><span class="toc-section-number">4.3</span> Rancher 2.0 Setup (w/Kubernetes engine)</a>
+<ul>
+<li><a href="4-3-rancher-2-0-setup-wkubernetes-engine.html#pre-requisite"><span class="toc-section-number">4.3.1</span> Pre-requisite</a></li>
+<li><a href="4-3-rancher-2-0-setup-wkubernetes-engine.html#setup-workload-on-the-bq-cluster"><span class="toc-section-number">4.3.2</span> Setup Workload on the bq-cluster</a></li>
+</ul></li>
+<li><a href="4-4-connoisseurgpu-workload-provisioning.html#connoisseurgpu-workload-provisioning"><span class="toc-section-number">4.4</span> Connoisseur/GPU Workload provisioning</a></li>
+<li><a href="4-5-rancher-condor.html#rancher-condor"><span class="toc-section-number">4.5</span> Rancher Condor</a>
+<ul>
+<li><a href="4-5-rancher-condor.html#topology"><span class="toc-section-number">4.5.1</span> Topology</a></li>
+<li><a href="4-5-rancher-condor.html#masterworker-condor-config"><span class="toc-section-number">4.5.2</span> Master/Worker Condor Config</a></li>
+<li><a href="4-5-rancher-condor.html#bisquesvc-submit-node-condor-config"><span class="toc-section-number">4.5.3</span> BisqueSvc Submit Node Condor Config</a></li>
+<li><a href="4-5-rancher-condor.html#state-logs"><span class="toc-section-number">4.5.4</span> State &amp; logs</a></li>
+<li><a href="4-5-rancher-condor.html#test-condor"><span class="toc-section-number">4.5.5</span> Test Condor</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="rancher-condor" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Rancher Condor</h2>
+<p>The Condor instructions are based out of custom image(biodev.ece.ucsb.edu:5000/condor)</p>
+<p>Official Docs: <a href="https://research.cs.wisc.edu/htcondor/manual/v8.8" class="uri">https://research.cs.wisc.edu/htcondor/manual/v8.8</a></p>
+<div id="topology" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Topology</h3>
+<p>The condor image available at the registry has <code>htcondor==8.4.2~dfsg.1-1build1</code> pre-installed.</p>
+<ul>
+<li>Submit Node (host = bisquesvc.prod)</li>
+<li>Master node (host = master.condor)</li>
+<li>Worker Nodes (host = worker*.condor)
+<ul>
+<li>Docker typically runs at worker and on the Bisque submit node for cases where we dont use condor at all</li>
+<li>Test this using <code>docker ps</code> on the worker nodes</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Now on each node we should start Condor and also make sure that the hostname “master.condor” is reachable from all the nodes in the pool, including the bisque submit node.</p>
+</blockquote>
+<pre><code>$ ping master.condor
+    PING master.condor.svc.cluster.local (10.43.55.33) 56(84) bytes of data.
+$ service condor start</code></pre>
+</div>
+<div id="masterworker-condor-config" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Master/Worker Condor Config</h3>
+<div id="initiate-startd-at-master-and-workers" class="section level4" number="4.5.2.1">
+<h4><span class="header-section-number">4.5.2.1</span> Initiate startd at master and workers</h4>
+<pre><code>condor_startd </code></pre>
+</div>
+<div id="condor-config-vim-etccondorcondor_config.local" class="section level4" number="4.5.2.2">
+<h4><span class="header-section-number">4.5.2.2</span> Condor config <code>vim /etc/condor/condor_config.local</code></h4>
+<p>Add the following in the section where you see ALLOW_READ/WRITE keys</p>
+<pre><code>ALLOW_ADMINISTRATOR = $(CONDOR_HOST)
+ALLOW_OWNER = $(FULL_HOSTNAME), $(ALLOW_ADMINISTRATOR)
+ALLOW_READ = *
+ALLOW_WRITE = *
+ALLOW_NEGOTIATOR = *
+ALLOW_NEGOTIATOR_SCHEDD = *
+ALLOW_WRITE_COLLECTOR = $(ALLOW_WRITE), $(FLOCK_FROM)
+ALLOW_WRITE_STARTD    = $(ALLOW_WRITE), $(FLOCK_FROM)
+ALLOW_READ_COLLECTOR  = $(ALLOW_READ), $(FLOCK_FROM)
+ALLOW_READ_STARTD     = $(ALLOW_READ), $(FLOCK_FROM)
+ALLOW_CLIENT = *
+ALLOW_ADVERTISE_STARTD = *
+
+SEC_DEFAULT_NEGOTIATION = NEVER
+SEC_DEFAULT_AUTHENTICATION = NEVER
+</code></pre>
+</div>
+<div id="reconfig-restart-condor" class="section level4" number="4.5.2.3">
+<h4><span class="header-section-number">4.5.2.3</span> Reconfig &amp; Restart Condor</h4>
+<pre><code>condor_reconfig
+service condor restart</code></pre>
+</div>
+</div>
+<div id="bisquesvc-submit-node-condor-config" class="section level3" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> BisqueSvc Submit Node Condor Config</h3>
+<p>Here is contents of the production configuration <code>/etc/condor/condor_config.local</code> file</p>
+<pre><code>CONDOR_HOST = master.condor
+COLLECTOR_NAME = CBIUCSB
+DAEMON_LIST = MASTER,SCHEDD,SHARED_PORT
+CONDOR_ADMIN          = admin@biodev.ece.ucsb.edu
+##  Do you want to use NFS for file access instead of remote system calls
+ALLOW_READ  = $(ALLOW_READ), 172.*, 10.*, 128.111.*, *.ece.ucsb.edu, *.cs.ucsb.edu
+ALLOW_WRITE = $(ALLOW_WRITE), 172.*, 10.*, 128.111.*, *.ece.ucsb.edu, *.cs.ucsb.edu
+ALLOW_NEGOTIATOR      = 172.*, 10.*, 128.111.*
+
+#https://lists.cs.wisc.edu/archive/htcondor-users/2016-December/msg00046.shtml
+DISCARD_SESSION_KEYRING_ON_STARTUP = false
+
+# Use CCB with shared port so outside units can talk to
+USE_SHARED_PORT = TRUE
+SHARED_PORT_ARGS = -p 9886
+UPDATE_COLLECTOR_WITH_TCP = TRUE
+BIND_ALL_INTERFACES = TRUE
+
+# Slots for multi-cpu machines
+NUM_SLOTS = 1
+NUM_SLOTS_TYPE_1 = 1
+SLOT_TYPE_1 = 100%
+SLOT_TYPE_1_PARTITIONABLE = true
+
+START = True
+PREEMPT = False
+SUSPEND = False
+KILL = False
+WANT_SUSPEND = False
+WANT_VACATE= False
+CONTINUE= True</code></pre>
+</div>
+<div id="state-logs" class="section level3" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> State &amp; logs</h3>
+<ul>
+<li>condor_status for the state of the pool</li>
+</ul>
+<pre><code>root@bisquevc:/source# condor_status
+
+Name               OpSys      Arch   State     Activity LoadAv Mem    ActvtyTime
+slot1@master-7b988 LINUX      X86_64 Unclaimed Idle     -1.000 64423  0+13:07:28
+slot1@worker-6c6cc LINUX      X86_64 Unclaimed Idle     -1.000 64423  0+13:04:24
+                     Total Owner Claimed Unclaimed Matched Preempting Backfill
+        X86_64/LINUX     2     0       0         2       0          0        0
+               Total     2     0       0         2       0          0        0</code></pre>
+<ul>
+<li>condor_q for the schedule of the queue. You can use “-analyse” to get additional details on the jobs.</li>
+</ul>
+<pre><code>root@bisquesvc:/source# condor_q
+-- Schedd: bisquesvc : &lt;10.42.0.15:40007&gt;
+ ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
+
+0 jobs; 0 completed, 0 removed, 0 idle, 0 running, 0 held, 0 suspended</code></pre>
+</div>
+<div id="test-condor" class="section level3" number="4.5.5">
+<h3><span class="header-section-number">4.5.5</span> Test Condor</h3>
+<p>Condor is configured to be run as a user and not root. So we will change user (su bisque) to bisque and operate with a regular user level privileges for job submittion purposes.</p>
+<div id="create-a-file-dock.sh-with-the-following-commands" class="section level5" number="4.5.5.0.1">
+<h5><span class="header-section-number">4.5.5.0.1</span> Create a file dock.sh with the following commands</h5>
+<pre><code>#!/bin/bash
+echo &quot;Hello HTCondor from Job $1 running on `whoami`@`hostname`&quot;
+docker --version
+sleep 10s</code></pre>
+</div>
+<div id="create-a-dock.submit-file-with-the-following-paramaters" class="section level5" number="4.5.5.0.2">
+<h5><span class="header-section-number">4.5.5.0.2</span> Create a dock.submit file with the following paramaters</h5>
+<pre><code>executable = dock.sh
+arguments = $(Process)
+universe = vanilla
+output = dock_$(Cluster)_$(Process).out
+error= dock_$(Cluster)_$(Process).error
+log = dock_$(Cluster)_$(Process).log
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+queue 2</code></pre>
+</div>
+<div id="now-execute" class="section level5" number="4.5.5.0.3">
+<h5><span class="header-section-number">4.5.5.0.3</span> Now execute</h5>
+<pre><code>bisque@bisquesvc:~/condor_dock_test$ condor_submit dock.submit
+Submitting job(s)..
+2 job(s) submitted to cluster 10.</code></pre>
+<ul>
+<li>Here we also observe the status of condor queue which should have the jobs running</li>
+</ul>
+<pre><code>bisque@bisquesvc:~/condor_dock_test$ condor_q
+-- Schedd: bisquesvc : &lt;10.42.0.15:9886?...
+ ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
+  11.0   bisque          3/5  22:37   0+00:00:00 I  0   0.0  dock.sh 0
+  11.1   bisque          3/5  22:37   0+00:00:00 I  0   0.0  dock.sh 1
+
+2 jobs; 0 completed, 0 removed, 2 idle, 0 running, 0 held, 0 suspended</code></pre>
+<ul>
+<li>When the Master/worker nodes executes the job we see the following state</li>
+</ul>
+<pre><code>bisque@bisquesvc:~/condor_dock_test$ condor_status
+Name               OpSys      Arch   State     Activity LoadAv Mem    ActvtyTime
+
+slot1@master-7b988 LINUX      X86_64 Unclaimed Idle      0.000 64295  0+00:00:04
+slot1_1@master-7b9 LINUX      X86_64 Claimed   Busy     -1.000  128  0+00:00:04
+slot1@worker-6c6cc LINUX      X86_64 Unclaimed Idle      0.000 64295  0+00:00:04
+slot1_1@worker-6c6 LINUX      X86_64 Claimed   Busy     -1.000  128  0+00:00:04
+                     Total Owner Claimed Unclaimed Matched Preempting Backfill
+        X86_64/LINUX     4     0       2         2       0          0        0
+               Total     4     0       2         2       0          0        0</code></pre>
+<ul>
+<li>In about 10 seconds this execution will terminate and dump the results in corresponding log files</li>
+</ul>
+<pre><code>bisque@bisquesvc:~/condor_dock_test$ condor_status
+Name               OpSys      Arch   State     Activity LoadAv Mem    ActvtyTime
+slot1@master-7b988 LINUX      X86_64 Unclaimed Idle      0.000 64295  0+00:00:04
+slot1@worker-6c6cc LINUX      X86_64 Unclaimed Idle      0.000 64295  0+00:00:04
+                     Total Owner Claimed Unclaimed Matched Preempting Backfill
+        X86_64/LINUX     2     0       0         2       0          0        0
+               Total     2     0       0         2       0          0        0
+
+bisque@bisquesvc:~/condor_dock_test$ condor_q
+-- Schedd: bisquesvc : &lt;10.42.0.15:9886?...
+ ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD
+
+0 jobs; 0 completed, 0 removed, 0 idle, 0 running, 0 held, 0 suspended</code></pre>
+<ul>
+<li>To verify the execution at worker/master we can take a look at the /var/log/condor/StartLog</li>
+</ul>
+<pre><code># Logs at the master condor node
+
+03/05/19 22:37:54 slot1_1: Request accepted.
+03/05/19 22:37:54 slot1_1: Remote owner is bisque@bisquesvc
+03/05/19 22:37:54 slot1_1: State change: claiming protocol successful
+03/05/19 22:37:54 slot1_1: Changing state: Owner -&gt; Claimed
+03/05/19 22:37:54 slot1_1: Got activate_claim request from shadow (10.42.0.15)
+03/05/19 22:37:54 /proc format unknown for kernel version 4.15.0
+03/05/19 22:37:54 slot1_1: Remote job ID is 11.0
+03/05/19 22:37:54 slot1_1: Got universe &quot;VANILLA&quot; (5) from request classad
+03/05/19 22:37:54 slot1_1: State change: claim-activation protocol successful
+03/05/19 22:37:54 slot1_1: Changing activity: Idle -&gt; Busy
+03/05/19 22:37:59 /proc format unknown for kernel version 4.15.0
+03/05/19 22:38:04 /proc format unknown for kernel version 4.15.0
+03/05/19 22:38:09 /proc format unknown for kernel version 4.15.0
+03/05/19 22:38:09 slot1_1: Called deactivate_claim_forcibly()
+03/05/19 22:38:09 Starter pid 1141 exited with status 0
+03/05/19 22:38:09 slot1_1: State change: starter exited
+03/05/19 22:38:09 slot1_1: Changing activity: Busy -&gt; Idle
+03/05/19 22:38:09 slot1_1: State change: received RELEASE_CLAIM command
+03/05/19 22:38:09 slot1_1: Changing state and activity: Claimed/Idle -&gt; Preempting/Vacating
+03/05/19 22:38:09 slot1_1: State change: No preempting claim, returning to owner
+03/05/19 22:38:09 slot1_1: Changing state and activity: Preempting/Vacating -&gt; Owner/Idle
+03/05/19 22:38:09 slot1_1: State change: IS_OWNER is false
+03/05/19 22:38:09 slot1_1: Changing state: Owner -&gt; Unclaimed
+03/05/19 22:38:09 slot1_1: Changing state: Unclaimed -&gt; Delete
+03/05/19 22:38:09 slot1_1: Resource no longer needed, deleting</code></pre>
+<ul>
+<li>Final results of the output could be seen in the dock_11_*.out result files which represents the Job Id = 11</li>
+</ul>
+<pre><code>bisque@bisquesvc:~/condor_dock_test$ ll
+total 36
+drwxrwxr-x 2 bisque bisque 4096 Mar  5 22:37 ./
+drwxr-xr-x 1 bisque bisque 4096 Mar  5 22:34 ../
+-rw-r--r-- 1 bisque bisque    0 Mar  5 22:37 dock_11_0.error
+-rw-rw-r-- 1 bisque bisque 1021 Mar  5 22:38 dock_11_0.log
+-rw-r--r-- 1 bisque bisque  132 Mar  5 22:38 dock_11_0.out
+-rw-r--r-- 1 bisque bisque    0 Mar  5 22:37 dock_11_1.error
+-rw-rw-r-- 1 bisque bisque 1021 Mar  5 22:38 dock_11_1.log
+-rw-r--r-- 1 bisque bisque  132 Mar  5 22:38 dock_11_1.out
+-rw-r--r-- 1 bisque bisque  163 Mar  5 22:34 dock.sh
+-rw-r--r-- 1 bisque bisque  253 Mar  5 09:07 dock.submit</code></pre>
+<ul>
+<li>Output Result</li>
+</ul>
+<pre><code>bisque@bisquesvc:~/condor_dock_test$ cat dock_11_1.out
+Hello HTCondor from Job 1 running on nobody@master-7b988ddb7d-hnspj
+Docker version 17.03.0-ce, build 60ccb22
+Completed my first job</code></pre>
+<ul>
+<li>Output Log</li>
+</ul>
+<pre><code>bisque@bisquesvc:~/condor_dock_test$ cat dock_11_1.log
+000 (011.001.000) 03/05 22:37:44 Job submitted from host: &lt;10.42.0.15:9886?addrs=10.42.0.15-9886&amp;noUDP&amp;sock=6207_60d7_3&gt;
+...
+001 (011.001.000) 03/05 22:37:57 Job executing on host: &lt;10.42.0.8:9886?sock=30363_868c&gt;
+...
+006 (011.001.000) 03/05 22:38:07 Image size of job updated: 1
+        8  -  MemoryUsage of job (MB)
+        7560  -  ResidentSetSize of job (KB)
+...
+005 (011.001.000) 03/05 22:38:09 Job terminated.
+        (1) Normal termination (return value 0)
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+                Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+        132  -  Run Bytes Sent By Job
+        163  -  Run Bytes Received By Job
+        132  -  Total Bytes Sent By Job
+        163  -  Total Bytes Received By Job
+        Partitionable Resources :    Usage  Request Allocated
+           Cpus                 :                 1         1
+           Disk (KB)            :        9        1    893677
+           Memory (MB)          :        8        1         1
+...
+</code></pre>
+<div id="references" class="section level6" number="4.5.5.0.3.1">
+<h6><span class="header-section-number">4.5.5.0.3.1</span> References:</h6>
+<ul>
+<li>Condor <a href="https://research.cs.wisc.edu/htcondor/manual/v8.2/2_5Submitting_Job.html">Submit Jobs (Official Docs)</a>
+<ul>
+<li>Multi Node <a href="https://spinningmatt.wordpress.com/2011/06/12/getting-started-creating-a-multiple-node-condor-pool/">Condor Pool (Blog)</a></li>
+<li>Simple <a href="https://www.linux.com/news/setting-condor-cluster">Condor Cluster (Blog)</a></li>
+</ul></li>
+<li>Condor <a href="https://research.cs.wisc.edu/htcondor/manual/v8.8/Security.html">Examples of Security Configurations (Official Docs)</a></li>
+<li>Install Docker Community Edition <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" class="uri">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+<!-- </div> -->
+<p style="text-align: center;">
+<a href="4-4-connoisseurgpu-workload-provisioning.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>
