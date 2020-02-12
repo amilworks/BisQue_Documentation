@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.6 Python Setup | BisQue_Documentation.utf8</title>
+  <title>2.6 Python Setup | Getting Started</title>
   <meta name="description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.6 Python Setup | BisQue_Documentation.utf8" />
+  <meta property="og:title" content="2.6 Python Setup | Getting Started" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.6 Python Setup | BisQue_Documentation.utf8" />
+  <meta name="twitter:title" content="2.6 Python Setup | Getting Started" />
   
   <meta name="twitter:description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
   <meta name="twitter:image" content="images/cover.png" />
@@ -131,11 +131,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Official UCSB BisQue Documentation</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting Started</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Cloud Service | Module Development | Python API</a>
 <ul>
-<li class="chapter" data-level="" data-path="bisque-installation.html"><a href="bisque-installation.html"><i class="fa fa-check"></i>BisQue Installation</a>
+<li><a href="docker-installation.html#docker-installation"><strong>Docker Installation</strong></a>
 <ul>
-<li class="chapter" data-level="" data-path="bisque-installation.html"><a href="bisque-installation.html#docker"><i class="fa fa-check"></i>Docker</a></li>
+<li class="chapter" data-level="" data-path="docker-installation.html"><a href="docker-installation.html"><i class="fa fa-check"></i>Docker</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> BisQue Cloud Service</a>
@@ -178,10 +178,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="module-development.html"><a href="module-development.html"><i class="fa fa-check"></i><b>2</b> Module Development</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-development.html"><a href="module-development.html#how-should-i-begin-building-modules"><i class="fa fa-check"></i>How Should I Begin Building Modules</a></li>
+<li><a href="module-development.html#how-to-begin-building-modules"><strong>How to Begin Building Modules</strong></a></li>
 <li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a>
 <ul>
-<li><a href="dockerfile.html#example."><strong>Example.</strong></a></li>
+<li><a href="dockerfile.html#example-composite-strength"><strong>Example: Composite Strength</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="module-xml.html"><a href="module-xml.html"><i class="fa fa-check"></i><b>2.2</b> Module XML</a>
 <ul>
@@ -204,7 +204,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="python-setup.html"><a href="python-setup.html"><i class="fa fa-check"></i><b>2.6</b> Python Setup</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="bqapi.html"><a href="bqapi.html"><i class="fa fa-check"></i><b>3</b> BQAPI</a></li>
+<li class="chapter" data-level="3" data-path="bqapi.html"><a href="bqapi.html"><i class="fa fa-check"></i><b>3</b> BQAPI</a>
+<ul>
+<li><a href="download-an-array.html#download-an-array"><strong>Download an Array</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="download-an-array.html"><a href="download-an-array.html"><i class="fa fa-check"></i>Access an HDF5 Table from BisQue</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="bisque-development.html"><a href="bisque-development.html"><i class="fa fa-check"></i><b>4</b> BisQue Development</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="source-code-installation.html"><a href="source-code-installation.html"><i class="fa fa-check"></i><b>4.1</b> Source Code Installation</a>
@@ -245,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Getting Started</a>
           </h1>
         </div>
 
@@ -259,21 +265,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>FILENAME: </strong> <code>setup.py</code></p>
 </blockquote>
 <p>The only changes to make in this file are naming. Specifically, this line:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb139-1"><a href="python-setup.html#cb139-1"></a>docker_setup(<span class="st">&#39;Composite_Strength&#39;</span>, <span class="st">&#39;TwoPhasePrediction&#39;</span>, <span class="st">&#39;twophaseprediction&#39;</span>, params<span class="op">=</span>params)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb146-1"><a href="python-setup.html#cb146-1"></a>docker_setup(<span class="st">&#39;Composite_Strength&#39;</span>, <span class="st">&#39;TwoPhasePrediction&#39;</span>, <span class="st">&#39;twophaseprediction&#39;</span>, params<span class="op">=</span>params)</span></code></pre></div>
 <p><strong>NOTE:</strong> Before running <code>python setup.py</code>, please make sure that all the files are created and configured correctly. If not, save yourself hours of troubleshooting by going through the other file tutorials.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb140-1"><a href="python-setup.html#cb140-1"></a><span class="im">import</span> sys</span>
-<span id="cb140-2"><a href="python-setup.html#cb140-2"></a><span class="im">from</span> bq.setup.module_setup <span class="im">import</span> python_setup, docker_setup, require, read_config</span>
-<span id="cb140-3"><a href="python-setup.html#cb140-3"></a></span>
-<span id="cb140-4"><a href="python-setup.html#cb140-4"></a></span>
-<span id="cb140-5"><a href="python-setup.html#cb140-5"></a><span class="kw">def</span> setup(params, <span class="op">*</span>args, <span class="op">**</span>kw):</span>
-<span id="cb140-6"><a href="python-setup.html#cb140-6"></a>    python_setup(<span class="st">&#39;PythonScriptWrapper.py&#39;</span>, params<span class="op">=</span>params)</span>
-<span id="cb140-7"><a href="python-setup.html#cb140-7"></a>    docker_setup(<span class="st">&#39;Composite_Strength&#39;</span>, <span class="st">&#39;TwoPhasePrediction&#39;</span>, <span class="st">&#39;twophaseprediction&#39;</span>, params<span class="op">=</span>params)</span>
-<span id="cb140-8"><a href="python-setup.html#cb140-8"></a>    </span>
-<span id="cb140-9"><a href="python-setup.html#cb140-9"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span><span class="st">&quot;__main__&quot;</span>:</span>
-<span id="cb140-10"><a href="python-setup.html#cb140-10"></a>    params <span class="op">=</span> read_config(<span class="st">&#39;runtime-bisque.cfg&#39;</span>)</span>
-<span id="cb140-11"><a href="python-setup.html#cb140-11"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv)<span class="op">&gt;</span><span class="dv">1</span>:</span>
-<span id="cb140-12"><a href="python-setup.html#cb140-12"></a>        params <span class="op">=</span> <span class="bu">eval</span> (sys.argv[<span class="dv">1</span>])</span>
-<span id="cb140-13"><a href="python-setup.html#cb140-13"></a>    sys.exit(setup(params))</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="python-setup.html#cb147-1"></a><span class="im">import</span> sys</span>
+<span id="cb147-2"><a href="python-setup.html#cb147-2"></a><span class="im">from</span> bq.setup.module_setup <span class="im">import</span> python_setup, docker_setup, require, read_config</span>
+<span id="cb147-3"><a href="python-setup.html#cb147-3"></a></span>
+<span id="cb147-4"><a href="python-setup.html#cb147-4"></a></span>
+<span id="cb147-5"><a href="python-setup.html#cb147-5"></a><span class="kw">def</span> setup(params, <span class="op">*</span>args, <span class="op">**</span>kw):</span>
+<span id="cb147-6"><a href="python-setup.html#cb147-6"></a>    python_setup(<span class="st">&#39;PythonScriptWrapper.py&#39;</span>, params<span class="op">=</span>params)</span>
+<span id="cb147-7"><a href="python-setup.html#cb147-7"></a>    docker_setup(<span class="st">&#39;Composite_Strength&#39;</span>, <span class="st">&#39;TwoPhasePrediction&#39;</span>, <span class="st">&#39;twophaseprediction&#39;</span>, params<span class="op">=</span>params)</span>
+<span id="cb147-8"><a href="python-setup.html#cb147-8"></a>    </span>
+<span id="cb147-9"><a href="python-setup.html#cb147-9"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span><span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb147-10"><a href="python-setup.html#cb147-10"></a>    params <span class="op">=</span> read_config(<span class="st">&#39;runtime-bisque.cfg&#39;</span>)</span>
+<span id="cb147-11"><a href="python-setup.html#cb147-11"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv)<span class="op">&gt;</span><span class="dv">1</span>:</span>
+<span id="cb147-12"><a href="python-setup.html#cb147-12"></a>        params <span class="op">=</span> <span class="bu">eval</span> (sys.argv[<span class="dv">1</span>])</span>
+<span id="cb147-13"><a href="python-setup.html#cb147-13"></a>    sys.exit(setup(params))</span></code></pre></div>
 
 </div>
 <!-- </div> -->

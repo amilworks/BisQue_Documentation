@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 BQAPI | BisQue_Documentation.utf8</title>
+  <title>3 BQAPI | Getting Started</title>
   <meta name="description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 BQAPI | BisQue_Documentation.utf8" />
+  <meta property="og:title" content="3 BQAPI | Getting Started" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 BQAPI | BisQue_Documentation.utf8" />
+  <meta name="twitter:title" content="3 BQAPI | Getting Started" />
   
   <meta name="twitter:description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
   <meta name="twitter:image" content="images/cover.png" />
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="python-setup.html"/>
-<link rel="next" href="bisque-development.html"/>
+<link rel="next" href="download-an-array.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -131,11 +131,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Official UCSB BisQue Documentation</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting Started</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Cloud Service | Module Development | Python API</a>
 <ul>
-<li class="chapter" data-level="" data-path="bisque-installation.html"><a href="bisque-installation.html"><i class="fa fa-check"></i>BisQue Installation</a>
+<li><a href="docker-installation.html#docker-installation"><strong>Docker Installation</strong></a>
 <ul>
-<li class="chapter" data-level="" data-path="bisque-installation.html"><a href="bisque-installation.html#docker"><i class="fa fa-check"></i>Docker</a></li>
+<li class="chapter" data-level="" data-path="docker-installation.html"><a href="docker-installation.html"><i class="fa fa-check"></i>Docker</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> BisQue Cloud Service</a>
@@ -178,10 +178,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="module-development.html"><a href="module-development.html"><i class="fa fa-check"></i><b>2</b> Module Development</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-development.html"><a href="module-development.html#how-should-i-begin-building-modules"><i class="fa fa-check"></i>How Should I Begin Building Modules</a></li>
+<li><a href="module-development.html#how-to-begin-building-modules"><strong>How to Begin Building Modules</strong></a></li>
 <li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a>
 <ul>
-<li><a href="dockerfile.html#example."><strong>Example.</strong></a></li>
+<li><a href="dockerfile.html#example-composite-strength"><strong>Example: Composite Strength</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="module-xml.html"><a href="module-xml.html"><i class="fa fa-check"></i><b>2.2</b> Module XML</a>
 <ul>
@@ -204,7 +204,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="python-setup.html"><a href="python-setup.html"><i class="fa fa-check"></i><b>2.6</b> Python Setup</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="bqapi.html"><a href="bqapi.html"><i class="fa fa-check"></i><b>3</b> BQAPI</a></li>
+<li class="chapter" data-level="3" data-path="bqapi.html"><a href="bqapi.html"><i class="fa fa-check"></i><b>3</b> BQAPI</a>
+<ul>
+<li><a href="download-an-array.html#download-an-array"><strong>Download an Array</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="download-an-array.html"><a href="download-an-array.html"><i class="fa fa-check"></i>Access an HDF5 Table from BisQue</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="bisque-development.html"><a href="bisque-development.html"><i class="fa fa-check"></i><b>4</b> BisQue Development</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="source-code-installation.html"><a href="source-code-installation.html"><i class="fa fa-check"></i><b>4.1</b> Source Code Installation</a>
@@ -245,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Getting Started</a>
           </h1>
         </div>
 
@@ -255,6 +261,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="bqapi" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> BQAPI</h1>
+<div id="pip-install" class="section level4 unnumbered" number="">
+<h4>PIP Install</h4>
+<div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="bqapi.html#cb148-1"></a>pip install <span class="op">-</span>i https:<span class="op">//</span>biodev.ece.ucsb.edu<span class="op">/</span>py<span class="op">/</span>bisque<span class="op">/</span>prod<span class="op">/+</span>simple bisque_api</span></code></pre></div>
+<hr />
 <p>BQAPI provides bisque users with a means to extract features from resources using the feature service. Below is information on the Python API and a few example on how to use it.</p>
 <blockquote>
 <p><code>FeatureResource(image=None, mask=None, gobject=None)</code></p>
@@ -280,28 +290,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>return - returns either a Pytables file handle or the file name when the path is provided</li>
 </ul>
 <p>Lets upload an image an calculate a single feature on it.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb141-1"><a href="bqapi.html#cb141-1"></a><span class="im">import</span> os</span>
-<span id="cb141-2"><a href="bqapi.html#cb141-2"></a><span class="im">from</span> bqapi.comm <span class="im">import</span> BQSession</span>
-<span id="cb141-3"><a href="bqapi.html#cb141-3"></a><span class="im">from</span> bqapi.bqfeature <span class="im">import</span> Feature, FeatureResource</span>
-<span id="cb141-4"><a href="bqapi.html#cb141-4"></a></span>
-<span id="cb141-5"><a href="bqapi.html#cb141-5"></a><span class="co"># initialize local session</span></span>
-<span id="cb141-6"><a href="bqapi.html#cb141-6"></a>session <span class="op">=</span> BQSession().init_local(user, pwd, bisque_root<span class="op">=</span><span class="st">&#39;http://bisque.ece.ucsb.edu&#39;</span>) </span>
-<span id="cb141-7"><a href="bqapi.html#cb141-7"></a></span>
-<span id="cb141-8"><a href="bqapi.html#cb141-8"></a><span class="co">#post image to bisque and get the response</span></span>
-<span id="cb141-9"><a href="bqapi.html#cb141-9"></a>response_xml <span class="op">=</span> session.postblob(<span class="st">&#39;myimage.jpg&#39;</span>) </span>
-<span id="cb141-10"><a href="bqapi.html#cb141-10"></a></span>
-<span id="cb141-11"><a href="bqapi.html#cb141-11"></a><span class="co">#construct resource list of the image just uploaded</span></span>
-<span id="cb141-12"><a href="bqapi.html#cb141-12"></a>resource_list <span class="op">=</span> [FeatureResource(image<span class="op">=</span><span class="st">&#39;http://bisque.ece.ucsb.edu/image_service/</span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> response_xml.attrib[<span class="st">&#39;resource_uniq&#39;</span>])]</span>
-<span id="cb141-13"><a href="bqapi.html#cb141-13"></a></span>
-<span id="cb141-14"><a href="bqapi.html#cb141-14"></a><span class="co">#fetch features on image resource</span></span>
-<span id="cb141-15"><a href="bqapi.html#cb141-15"></a>pytables_response <span class="op">=</span> Feature().fetch(session, <span class="st">&#39;HTD&#39;</span>, resource_list)</span>
-<span id="cb141-16"><a href="bqapi.html#cb141-16"></a></span>
-<span id="cb141-17"><a href="bqapi.html#cb141-17"></a><span class="co">#get a numpy list of features for the downloaded HDF5 file.</span></span>
-<span id="cb141-18"><a href="bqapi.html#cb141-18"></a>feature <span class="op">=</span> pytables_response.root.values[:][<span class="st">&#39;feature&#39;</span>]</span>
-<span id="cb141-19"><a href="bqapi.html#cb141-19"></a></span>
-<span id="cb141-20"><a href="bqapi.html#cb141-20"></a><span class="co">#close and remove the HDF5 file since it is stored in a tempfile</span></span>
-<span id="cb141-21"><a href="bqapi.html#cb141-21"></a>pytables_response.close()</span>
-<span id="cb141-22"><a href="bqapi.html#cb141-22"></a>os.remove(pytables_response.filename)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="bqapi.html#cb149-1"></a><span class="im">import</span> os</span>
+<span id="cb149-2"><a href="bqapi.html#cb149-2"></a><span class="im">from</span> bqapi.comm <span class="im">import</span> BQSession</span>
+<span id="cb149-3"><a href="bqapi.html#cb149-3"></a><span class="im">from</span> bqapi.bqfeature <span class="im">import</span> Feature, FeatureResource</span>
+<span id="cb149-4"><a href="bqapi.html#cb149-4"></a></span>
+<span id="cb149-5"><a href="bqapi.html#cb149-5"></a><span class="co"># initialize local session</span></span>
+<span id="cb149-6"><a href="bqapi.html#cb149-6"></a>session <span class="op">=</span> BQSession().init_local(user, pwd, bisque_root<span class="op">=</span><span class="st">&#39;http://bisque.ece.ucsb.edu&#39;</span>) </span>
+<span id="cb149-7"><a href="bqapi.html#cb149-7"></a></span>
+<span id="cb149-8"><a href="bqapi.html#cb149-8"></a><span class="co">#post image to bisque and get the response</span></span>
+<span id="cb149-9"><a href="bqapi.html#cb149-9"></a>response_xml <span class="op">=</span> session.postblob(<span class="st">&#39;myimage.jpg&#39;</span>) </span>
+<span id="cb149-10"><a href="bqapi.html#cb149-10"></a></span>
+<span id="cb149-11"><a href="bqapi.html#cb149-11"></a><span class="co">#construct resource list of the image just uploaded</span></span>
+<span id="cb149-12"><a href="bqapi.html#cb149-12"></a>resource_list <span class="op">=</span> [FeatureResource(image<span class="op">=</span><span class="st">&#39;http://bisque.ece.ucsb.edu/image_service/</span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> response_xml.attrib[<span class="st">&#39;resource_uniq&#39;</span>])]</span>
+<span id="cb149-13"><a href="bqapi.html#cb149-13"></a></span>
+<span id="cb149-14"><a href="bqapi.html#cb149-14"></a><span class="co">#fetch features on image resource</span></span>
+<span id="cb149-15"><a href="bqapi.html#cb149-15"></a>pytables_response <span class="op">=</span> Feature().fetch(session, <span class="st">&#39;HTD&#39;</span>, resource_list)</span>
+<span id="cb149-16"><a href="bqapi.html#cb149-16"></a></span>
+<span id="cb149-17"><a href="bqapi.html#cb149-17"></a><span class="co">#get a numpy list of features for the downloaded HDF5 file.</span></span>
+<span id="cb149-18"><a href="bqapi.html#cb149-18"></a>feature <span class="op">=</span> pytables_response.root.values[:][<span class="st">&#39;feature&#39;</span>]</span>
+<span id="cb149-19"><a href="bqapi.html#cb149-19"></a></span>
+<span id="cb149-20"><a href="bqapi.html#cb149-20"></a><span class="co">#close and remove the HDF5 file since it is stored in a tempfile</span></span>
+<span id="cb149-21"><a href="bqapi.html#cb149-21"></a>pytables_response.close()</span>
+<span id="cb149-22"><a href="bqapi.html#cb149-22"></a>os.remove(pytables_response.filename)</span></code></pre></div>
 <blockquote>
 <p><code>fetch_vector(session, name, resource_list)</code></p>
 </blockquote>
@@ -329,7 +339,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>return feature length</li>
 </ul>
-
+</div> 
 </div>
             </section>
 
@@ -337,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="python-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bisque-development.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="download-an-array.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

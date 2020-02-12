@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.1 Source Code Installation | BisQue_Documentation.utf8</title>
+  <title>4.1 Source Code Installation | Getting Started</title>
   <meta name="description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.1 Source Code Installation | BisQue_Documentation.utf8" />
+  <meta property="og:title" content="4.1 Source Code Installation | Getting Started" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.png" />
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.1 Source Code Installation | BisQue_Documentation.utf8" />
+  <meta name="twitter:title" content="4.1 Source Code Installation | Getting Started" />
   
   <meta name="twitter:description" content="BisQue (Bio-Image Semantic Query User Environment) : Store, visualize,organize and analyze images in the cloud." />
   <meta name="twitter:image" content="images/cover.png" />
@@ -131,11 +131,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Official UCSB BisQue Documentation</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Getting Started</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Cloud Service | Module Development | Python API</a>
 <ul>
-<li class="chapter" data-level="" data-path="bisque-installation.html"><a href="bisque-installation.html"><i class="fa fa-check"></i>BisQue Installation</a>
+<li><a href="docker-installation.html#docker-installation"><strong>Docker Installation</strong></a>
 <ul>
-<li class="chapter" data-level="" data-path="bisque-installation.html"><a href="bisque-installation.html#docker"><i class="fa fa-check"></i>Docker</a></li>
+<li class="chapter" data-level="" data-path="docker-installation.html"><a href="docker-installation.html"><i class="fa fa-check"></i>Docker</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> BisQue Cloud Service</a>
@@ -178,10 +178,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="module-development.html"><a href="module-development.html"><i class="fa fa-check"></i><b>2</b> Module Development</a>
 <ul>
-<li class="chapter" data-level="" data-path="module-development.html"><a href="module-development.html#how-should-i-begin-building-modules"><i class="fa fa-check"></i>How Should I Begin Building Modules</a></li>
+<li><a href="module-development.html#how-to-begin-building-modules"><strong>How to Begin Building Modules</strong></a></li>
 <li class="chapter" data-level="2.1" data-path="dockerfile.html"><a href="dockerfile.html"><i class="fa fa-check"></i><b>2.1</b> Dockerfile</a>
 <ul>
-<li><a href="dockerfile.html#example."><strong>Example.</strong></a></li>
+<li><a href="dockerfile.html#example-composite-strength"><strong>Example: Composite Strength</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="module-xml.html"><a href="module-xml.html"><i class="fa fa-check"></i><b>2.2</b> Module XML</a>
 <ul>
@@ -204,7 +204,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="python-setup.html"><a href="python-setup.html"><i class="fa fa-check"></i><b>2.6</b> Python Setup</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="bqapi.html"><a href="bqapi.html"><i class="fa fa-check"></i><b>3</b> BQAPI</a></li>
+<li class="chapter" data-level="3" data-path="bqapi.html"><a href="bqapi.html"><i class="fa fa-check"></i><b>3</b> BQAPI</a>
+<ul>
+<li><a href="download-an-array.html#download-an-array"><strong>Download an Array</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="download-an-array.html"><a href="download-an-array.html"><i class="fa fa-check"></i>Access an HDF5 Table from BisQue</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="bisque-development.html"><a href="bisque-development.html"><i class="fa fa-check"></i><b>4</b> BisQue Development</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="source-code-installation.html"><a href="source-code-installation.html"><i class="fa fa-check"></i><b>4.1</b> Source Code Installation</a>
@@ -245,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Getting Started</a>
           </h1>
         </div>
 
@@ -260,97 +266,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>NOTE</strong>: The source code installation has only been tested on <code>Ubuntu 16.04</code>.</p>
 </blockquote>
 <p><strong>Pre-requisites</strong></p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb142-1"><a href="source-code-installation.html#cb142-1"></a><span class="fu">sudo</span> apt-get install -y python python-dev python-virtualenv python-numpy python-scipy </span>
-<span id="cb142-2"><a href="source-code-installation.html#cb142-2"></a><span class="fu">sudo</span> apt-get install -y libxml2-dev libxslt1-dev libhdf5-dev</span>
-<span id="cb142-3"><a href="source-code-installation.html#cb142-3"></a><span class="fu">sudo</span> apt-get install -y libmysqlclient-dev libpq-dev mercurial git cmake</span>
-<span id="cb142-4"><a href="source-code-installation.html#cb142-4"></a><span class="fu">sudo</span> apt-get install -y postgresql postgresql-client libsqlite3-dev</span>
-<span id="cb142-5"><a href="source-code-installation.html#cb142-5"></a><span class="fu">sudo</span> apt-get install -y python-paver python-setuptools</span>
-<span id="cb142-6"><a href="source-code-installation.html#cb142-6"></a><span class="fu">sudo</span> apt-get install -y graphviz libgraphviz-dev pkg-config</span>
-<span id="cb142-7"><a href="source-code-installation.html#cb142-7"></a><span class="fu">sudo</span> apt-get install -y openslide-tools  python-openslide</span>
-<span id="cb142-8"><a href="source-code-installation.html#cb142-8"></a><span class="fu">sudo</span> apt-get install -y libfftw3-dev libbz2-dev libz-dev</span>
-<span id="cb142-9"><a href="source-code-installation.html#cb142-9"></a><span class="fu">sudo</span> apt-get install -y liblcms2-dev libtiff-dev libpng-dev</span>
-<span id="cb142-10"><a href="source-code-installation.html#cb142-10"></a><span class="fu">sudo</span> apt-get install -y libgdcm2.6 libopenslide-dev libopenslide0</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb163-1"><a href="source-code-installation.html#cb163-1"></a><span class="fu">sudo</span> apt-get install -y python python-dev python-virtualenv python-numpy python-scipy </span>
+<span id="cb163-2"><a href="source-code-installation.html#cb163-2"></a><span class="fu">sudo</span> apt-get install -y libxml2-dev libxslt1-dev libhdf5-dev</span>
+<span id="cb163-3"><a href="source-code-installation.html#cb163-3"></a><span class="fu">sudo</span> apt-get install -y libmysqlclient-dev libpq-dev mercurial git cmake</span>
+<span id="cb163-4"><a href="source-code-installation.html#cb163-4"></a><span class="fu">sudo</span> apt-get install -y postgresql postgresql-client libsqlite3-dev</span>
+<span id="cb163-5"><a href="source-code-installation.html#cb163-5"></a><span class="fu">sudo</span> apt-get install -y python-paver python-setuptools</span>
+<span id="cb163-6"><a href="source-code-installation.html#cb163-6"></a><span class="fu">sudo</span> apt-get install -y graphviz libgraphviz-dev pkg-config</span>
+<span id="cb163-7"><a href="source-code-installation.html#cb163-7"></a><span class="fu">sudo</span> apt-get install -y openslide-tools  python-openslide</span>
+<span id="cb163-8"><a href="source-code-installation.html#cb163-8"></a><span class="fu">sudo</span> apt-get install -y libfftw3-dev libbz2-dev libz-dev</span>
+<span id="cb163-9"><a href="source-code-installation.html#cb163-9"></a><span class="fu">sudo</span> apt-get install -y liblcms2-dev libtiff-dev libpng-dev</span>
+<span id="cb163-10"><a href="source-code-installation.html#cb163-10"></a><span class="fu">sudo</span> apt-get install -y libgdcm2.6 libopenslide-dev libopenslide0</span></code></pre></div>
 <p><strong>Install Openjpeg</strong></p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb143-1"><a href="source-code-installation.html#cb143-1"></a><span class="fu">git</span> clone https://github.com/uclouvain/openjpeg</span>
-<span id="cb143-2"><a href="source-code-installation.html#cb143-2"></a><span class="bu">cd</span> openjpeg <span class="kw">&amp;&amp;</span> <span class="fu">mkdir</span> build <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> build</span>
-<span id="cb143-3"><a href="source-code-installation.html#cb143-3"></a><span class="fu">cmake</span> .. -DCMAKE_BUILD_TYPE=Release</span>
-<span id="cb143-4"><a href="source-code-installation.html#cb143-4"></a><span class="fu">sudo</span> make -j4 install</span>
-<span id="cb143-5"><a href="source-code-installation.html#cb143-5"></a><span class="fu">sudo</span> ldconfig</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb164-1"><a href="source-code-installation.html#cb164-1"></a><span class="fu">git</span> clone https://github.com/uclouvain/openjpeg</span>
+<span id="cb164-2"><a href="source-code-installation.html#cb164-2"></a><span class="bu">cd</span> openjpeg <span class="kw">&amp;&amp;</span> <span class="fu">mkdir</span> build <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> build</span>
+<span id="cb164-3"><a href="source-code-installation.html#cb164-3"></a><span class="fu">cmake</span> .. -DCMAKE_BUILD_TYPE=Release</span>
+<span id="cb164-4"><a href="source-code-installation.html#cb164-4"></a><span class="fu">sudo</span> make -j4 install</span>
+<span id="cb164-5"><a href="source-code-installation.html#cb164-5"></a><span class="fu">sudo</span> ldconfig</span></code></pre></div>
 <p><strong>Install BioImageConvert</strong></p>
 <ul>
 <li><a href="https://biodev.ece.ucsb.edu/projects/imgcnv">BioImageConvert Source Repository</a></li>
 <li><a href="https://bitbucket.org/dimin/bioimageconvert/downloads/">Prebuilt Binaries Repository</a></li>
 <li>Setup for pre-built binaries (below)</li>
 </ul>
-<div class="sourceCode" id="cb144"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb144-1"><a href="source-code-installation.html#cb144-1"></a><span class="co"># Ubuntu 18 version</span></span>
-<span id="cb144-2"><a href="source-code-installation.html#cb144-2"></a><span class="fu">wget</span> https://bitbucket.org/dimin/bioimageconvert/downloads/imgcnv_ubuntu18_2.5.0.tar.gz</span>
-<span id="cb144-3"><a href="source-code-installation.html#cb144-3"></a></span>
-<span id="cb144-4"><a href="source-code-installation.html#cb144-4"></a><span class="co"># Ubuntu 16 version</span></span>
-<span id="cb144-5"><a href="source-code-installation.html#cb144-5"></a><span class="fu">wget</span> https://bitbucket.org/dimin/bioimageconvert/downloads/imgcnv_ubuntu16_2.4.3.tar.gz</span>
-<span id="cb144-6"><a href="source-code-installation.html#cb144-6"></a><span class="fu">tar</span> -xvzf imgcnv_ubuntu16_2.4.3.tar.gz</span>
-<span id="cb144-7"><a href="source-code-installation.html#cb144-7"></a></span>
-<span id="cb144-8"><a href="source-code-installation.html#cb144-8"></a><span class="fu">sudo</span> cp imgcnv_ubuntu16_2.4.3/imgcnv /usr/local/bin/</span>
-<span id="cb144-9"><a href="source-code-installation.html#cb144-9"></a><span class="fu">sudo</span> cp imgcnv_ubuntu16_2.4.3/libimgcnv.so.2.4.3 /usr/local/lib/</span>
-<span id="cb144-10"><a href="source-code-installation.html#cb144-10"></a><span class="fu">sudo</span> ln -s /usr/local/lib/libimgcnv.so.2.4.3 /usr/local/lib/libimgcnv.so.2.4</span>
-<span id="cb144-11"><a href="source-code-installation.html#cb144-11"></a><span class="fu">sudo</span> ln -s /usr/local/lib/libimgcnv.so.2.4 /usr/local/lib/libimgcnv.so.2</span>
-<span id="cb144-12"><a href="source-code-installation.html#cb144-12"></a><span class="fu">sudo</span> ln -s /usr/local/lib/libimgcnv.so.2 /usr/local/lib/libimgcnv.so</span>
-<span id="cb144-13"><a href="source-code-installation.html#cb144-13"></a><span class="fu">sudo</span> ldconfig</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb165-1"><a href="source-code-installation.html#cb165-1"></a><span class="co"># Ubuntu 18 version</span></span>
+<span id="cb165-2"><a href="source-code-installation.html#cb165-2"></a><span class="fu">wget</span> https://bitbucket.org/dimin/bioimageconvert/downloads/imgcnv_ubuntu18_2.5.0.tar.gz</span>
+<span id="cb165-3"><a href="source-code-installation.html#cb165-3"></a></span>
+<span id="cb165-4"><a href="source-code-installation.html#cb165-4"></a><span class="co"># Ubuntu 16 version</span></span>
+<span id="cb165-5"><a href="source-code-installation.html#cb165-5"></a><span class="fu">wget</span> https://bitbucket.org/dimin/bioimageconvert/downloads/imgcnv_ubuntu16_2.4.3.tar.gz</span>
+<span id="cb165-6"><a href="source-code-installation.html#cb165-6"></a><span class="fu">tar</span> -xvzf imgcnv_ubuntu16_2.4.3.tar.gz</span>
+<span id="cb165-7"><a href="source-code-installation.html#cb165-7"></a></span>
+<span id="cb165-8"><a href="source-code-installation.html#cb165-8"></a><span class="fu">sudo</span> cp imgcnv_ubuntu16_2.4.3/imgcnv /usr/local/bin/</span>
+<span id="cb165-9"><a href="source-code-installation.html#cb165-9"></a><span class="fu">sudo</span> cp imgcnv_ubuntu16_2.4.3/libimgcnv.so.2.4.3 /usr/local/lib/</span>
+<span id="cb165-10"><a href="source-code-installation.html#cb165-10"></a><span class="fu">sudo</span> ln -s /usr/local/lib/libimgcnv.so.2.4.3 /usr/local/lib/libimgcnv.so.2.4</span>
+<span id="cb165-11"><a href="source-code-installation.html#cb165-11"></a><span class="fu">sudo</span> ln -s /usr/local/lib/libimgcnv.so.2.4 /usr/local/lib/libimgcnv.so.2</span>
+<span id="cb165-12"><a href="source-code-installation.html#cb165-12"></a><span class="fu">sudo</span> ln -s /usr/local/lib/libimgcnv.so.2 /usr/local/lib/libimgcnv.so</span>
+<span id="cb165-13"><a href="source-code-installation.html#cb165-13"></a><span class="fu">sudo</span> ldconfig</span></code></pre></div>
 <p>Alternately, Compile by source and Install (You are on your own here)</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb145-1"><a href="source-code-installation.html#cb145-1"></a><span class="ex">hg</span> clone --insecure http://biodev.ece.ucsb.edu/hg/imgcnv</span>
-<span id="cb145-2"><a href="source-code-installation.html#cb145-2"></a><span class="bu">cd</span> imgcnv <span class="kw">&amp;&amp;</span> <span class="fu">make</span> -j6 </span>
-<span id="cb145-3"><a href="source-code-installation.html#cb145-3"></a><span class="fu">sudo</span> make install</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb166-1"><a href="source-code-installation.html#cb166-1"></a><span class="ex">hg</span> clone --insecure http://biodev.ece.ucsb.edu/hg/imgcnv</span>
+<span id="cb166-2"><a href="source-code-installation.html#cb166-2"></a><span class="bu">cd</span> imgcnv <span class="kw">&amp;&amp;</span> <span class="fu">make</span> -j6 </span>
+<span id="cb166-3"><a href="source-code-installation.html#cb166-3"></a><span class="fu">sudo</span> make install</span></code></pre></div>
 <hr />
 <div id="clone-the-repository-and-prepare-virtual-environment" class="section level3 unnumbered" number="">
 <h3>Clone the repository and Prepare Virtual Environment</h3>
 <p>We will clone the stable repository and work inside a python virtual environment for setup requirements.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb146-1"><a href="source-code-installation.html#cb146-1"></a><span class="fu">git</span> clone https://github.com/UCSB-VRL/bisque.git bisque-stable</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb167-1"><a href="source-code-installation.html#cb167-1"></a><span class="fu">git</span> clone https://github.com/UCSB-VRL/bisque.git bisque-stable</span></code></pre></div>
 <ul>
 <li>Its always a good practive to use a virtualenv to develop projects</li>
 </ul>
-<div class="sourceCode" id="cb147"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb147-1"><a href="source-code-installation.html#cb147-1"></a><span class="fu">sudo</span> pip install virtualenvwrapper</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb168-1"><a href="source-code-installation.html#cb168-1"></a><span class="fu">sudo</span> pip install virtualenvwrapper</span></code></pre></div>
 <ul>
 <li>Edit ~/.bashrc and export the following variables
 <ul>
 <li>In case of issues around virtualenvwrapper make sure the paths in the variables below exist</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb148"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb148-1"><a href="source-code-installation.html#cb148-1"></a><span class="co"># virtualenv and virtualenvwrapper</span></span>
-<span id="cb148-2"><a href="source-code-installation.html#cb148-2"></a><span class="bu">export</span> <span class="va">PATH=</span>/usr/local/bin:<span class="va">$PATH</span></span>
-<span id="cb148-3"><a href="source-code-installation.html#cb148-3"></a><span class="bu">export</span> <span class="va">VIRTUALENVWRAPPER_PYTHON=</span>/usr/bin/python</span>
-<span id="cb148-4"><a href="source-code-installation.html#cb148-4"></a><span class="bu">export</span> <span class="va">VIRTUALENVWRAPPER_VIRTUALENV=</span>/usr/local/bin/virtualenv</span>
-<span id="cb148-5"><a href="source-code-installation.html#cb148-5"></a><span class="bu">source</span> /usr/local/bin/virtualenvwrapper.sh</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb169-1"><a href="source-code-installation.html#cb169-1"></a><span class="co"># virtualenv and virtualenvwrapper</span></span>
+<span id="cb169-2"><a href="source-code-installation.html#cb169-2"></a><span class="bu">export</span> <span class="va">PATH=</span>/usr/local/bin:<span class="va">$PATH</span></span>
+<span id="cb169-3"><a href="source-code-installation.html#cb169-3"></a><span class="bu">export</span> <span class="va">VIRTUALENVWRAPPER_PYTHON=</span>/usr/bin/python</span>
+<span id="cb169-4"><a href="source-code-installation.html#cb169-4"></a><span class="bu">export</span> <span class="va">VIRTUALENVWRAPPER_VIRTUALENV=</span>/usr/local/bin/virtualenv</span>
+<span id="cb169-5"><a href="source-code-installation.html#cb169-5"></a><span class="bu">source</span> /usr/local/bin/virtualenvwrapper.sh</span></code></pre></div>
 <ul>
 <li>Now load this using “source ~/.bashrc”</li>
 <li>Create a virtual envrionment “mkvirtualenv -p /usr/bin/python2 bqdev”</li>
 <li>Change environment “workon bqdev”</li>
 </ul>
 <p>__Deprecated Bootstrap Installer (Do Not Use this Script)_ _</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb149-1"><a href="source-code-installation.html#cb149-1"></a>$ <span class="fu">mkdir</span> bisque <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> bisque</span>
-<span id="cb149-2"><a href="source-code-installation.html#cb149-2"></a>$ <span class="fu">wget</span> http://biodev.ece.ucsb.edu/projects/bisquik/export/tip/bisque-stable/contrib/bootstrap/bisque-bootstrap.py</span>
-<span id="cb149-3"><a href="source-code-installation.html#cb149-3"></a>$ <span class="ex">python</span> bisque-bootstrap.py bqenv</span>
-<span id="cb149-4"><a href="source-code-installation.html#cb149-4"></a></span>
-<span id="cb149-5"><a href="source-code-installation.html#cb149-5"></a><span class="co"># Activate Virtualenv</span></span>
-<span id="cb149-6"><a href="source-code-installation.html#cb149-6"></a><span class="ex">bisque</span>$ source bqenv/bin/activate</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb170-1"><a href="source-code-installation.html#cb170-1"></a>$ <span class="fu">mkdir</span> bisque <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> bisque</span>
+<span id="cb170-2"><a href="source-code-installation.html#cb170-2"></a>$ <span class="fu">wget</span> http://biodev.ece.ucsb.edu/projects/bisquik/export/tip/bisque-stable/contrib/bootstrap/bisque-bootstrap.py</span>
+<span id="cb170-3"><a href="source-code-installation.html#cb170-3"></a>$ <span class="ex">python</span> bisque-bootstrap.py bqenv</span>
+<span id="cb170-4"><a href="source-code-installation.html#cb170-4"></a></span>
+<span id="cb170-5"><a href="source-code-installation.html#cb170-5"></a><span class="co"># Activate Virtualenv</span></span>
+<span id="cb170-6"><a href="source-code-installation.html#cb170-6"></a><span class="ex">bisque</span>$ source bqenv/bin/activate</span></code></pre></div>
 <ul>
 <li>Now Install requirements</li>
 </ul>
-<div class="sourceCode" id="cb150"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb150-1"><a href="source-code-installation.html#cb150-1"></a><span class="ex">pip</span> install -i https://biodev.ece.ucsb.edu/py/bisque/xenial/+simple/ -r requirements.txt</span>
-<span id="cb150-2"><a href="source-code-installation.html#cb150-2"></a></span>
-<span id="cb150-3"><a href="source-code-installation.html#cb150-3"></a><span class="ex">Alternate</span> Index Url for Development: https://biodev.ece.ucsb.edu/py/bisque/dev/+simple</span>
-<span id="cb150-4"><a href="source-code-installation.html#cb150-4"></a><span class="ex">Index</span> Url Debian Stretch: https://biodev.ece.ucsb.edu/py/bisque/stretch/+simple/</span>
-<span id="cb150-5"><a href="source-code-installation.html#cb150-5"></a><span class="ex">Index</span> Url Ubuntu xenial: https://biodev.ece.ucsb.edu/py/bisque/xenial/+simple/</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb171-1"><a href="source-code-installation.html#cb171-1"></a><span class="ex">pip</span> install -i https://biodev.ece.ucsb.edu/py/bisque/xenial/+simple/ -r requirements.txt</span>
+<span id="cb171-2"><a href="source-code-installation.html#cb171-2"></a></span>
+<span id="cb171-3"><a href="source-code-installation.html#cb171-3"></a><span class="ex">Alternate</span> Index Url for Development: https://biodev.ece.ucsb.edu/py/bisque/dev/+simple</span>
+<span id="cb171-4"><a href="source-code-installation.html#cb171-4"></a><span class="ex">Index</span> Url Debian Stretch: https://biodev.ece.ucsb.edu/py/bisque/stretch/+simple/</span>
+<span id="cb171-5"><a href="source-code-installation.html#cb171-5"></a><span class="ex">Index</span> Url Ubuntu xenial: https://biodev.ece.ucsb.edu/py/bisque/xenial/+simple/</span></code></pre></div>
 <ul>
 <li>Fix the requirements.txt (Only if the installation fails)</li>
 </ul>
-<div class="sourceCode" id="cb151"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb151-1"><a href="source-code-installation.html#cb151-1"></a><span class="co">#Fix the requirements.txt file using sed -i &#39;s/.*psycopg2==2.6.1.*/psycopg2==2.7.1./&#39; requirements.txt</span></span>
-<span id="cb151-2"><a href="source-code-installation.html#cb151-2"></a><span class="va">psycopg2=</span>=<span class="ex">2.7.1</span></span>
-<span id="cb151-3"><a href="source-code-installation.html#cb151-3"></a><span class="va">Minimatic=</span>=<span class="ex">1.0</span></span>
-<span id="cb151-4"><a href="source-code-installation.html#cb151-4"></a><span class="va">Paste=</span>=<span class="ex">1.7.5.1</span></span>
-<span id="cb151-5"><a href="source-code-installation.html#cb151-5"></a><span class="va">httplib2=</span>=<span class="ex">0.7.3</span></span>
-<span id="cb151-6"><a href="source-code-installation.html#cb151-6"></a><span class="co">#tgext.registration==0.1dev</span></span>
-<span id="cb151-7"><a href="source-code-installation.html#cb151-7"></a></span>
-<span id="cb151-8"><a href="source-code-installation.html#cb151-8"></a><span class="co"># Install separately since packages may be deprecated in PyPi</span></span>
-<span id="cb151-9"><a href="source-code-installation.html#cb151-9"></a><span class="ex">easy_install</span> http://biodev.ece.ucsb.edu/binaries/depot/tgext.registration2/tgext.registration2-0.5.2.tar.gz</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb172-1"><a href="source-code-installation.html#cb172-1"></a><span class="co">#Fix the requirements.txt file using sed -i &#39;s/.*psycopg2==2.6.1.*/psycopg2==2.7.1./&#39; requirements.txt</span></span>
+<span id="cb172-2"><a href="source-code-installation.html#cb172-2"></a><span class="va">psycopg2=</span>=<span class="ex">2.7.1</span></span>
+<span id="cb172-3"><a href="source-code-installation.html#cb172-3"></a><span class="va">Minimatic=</span>=<span class="ex">1.0</span></span>
+<span id="cb172-4"><a href="source-code-installation.html#cb172-4"></a><span class="va">Paste=</span>=<span class="ex">1.7.5.1</span></span>
+<span id="cb172-5"><a href="source-code-installation.html#cb172-5"></a><span class="va">httplib2=</span>=<span class="ex">0.7.3</span></span>
+<span id="cb172-6"><a href="source-code-installation.html#cb172-6"></a><span class="co">#tgext.registration==0.1dev</span></span>
+<span id="cb172-7"><a href="source-code-installation.html#cb172-7"></a></span>
+<span id="cb172-8"><a href="source-code-installation.html#cb172-8"></a><span class="co"># Install separately since packages may be deprecated in PyPi</span></span>
+<span id="cb172-9"><a href="source-code-installation.html#cb172-9"></a><span class="ex">easy_install</span> http://biodev.ece.ucsb.edu/binaries/depot/tgext.registration2/tgext.registration2-0.5.2.tar.gz</span></code></pre></div>
 <hr />
 </div>
 <div id="configure-bisque-environment" class="section level3 unnumbered" number="">
@@ -358,175 +364,175 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Run the Paver setup</li>
 </ul>
-<div class="sourceCode" id="cb152"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb152-1"><a href="source-code-installation.html#cb152-1"></a>$ <span class="ex">paver</span> setup</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb173-1"><a href="source-code-installation.html#cb173-1"></a>$ <span class="ex">paver</span> setup</span></code></pre></div>
 <ul>
 <li>Expected paver log tail</li>
 </ul>
-<div class="sourceCode" id="cb153"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb153-1"><a href="source-code-installation.html#cb153-1"></a><span class="ex">Installing</span> collected packages: bqengine</span>
-<span id="cb153-2"><a href="source-code-installation.html#cb153-2"></a>  <span class="ex">Running</span> setup.py develop for bqengine</span>
-<span id="cb153-3"><a href="source-code-installation.html#cb153-3"></a><span class="ex">Successfully</span> installed bqengine</span>
-<span id="cb153-4"><a href="source-code-installation.html#cb153-4"></a></span>
-<span id="cb153-5"><a href="source-code-installation.html#cb153-5"></a><span class="ex">Now</span> run:</span>
-<span id="cb153-6"><a href="source-code-installation.html#cb153-6"></a><span class="ex">bq-admin</span> setup </span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb174-1"><a href="source-code-installation.html#cb174-1"></a><span class="ex">Installing</span> collected packages: bqengine</span>
+<span id="cb174-2"><a href="source-code-installation.html#cb174-2"></a>  <span class="ex">Running</span> setup.py develop for bqengine</span>
+<span id="cb174-3"><a href="source-code-installation.html#cb174-3"></a><span class="ex">Successfully</span> installed bqengine</span>
+<span id="cb174-4"><a href="source-code-installation.html#cb174-4"></a></span>
+<span id="cb174-5"><a href="source-code-installation.html#cb174-5"></a><span class="ex">Now</span> run:</span>
+<span id="cb174-6"><a href="source-code-installation.html#cb174-6"></a><span class="ex">bq-admin</span> setup </span></code></pre></div>
 <ul>
 <li>Run the bq-admin standalone setup</li>
 </ul>
-<div class="sourceCode" id="cb154"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb154-1"><a href="source-code-installation.html#cb154-1"></a>$ <span class="ex">bq-admin</span> setup</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb175-1"><a href="source-code-installation.html#cb175-1"></a>$ <span class="ex">bq-admin</span> setup</span></code></pre></div>
 <ul>
 <li>Expected bq-admin setup log tail (also observe the various inputs in the log for this setup)</li>
 </ul>
-<div class="sourceCode" id="cb155"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb155-1"><a href="source-code-installation.html#cb155-1"></a>  <span class="kw">(</span><span class="ex">bqdev</span><span class="kw">)</span> <span class="ex">rahul@loup</span>:~/repository/github/bisque$ bq-admin setup </span>
-<span id="cb155-2"><a href="source-code-installation.html#cb155-2"></a>  <span class="ex">INFO</span>:root:Generating grammar tables from /usr/lib/python2.7/lib2to3/Grammar.txt</span>
-<span id="cb155-3"><a href="source-code-installation.html#cb155-3"></a>  <span class="ex">INFO</span>:root:Generating grammar tables from /usr/lib/python2.7/lib2to3/PatternGrammar.txt</span>
-<span id="cb155-4"><a href="source-code-installation.html#cb155-4"></a>  <span class="ex">Developer</span> installation</span>
-<span id="cb155-5"><a href="source-code-installation.html#cb155-5"></a>  <span class="ex">DIRS</span>:  {<span class="st">&#39;bin&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev/bin&#39;</span>, <span class="st">&#39;run&#39;</span>: <span class="st">&#39;.&#39;</span>, <span class="st">&#39;share&#39;</span>: <span class="st">&#39;.&#39;</span>, <span class="st">&#39;plugins&#39;</span>: <span class="st">&#39;./plugins&#39;</span>, <span class="st">&#39;packages&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev/lib/python2.7/site-packages&#39;</span>, <span class="st">&#39;data&#39;</span>: <span class="st">&#39;./data&#39;</span>, <span class="st">&#39;virtualenv&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev&#39;</span>, <span class="st">&#39;default&#39;</span>: <span class="st">&#39;./config-defaults&#39;</span>, <span class="st">&#39;jslocation&#39;</span>: <span class="st">&#39;bqcore&#39;</span>, <span class="st">&#39;modules&#39;</span>: <span class="st">&#39;./modules&#39;</span>, <span class="st">&#39;depot&#39;</span>: <span class="st">&#39;./external&#39;</span>, <span class="st">&#39;config&#39;</span>: <span class="st">&#39;./config&#39;</span>, <span class="st">&#39;public&#39;</span>: <span class="st">&#39;./public&#39;</span>}</span>
-<span id="cb155-6"><a href="source-code-installation.html#cb155-6"></a>  <span class="ex">INFO</span>:root:Generating grammar tables from /usr/lib/python2.7/lib2to3/Grammar.txt</span>
-<span id="cb155-7"><a href="source-code-installation.html#cb155-7"></a>  <span class="ex">INFO</span>:root:Generating grammar tables from /usr/lib/python2.7/lib2to3/PatternGrammar.txt</span>
-<span id="cb155-8"><a href="source-code-installation.html#cb155-8"></a>  <span class="ex">Developer</span> installation</span>
-<span id="cb155-9"><a href="source-code-installation.html#cb155-9"></a>  <span class="ex">DIRS</span>:  {<span class="st">&#39;bin&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev/bin&#39;</span>, <span class="st">&#39;run&#39;</span>: <span class="st">&#39;.&#39;</span>, <span class="st">&#39;share&#39;</span>: <span class="st">&#39;.&#39;</span>, <span class="st">&#39;plugins&#39;</span>: <span class="st">&#39;./plugins&#39;</span>, <span class="st">&#39;packages&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev/lib/python2.7/site-packages&#39;</span>, <span class="st">&#39;data&#39;</span>: <span class="st">&#39;./data&#39;</span>, <span class="st">&#39;virtualenv&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev&#39;</span>, <span class="st">&#39;default&#39;</span>: <span class="st">&#39;./config-defaults&#39;</span>, <span class="st">&#39;jslocation&#39;</span>: <span class="st">&#39;bqcore&#39;</span>, <span class="st">&#39;modules&#39;</span>: <span class="st">&#39;./modules&#39;</span>, <span class="st">&#39;depot&#39;</span>: <span class="st">&#39;./external&#39;</span>, <span class="st">&#39;config&#39;</span>: <span class="st">&#39;./config&#39;</span>, <span class="st">&#39;public&#39;</span>: <span class="st">&#39;./public&#39;</span>}</span>
-<span id="cb155-10"><a href="source-code-installation.html#cb155-10"></a>  <span class="ex">This</span> is the main installer for Bisque</span>
-<span id="cb155-11"><a href="source-code-installation.html#cb155-11"></a></span>
-<span id="cb155-12"><a href="source-code-installation.html#cb155-12"></a>      <span class="ex">The</span> system will initialize and be ready for use after a succesfull</span>
-<span id="cb155-13"><a href="source-code-installation.html#cb155-13"></a>      <span class="ex">setup</span> has completed.</span>
-<span id="cb155-14"><a href="source-code-installation.html#cb155-14"></a></span>
-<span id="cb155-15"><a href="source-code-installation.html#cb155-15"></a>      <span class="ex">Several</span> questions must be answered to complete the install.  Each</span>
-<span id="cb155-16"><a href="source-code-installation.html#cb155-16"></a>      <span class="ex">question</span> is presented with default in brackets [].  Pressing</span>
-<span id="cb155-17"><a href="source-code-installation.html#cb155-17"></a>      <span class="op">&lt;</span><span class="ex">enter</span><span class="op">&gt;</span> means that you are accepting the default value. You may</span>
-<span id="cb155-18"><a href="source-code-installation.html#cb155-18"></a>      <span class="ex">request</span> more information by responding with single <span class="st">&#39;?&#39;</span> and then <span class="op">&lt;</span>enter<span class="op">&gt;</span>.</span>
-<span id="cb155-19"><a href="source-code-installation.html#cb155-19"></a></span>
-<span id="cb155-20"><a href="source-code-installation.html#cb155-20"></a>      <span class="ex">For</span> example:</span>
-<span id="cb155-21"><a href="source-code-installation.html#cb155-21"></a>      <span class="ex">What</span> is postal abbreviation of Alaska [AK]?</span>
-<span id="cb155-22"><a href="source-code-installation.html#cb155-22"></a></span>
-<span id="cb155-23"><a href="source-code-installation.html#cb155-23"></a>      <span class="ex">The</span> default answer is AK and is chosen by simply entering <span class="op">&lt;</span>enter<span class="op">&gt;</span></span>
-<span id="cb155-24"><a href="source-code-installation.html#cb155-24"></a></span>
-<span id="cb155-25"><a href="source-code-installation.html#cb155-25"></a>      </span>
-<span id="cb155-26"><a href="source-code-installation.html#cb155-26"></a>  <span class="ex">Beginning</span> install of [<span class="st">&#39;bisque&#39;</span>, <span class="st">&#39;engine&#39;</span>] with [<span class="st">&#39;server&#39;</span>] </span>
-<span id="cb155-27"><a href="source-code-installation.html#cb155-27"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_external_binaries at 0x7f9533ffac08<span class="op">&gt;</span></span>
-<span id="cb155-28"><a href="source-code-installation.html#cb155-28"></a>  <span class="ex">Fetch</span> external binary files from Bisque development server [Y]? Y</span>
-<span id="cb155-29"><a href="source-code-installation.html#cb155-29"></a>  <span class="ex">Matched</span> section Linux-64bit-*</span>
-<span id="cb155-30"><a href="source-code-installation.html#cb155-30"></a>  <span class="ex">extjs.zip</span> found locally</span>
-<span id="cb155-31"><a href="source-code-installation.html#cb155-31"></a>  <span class="ex">bioformats-pack.zip</span> found locally</span>
-<span id="cb155-32"><a href="source-code-installation.html#cb155-32"></a>  <span class="ex">libmbgl-linux-64-large.a</span> found locally</span>
-<span id="cb155-33"><a href="source-code-installation.html#cb155-33"></a>  <span class="ex">feature_extractors.zip</span> found locally</span>
-<span id="cb155-34"><a href="source-code-installation.html#cb155-34"></a>  <span class="ex">ImarisConvert.tar.gz</span> found locally</span>
-<span id="cb155-35"><a href="source-code-installation.html#cb155-35"></a>  <span class="ex">opencv-2.4.6.zip</span> found locally</span>
-<span id="cb155-36"><a href="source-code-installation.html#cb155-36"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_dependencies at 0x7f9533ffad70<span class="op">&gt;</span></span>
-<span id="cb155-37"><a href="source-code-installation.html#cb155-37"></a>  <span class="ex">2.4.3</span></span>
-<span id="cb155-38"><a href="source-code-installation.html#cb155-38"></a></span>
-<span id="cb155-39"><a href="source-code-installation.html#cb155-39"></a>  <span class="ex">Found</span> imgcnv version 2.4.3</span>
-<span id="cb155-40"><a href="source-code-installation.html#cb155-40"></a></span>
-<span id="cb155-41"><a href="source-code-installation.html#cb155-41"></a></span>
-<span id="cb155-42"><a href="source-code-installation.html#cb155-42"></a>  <span class="ex">Imgcnv</span> is installed and no-precompiled version exists. Using installed version</span>
-<span id="cb155-43"><a href="source-code-installation.html#cb155-43"></a>  <span class="ex">ImarisConvert</span> is up to date</span>
-<span id="cb155-44"><a href="source-code-installation.html#cb155-44"></a>  <span class="ex">No</span> pre-compiled version of openslide exists for your system</span>
-<span id="cb155-45"><a href="source-code-installation.html#cb155-45"></a>  <span class="ex">Please</span> visit our mailing list https://groups.google.com/forum/#!forum/bisque-bioimage for help</span>
-<span id="cb155-46"><a href="source-code-installation.html#cb155-46"></a>  <span class="ex">Bioformats</span> is up to date</span>
-<span id="cb155-47"><a href="source-code-installation.html#cb155-47"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_features at 0x7f9533ffb050<span class="op">&gt;</span></span>
-<span id="cb155-48"><a href="source-code-installation.html#cb155-48"></a>  <span class="ex">Install</span> feature extractors (Feature Server) [<span class="ex">Y</span>]? </span>
-<span id="cb155-49"><a href="source-code-installation.html#cb155-49"></a>  <span class="ex">Unpacking</span> ./external/feature_extractors.zip into ./bqfeature/bq</span>
-<span id="cb155-50"><a href="source-code-installation.html#cb155-50"></a>  <span class="ex">Install</span> source code for feature extractors [N]? </span>
-<span id="cb155-51"><a href="source-code-installation.html#cb155-51"></a>  <span class="ex">To</span> enable the feature service to read OME-bigtiff for feature extraction install</span>
-<span id="cb155-52"><a href="source-code-installation.html#cb155-52"></a>          <span class="ex">libtiff4</span></span>
-<span id="cb155-53"><a href="source-code-installation.html#cb155-53"></a>          <span class="ex">For</span> Debian use the command apt-get install libtiff5-dev</span>
-<span id="cb155-54"><a href="source-code-installation.html#cb155-54"></a>          </span>
-<span id="cb155-55"><a href="source-code-installation.html#cb155-55"></a>  <span class="ex">Install</span> OpenCV-2.4.6 [Y]? </span>
-<span id="cb155-56"><a href="source-code-installation.html#cb155-56"></a>  <span class="ex">Extracted</span> opencv-2.4.6/python2.7/cv.py -<span class="op">&gt;</span> /home/rahul/.virtualenvs/bqdev/lib/python2.7/site-packages/cv.py</span>
-<span id="cb155-57"><a href="source-code-installation.html#cb155-57"></a>  <span class="ex">Extracted</span> opencv-2.4.6/python2.7/cv2.so -<span class="op">&gt;</span> /home/rahul/.virtualenvs/bqdev/lib/python2.7/site-packages/cv2.so</span>
-<span id="cb155-58"><a href="source-code-installation.html#cb155-58"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_plugins at 0x7f9533ff9b18<span class="op">&gt;</span></span>
-<span id="cb155-59"><a href="source-code-installation.html#cb155-59"></a>  <span class="ex">Try</span> to install plugins [Y]? </span>
-<span id="cb155-60"><a href="source-code-installation.html#cb155-60"></a>  <span class="ex">INFO</span> <span class="st">&#39;svn&#39;</span>not found: cannot fetch source repositories with svn </span>
-<span id="cb155-61"><a href="source-code-installation.html#cb155-61"></a>  <span class="ex">INSTALL</span> PLGINS  [<span class="st">&#39;./plugins&#39;</span>]</span>
-<span id="cb155-62"><a href="source-code-installation.html#cb155-62"></a>  <span class="ex">Checking</span> ./plugins for modules</span>
-<span id="cb155-63"><a href="source-code-installation.html#cb155-63"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_public_static at 0x7f9533ffa848<span class="op">&gt;</span></span>
-<span id="cb155-64"><a href="source-code-installation.html#cb155-64"></a>  <span class="ex">Deploy</span> all static resources to public directory [Y]? </span>
-<span id="cb155-65"><a href="source-code-installation.html#cb155-65"></a>  <span class="ex">Creating</span> ./public</span>
-<span id="cb155-66"><a href="source-code-installation.html#cb155-66"></a>  <span class="ex">INFO</span>:bq.image_service.server:Available converters: openslide (1.1.1), <span class="ex">imgcnv</span> (2.4.3), <span class="ex">ImarisConvert</span> (8.0.2), <span class="ex">bioformats</span> (5.1.1)</span>
-<span id="cb155-67"><a href="source-code-installation.html#cb155-67"></a>  <span class="ex">Problem</span> loading registration = bq.registration.controllers.registration_service: <span class="st">&#39;User&#39;</span></span>
-<span id="cb155-68"><a href="source-code-installation.html#cb155-68"></a></span>
-<span id="cb155-69"><a href="source-code-installation.html#cb155-69"></a>  <span class="ex">Generating</span> packaged JS and CSS files</span>
-<span id="cb155-70"><a href="source-code-installation.html#cb155-70"></a></span>
-<span id="cb155-71"><a href="source-code-installation.html#cb155-71"></a>  <span class="ex">INFO</span>:minimatic:Combined -<span class="op">&gt;</span> ./public/core/css/all_css.css:</span>
-<span id="cb155-72"><a href="source-code-installation.html#cb155-72"></a>  <span class="ex">INFO</span>:minimatic:Combined -<span class="op">&gt;</span> ./public/core/js/all_js.js:</span>
-<span id="cb155-73"><a href="source-code-installation.html#cb155-73"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_server_defaults at 0x7f9533ffa410<span class="op">&gt;</span></span>
-<span id="cb155-74"><a href="source-code-installation.html#cb155-74"></a>  <span class="ex">Server</span> config</span>
-<span id="cb155-75"><a href="source-code-installation.html#cb155-75"></a>  <span class="ex">Top</span> level site variables are:</span>
-<span id="cb155-76"><a href="source-code-installation.html#cb155-76"></a>    <span class="ex">bisque.admin_email</span>=YourEmail@YourOrganization</span>
-<span id="cb155-77"><a href="source-code-installation.html#cb155-77"></a>    <span class="ex">bisque.admin_id</span>=admin</span>
-<span id="cb155-78"><a href="source-code-installation.html#cb155-78"></a>    <span class="ex">bisque.organization</span>=Your Organization</span>
-<span id="cb155-79"><a href="source-code-installation.html#cb155-79"></a>    <span class="ex">bisque.paths.root</span>=.</span>
-<span id="cb155-80"><a href="source-code-installation.html#cb155-80"></a>    <span class="ex">bisque.server</span>=http://0.0.0.0:8088</span>
-<span id="cb155-81"><a href="source-code-installation.html#cb155-81"></a>    <span class="ex">bisque.title</span>=Image Repository</span>
-<span id="cb155-82"><a href="source-code-installation.html#cb155-82"></a>  <span class="ex">Change</span> a site variable [N]? Y</span>
-<span id="cb155-83"><a href="source-code-installation.html#cb155-83"></a>  <span class="ex">Enter</span> the root URL of the server  [http://0.0.0.0:8088]? http://loup.ece.ucsb.edu:8080</span>
-<span id="cb155-84"><a href="source-code-installation.html#cb155-84"></a>  <span class="ex">Your</span> real name  administrator account []? </span>
-<span id="cb155-85"><a href="source-code-installation.html#cb155-85"></a>  <span class="ex">A</span> login ID for the administrator account [admin]? </span>
-<span id="cb155-86"><a href="source-code-installation.html#cb155-86"></a>  <span class="ex">An</span> email for the administrator [YourEmail@YourOrganization]? </span>
-<span id="cb155-87"><a href="source-code-installation.html#cb155-87"></a>  <span class="ex">A</span> small organization title for the main page [Your Organization]? </span>
-<span id="cb155-88"><a href="source-code-installation.html#cb155-88"></a>  <span class="ex">The</span> main title for the web page header [Image Repository]? </span>
-<span id="cb155-89"><a href="source-code-installation.html#cb155-89"></a>  <span class="ex">Installation</span> Directory [.]? </span>
-<span id="cb155-90"><a href="source-code-installation.html#cb155-90"></a>  <span class="ex">Do</span> you want to create new server configuations [Y]? </span>
-<span id="cb155-91"><a href="source-code-installation.html#cb155-91"></a>  {<span class="st">&#39;backend&#39;</span>: <span class="st">&#39;paster&#39;</span>,</span>
-<span id="cb155-92"><a href="source-code-installation.html#cb155-92"></a>  <span class="st">&#39;e1.bisque.has_database&#39;</span>: <span class="st">&#39;false&#39;</span>,</span>
-<span id="cb155-93"><a href="source-code-installation.html#cb155-93"></a>  <span class="st">&#39;e1.bisque.static_files&#39;</span>: <span class="st">&#39;false&#39;</span>,</span>
-<span id="cb155-94"><a href="source-code-installation.html#cb155-94"></a>  <span class="st">&#39;e1.services_enabled&#39;</span>: <span class="st">&#39;engine_service&#39;</span>,</span>
-<span id="cb155-95"><a href="source-code-installation.html#cb155-95"></a>  <span class="st">&#39;e1.url&#39;</span>: <span class="st">&#39;http://0.0.0.0:27000&#39;</span>,</span>
-<span id="cb155-96"><a href="source-code-installation.html#cb155-96"></a>  <span class="st">&#39;h1.bisque.static_files&#39;</span>: <span class="st">&#39;true&#39;</span>,</span>
-<span id="cb155-97"><a href="source-code-installation.html#cb155-97"></a>  <span class="st">&#39;h1.services_disabled&#39;</span>: <span class="st">&#39;&#39;</span>,</span>
-<span id="cb155-98"><a href="source-code-installation.html#cb155-98"></a>  <span class="st">&#39;h1.services_enabled&#39;</span>: <span class="st">&#39;&#39;</span>,</span>
-<span id="cb155-99"><a href="source-code-installation.html#cb155-99"></a>  <span class="st">&#39;h1.url&#39;</span>: <span class="st">&#39;http://0.0.0.0:8088&#39;</span>,</span>
-<span id="cb155-100"><a href="source-code-installation.html#cb155-100"></a>  <span class="st">&#39;servers&#39;</span>: <span class="st">&#39;h1&#39;</span>}</span>
-<span id="cb155-101"><a href="source-code-installation.html#cb155-101"></a>  <span class="ex">The</span> server agent for bisque [paster]? </span>
-<span id="cb155-102"><a href="source-code-installation.html#cb155-102"></a>  <span class="ex">list</span> of server entries to be configured [h1]? </span>
-<span id="cb155-103"><a href="source-code-installation.html#cb155-103"></a>  <span class="ex">Install</span> (update) <span class="ex">paster</span> configs (application server and configs) [<span class="ex">Y</span>]? </span>
-<span id="cb155-104"><a href="source-code-installation.html#cb155-104"></a>  <span class="ex">PARAMS</span> {<span class="st">&#39;h1.bisque.static_files&#39;</span>: <span class="st">&#39;true&#39;</span>, <span class="st">&#39;h1.services_enabled&#39;</span>: <span class="st">&#39;&#39;</span>, <span class="st">&#39;e1.bisque.has_database&#39;</span>: <span class="st">&#39;false&#39;</span>, <span class="st">&#39;h1.url&#39;</span>: <span class="st">&#39;http://0.0.0.0:8088&#39;</span>, <span class="st">&#39;servers&#39;</span>: <span class="st">&#39;h1&#39;</span>, <span class="st">&#39;h1.services_disabled&#39;</span>: <span class="st">&#39;&#39;</span>, <span class="st">&#39;e1.url&#39;</span>: <span class="st">&#39;http://0.0.0.0:27000&#39;</span>, <span class="st">&#39;e1.bisque.static_files&#39;</span>: <span class="st">&#39;false&#39;</span>, <span class="st">&#39;e1.services_enabled&#39;</span>: <span class="st">&#39;engine_service&#39;</span>, <span class="st">&#39;backend&#39;</span>: <span class="st">&#39;paster&#39;</span>}</span>
-<span id="cb155-105"><a href="source-code-installation.html#cb155-105"></a>  <span class="ex">h1</span>: the url of the server [http://0.0.0.0:8088]? http://loup.ece.ucsb.edu:8080</span>
-<span id="cb155-106"><a href="source-code-installation.html#cb155-106"></a>  <span class="ex">h1</span>: Services enabled []? </span>
-<span id="cb155-107"><a href="source-code-installation.html#cb155-107"></a>  <span class="ex">h1</span>: Services disabled []? </span>
-<span id="cb155-108"><a href="source-code-installation.html#cb155-108"></a>  <span class="ex">Created</span> paster config:  ./config/h1_paster.cfg</span>
-<span id="cb155-109"><a href="source-code-installation.html#cb155-109"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_mail at 0x7f9533ffa758<span class="op">&gt;</span></span>
-<span id="cb155-110"><a href="source-code-installation.html#cb155-110"></a>  <span class="ex">Enable</span> mail delivery [Y]? N</span>
-<span id="cb155-111"><a href="source-code-installation.html#cb155-111"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_secrets at 0x7f9533ffa8c0<span class="op">&gt;</span></span>
-<span id="cb155-112"><a href="source-code-installation.html#cb155-112"></a>  <span class="ex">Encrypt</span> cookies with secret phrase [CEMWOJ65]? </span>
-<span id="cb155-113"><a href="source-code-installation.html#cb155-113"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_database at 0x7f9533ff9578<span class="op">&gt;</span></span>
-<span id="cb155-114"><a href="source-code-installation.html#cb155-114"></a>  <span class="ex">A</span> database URI [sqlite:///data/bisque.db]? </span>
-<span id="cb155-115"><a href="source-code-installation.html#cb155-115"></a>  <span class="ex">Trying</span> to import driver sqlite3...</span>
-<span id="cb155-116"><a href="source-code-installation.html#cb155-116"></a>  <span class="ex">Driver</span> successfully imported.</span>
-<span id="cb155-117"><a href="source-code-installation.html#cb155-117"></a>  <span class="ex">Create</span> and initialize database [Y]? </span>
-<span id="cb155-118"><a href="source-code-installation.html#cb155-118"></a>  <span class="ex">A</span> database URI [sqlite:///data/bisque.db]? </span>
-<span id="cb155-119"><a href="source-code-installation.html#cb155-119"></a>  <span class="ex">Checking</span> whether database <span class="st">&quot;data/bisque.db&quot;</span> already exists...</span>
-<span id="cb155-120"><a href="source-code-installation.html#cb155-120"></a>  <span class="ex">Yes</span>, it exists.</span>
-<span id="cb155-121"><a href="source-code-installation.html#cb155-121"></a>  <span class="ex">Upgrading</span> database version (alembic)</span>
-<span id="cb155-122"><a href="source-code-installation.html#cb155-122"></a>  <span class="ex">INFO</span>  [alembic.migration] Context impl SQLiteImpl.</span>
-<span id="cb155-123"><a href="source-code-installation.html#cb155-123"></a>  <span class="ex">INFO</span>  [alembic.migration] Will assume non-transactional DDL.</span>
-<span id="cb155-124"><a href="source-code-installation.html#cb155-124"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_preferences at 0x7f9533ffa7d0<span class="op">&gt;</span></span>
-<span id="cb155-125"><a href="source-code-installation.html#cb155-125"></a>  <span class="ex">Initialize</span> Preferences  [Y]? </span>
-<span id="cb155-126"><a href="source-code-installation.html#cb155-126"></a>  <span class="ex">Force</span> initialization  [N]? </span>
-<span id="cb155-127"><a href="source-code-installation.html#cb155-127"></a>  <span class="ex">INFO</span>:bq.config:DATABASE sqlite:///data/bisque.db</span>
-<span id="cb155-128"><a href="source-code-installation.html#cb155-128"></a>  <span class="ex">INFO</span>:bq.config:SQLLite special handling NullPool timoout</span>
-<span id="cb155-129"><a href="source-code-installation.html#cb155-129"></a>  <span class="ex">INFO</span>:bq.image_service.server:Available converters: openslide (1.1.1), <span class="ex">imgcnv</span> (2.4.3), <span class="ex">ImarisConvert</span> (8.0.2), <span class="ex">bioformats</span> (5.1.1)</span>
-<span id="cb155-130"><a href="source-code-installation.html#cb155-130"></a>  <span class="ex">INFO</span>:bq.blobs.mounts:Loaded drivers OrderedDict([(<span class="st">&#39;local&#39;</span>, {<span class="st">&#39;top&#39;</span>: <span class="st">&#39;file://$datadir/imagedir/&#39;</span>, <span class="st">&#39;mounturl&#39;</span>: <span class="st">&#39;file://$datadir/imagedir/$user/&#39;</span>})])</span>
-<span id="cb155-131"><a href="source-code-installation.html#cb155-131"></a>  <span class="ex">WARNING</span>:bq.blobs.mounts:SQLITE does not support subtransactions: some mount service operations will fail</span>
-<span id="cb155-132"><a href="source-code-installation.html#cb155-132"></a>  <span class="ex">INFO</span>:bq.blobs.plugins:Resource plugins: [<span class="st">&#39;(bisque_pipeline, bq)&#39;</span>, <span class="st">&#39;(cellprofiler_pipeline, cppipe)&#39;</span>, <span class="st">&#39;(cellprofiler_pipeline, cp)&#39;</span>, <span class="st">&#39;(dream3d_pipeline, json)&#39;</span>, <span class="st">&#39;(imagej_pipeline, ijm)&#39;</span>, <span class="st">&#39;(text, asc)&#39;</span>, <span class="st">&#39;(text, ascii)&#39;</span>, <span class="st">&#39;(text, zw)&#39;</span>, <span class="st">&#39;(text, hz)&#39;</span>, <span class="st">&#39;(text, txt)&#39;</span>, <span class="st">&#39;(text, utxt)&#39;</span>, <span class="st">&#39;(text, utf8)&#39;</span>, <span class="st">&#39;(table, csv)&#39;</span>, <span class="st">&#39;(table, hdf)&#39;</span>, <span class="st">&#39;(table, hdf5)&#39;</span>, <span class="st">&#39;(table, h5)&#39;</span>, <span class="st">&#39;(table, he5)&#39;</span>, <span class="st">&#39;(table, h5ebsd)&#39;</span>, <span class="st">&#39;(table, dream3d)&#39;</span>, <span class="st">&#39;(table, csv)&#39;</span>, <span class="st">&#39;(table, xls)&#39;</span>, <span class="st">&#39;(table, xlsx)&#39;</span>]</span>
-<span id="cb155-133"><a href="source-code-installation.html#cb155-133"></a>  <span class="ex">WARNING</span>:bq.service:Following service were not found: set([<span class="st">&#39;mnt&#39;</span>])</span>
-<span id="cb155-134"><a href="source-code-installation.html#cb155-134"></a>  <span class="ex">/home/rahul/.virtualenvs/bqdev/local/lib/python2.7/site-packages/sqlalchemy/sql</span>/sqltypes.py:<span class="ex">226</span>: SAWarning: Unicode type received non-unicode bind param value <span class="st">&#39;system&#39;</span>. (this warning may be suppressed after 10 occurrences)</span>
-<span id="cb155-135"><a href="source-code-installation.html#cb155-135"></a>    <span class="kw">(</span><span class="ex">util.ellipses_string</span>(value<span class="kw">)</span>,))</span>
-<span id="cb155-136"><a href="source-code-installation.html#cb155-136"></a>  <span class="ex">NO</span> ACTION: System object initialized at <span class="op">&lt;</span>system created=<span class="st">&quot;2019-02-04T10:51:57.823907&quot;</span> name=<span class="st">&quot;system&quot;</span> owner=<span class="st">&quot;http://localhost/data_service/00-2jimYQLLjB3yy3HuTwQM5c&quot;</span> permission=<span class="st">&quot;published&quot;</span> resource_uniq=<span class="st">&quot;00-UAZfWJYjDKp4yhabV3PP7S&quot;</span> ts=<span class="st">&quot;2019-02-04T10:51:57.823907&quot;</span> uri=<span class="st">&quot;http://localhost/data_service/00-UAZfWJYjDKp4yhabV3PP7S&quot;</span>/<span class="op">&gt;</span> </span>
-<span id="cb155-137"><a href="source-code-installation.html#cb155-137"></a>  <span class="ex">Problem</span> initializing preferences.. please use bq-admin preferences</span>
-<span id="cb155-138"><a href="source-code-installation.html#cb155-138"></a></span>
-<span id="cb155-139"><a href="source-code-installation.html#cb155-139"></a>  <span class="ex">Initialize</span> your database with:</span>
-<span id="cb155-140"><a href="source-code-installation.html#cb155-140"></a>    $ <span class="ex">bq-admin</span> setup createdb</span>
-<span id="cb155-141"><a href="source-code-installation.html#cb155-141"></a></span>
-<span id="cb155-142"><a href="source-code-installation.html#cb155-142"></a>  <span class="ex">You</span> can start bisque with:</span>
-<span id="cb155-143"><a href="source-code-installation.html#cb155-143"></a>    $ <span class="ex">bq-admin</span> server start</span>
-<span id="cb155-144"><a href="source-code-installation.html#cb155-144"></a>  <span class="kw">then</span> <span class="ex">point</span> your browser to:</span>
-<span id="cb155-145"><a href="source-code-installation.html#cb155-145"></a>      <span class="ex">http</span>://loup.ece.ucsb.edu:8080</span>
-<span id="cb155-146"><a href="source-code-installation.html#cb155-146"></a>  <span class="ex">If</span> you need to shutdown the servers, then use:</span>
-<span id="cb155-147"><a href="source-code-installation.html#cb155-147"></a>    $ <span class="ex">bq-admin</span> server stop</span>
-<span id="cb155-148"><a href="source-code-installation.html#cb155-148"></a>  <span class="ex">You</span> can login as admin and change the default password.</span>
-<span id="cb155-149"><a href="source-code-installation.html#cb155-149"></a></span>
-<span id="cb155-150"><a href="source-code-installation.html#cb155-150"></a>  <span class="ex">Send</span> Installation/Registration report [Y]? N</span>
-<span id="cb155-151"><a href="source-code-installation.html#cb155-151"></a>  <span class="kw">(</span><span class="ex">bqdev</span><span class="kw">)</span> <span class="ex">rahul@loup</span>:~/repository/github/bisque$ </span>
-<span id="cb155-152"><a href="source-code-installation.html#cb155-152"></a></span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb176-1"><a href="source-code-installation.html#cb176-1"></a>  <span class="kw">(</span><span class="ex">bqdev</span><span class="kw">)</span> <span class="ex">rahul@loup</span>:~/repository/github/bisque$ bq-admin setup </span>
+<span id="cb176-2"><a href="source-code-installation.html#cb176-2"></a>  <span class="ex">INFO</span>:root:Generating grammar tables from /usr/lib/python2.7/lib2to3/Grammar.txt</span>
+<span id="cb176-3"><a href="source-code-installation.html#cb176-3"></a>  <span class="ex">INFO</span>:root:Generating grammar tables from /usr/lib/python2.7/lib2to3/PatternGrammar.txt</span>
+<span id="cb176-4"><a href="source-code-installation.html#cb176-4"></a>  <span class="ex">Developer</span> installation</span>
+<span id="cb176-5"><a href="source-code-installation.html#cb176-5"></a>  <span class="ex">DIRS</span>:  {<span class="st">&#39;bin&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev/bin&#39;</span>, <span class="st">&#39;run&#39;</span>: <span class="st">&#39;.&#39;</span>, <span class="st">&#39;share&#39;</span>: <span class="st">&#39;.&#39;</span>, <span class="st">&#39;plugins&#39;</span>: <span class="st">&#39;./plugins&#39;</span>, <span class="st">&#39;packages&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev/lib/python2.7/site-packages&#39;</span>, <span class="st">&#39;data&#39;</span>: <span class="st">&#39;./data&#39;</span>, <span class="st">&#39;virtualenv&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev&#39;</span>, <span class="st">&#39;default&#39;</span>: <span class="st">&#39;./config-defaults&#39;</span>, <span class="st">&#39;jslocation&#39;</span>: <span class="st">&#39;bqcore&#39;</span>, <span class="st">&#39;modules&#39;</span>: <span class="st">&#39;./modules&#39;</span>, <span class="st">&#39;depot&#39;</span>: <span class="st">&#39;./external&#39;</span>, <span class="st">&#39;config&#39;</span>: <span class="st">&#39;./config&#39;</span>, <span class="st">&#39;public&#39;</span>: <span class="st">&#39;./public&#39;</span>}</span>
+<span id="cb176-6"><a href="source-code-installation.html#cb176-6"></a>  <span class="ex">INFO</span>:root:Generating grammar tables from /usr/lib/python2.7/lib2to3/Grammar.txt</span>
+<span id="cb176-7"><a href="source-code-installation.html#cb176-7"></a>  <span class="ex">INFO</span>:root:Generating grammar tables from /usr/lib/python2.7/lib2to3/PatternGrammar.txt</span>
+<span id="cb176-8"><a href="source-code-installation.html#cb176-8"></a>  <span class="ex">Developer</span> installation</span>
+<span id="cb176-9"><a href="source-code-installation.html#cb176-9"></a>  <span class="ex">DIRS</span>:  {<span class="st">&#39;bin&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev/bin&#39;</span>, <span class="st">&#39;run&#39;</span>: <span class="st">&#39;.&#39;</span>, <span class="st">&#39;share&#39;</span>: <span class="st">&#39;.&#39;</span>, <span class="st">&#39;plugins&#39;</span>: <span class="st">&#39;./plugins&#39;</span>, <span class="st">&#39;packages&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev/lib/python2.7/site-packages&#39;</span>, <span class="st">&#39;data&#39;</span>: <span class="st">&#39;./data&#39;</span>, <span class="st">&#39;virtualenv&#39;</span>: <span class="st">&#39;/home/rahul/.virtualenvs/bqdev&#39;</span>, <span class="st">&#39;default&#39;</span>: <span class="st">&#39;./config-defaults&#39;</span>, <span class="st">&#39;jslocation&#39;</span>: <span class="st">&#39;bqcore&#39;</span>, <span class="st">&#39;modules&#39;</span>: <span class="st">&#39;./modules&#39;</span>, <span class="st">&#39;depot&#39;</span>: <span class="st">&#39;./external&#39;</span>, <span class="st">&#39;config&#39;</span>: <span class="st">&#39;./config&#39;</span>, <span class="st">&#39;public&#39;</span>: <span class="st">&#39;./public&#39;</span>}</span>
+<span id="cb176-10"><a href="source-code-installation.html#cb176-10"></a>  <span class="ex">This</span> is the main installer for Bisque</span>
+<span id="cb176-11"><a href="source-code-installation.html#cb176-11"></a></span>
+<span id="cb176-12"><a href="source-code-installation.html#cb176-12"></a>      <span class="ex">The</span> system will initialize and be ready for use after a succesfull</span>
+<span id="cb176-13"><a href="source-code-installation.html#cb176-13"></a>      <span class="ex">setup</span> has completed.</span>
+<span id="cb176-14"><a href="source-code-installation.html#cb176-14"></a></span>
+<span id="cb176-15"><a href="source-code-installation.html#cb176-15"></a>      <span class="ex">Several</span> questions must be answered to complete the install.  Each</span>
+<span id="cb176-16"><a href="source-code-installation.html#cb176-16"></a>      <span class="ex">question</span> is presented with default in brackets [].  Pressing</span>
+<span id="cb176-17"><a href="source-code-installation.html#cb176-17"></a>      <span class="op">&lt;</span><span class="ex">enter</span><span class="op">&gt;</span> means that you are accepting the default value. You may</span>
+<span id="cb176-18"><a href="source-code-installation.html#cb176-18"></a>      <span class="ex">request</span> more information by responding with single <span class="st">&#39;?&#39;</span> and then <span class="op">&lt;</span>enter<span class="op">&gt;</span>.</span>
+<span id="cb176-19"><a href="source-code-installation.html#cb176-19"></a></span>
+<span id="cb176-20"><a href="source-code-installation.html#cb176-20"></a>      <span class="ex">For</span> example:</span>
+<span id="cb176-21"><a href="source-code-installation.html#cb176-21"></a>      <span class="ex">What</span> is postal abbreviation of Alaska [AK]?</span>
+<span id="cb176-22"><a href="source-code-installation.html#cb176-22"></a></span>
+<span id="cb176-23"><a href="source-code-installation.html#cb176-23"></a>      <span class="ex">The</span> default answer is AK and is chosen by simply entering <span class="op">&lt;</span>enter<span class="op">&gt;</span></span>
+<span id="cb176-24"><a href="source-code-installation.html#cb176-24"></a></span>
+<span id="cb176-25"><a href="source-code-installation.html#cb176-25"></a>      </span>
+<span id="cb176-26"><a href="source-code-installation.html#cb176-26"></a>  <span class="ex">Beginning</span> install of [<span class="st">&#39;bisque&#39;</span>, <span class="st">&#39;engine&#39;</span>] with [<span class="st">&#39;server&#39;</span>] </span>
+<span id="cb176-27"><a href="source-code-installation.html#cb176-27"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_external_binaries at 0x7f9533ffac08<span class="op">&gt;</span></span>
+<span id="cb176-28"><a href="source-code-installation.html#cb176-28"></a>  <span class="ex">Fetch</span> external binary files from Bisque development server [Y]? Y</span>
+<span id="cb176-29"><a href="source-code-installation.html#cb176-29"></a>  <span class="ex">Matched</span> section Linux-64bit-*</span>
+<span id="cb176-30"><a href="source-code-installation.html#cb176-30"></a>  <span class="ex">extjs.zip</span> found locally</span>
+<span id="cb176-31"><a href="source-code-installation.html#cb176-31"></a>  <span class="ex">bioformats-pack.zip</span> found locally</span>
+<span id="cb176-32"><a href="source-code-installation.html#cb176-32"></a>  <span class="ex">libmbgl-linux-64-large.a</span> found locally</span>
+<span id="cb176-33"><a href="source-code-installation.html#cb176-33"></a>  <span class="ex">feature_extractors.zip</span> found locally</span>
+<span id="cb176-34"><a href="source-code-installation.html#cb176-34"></a>  <span class="ex">ImarisConvert.tar.gz</span> found locally</span>
+<span id="cb176-35"><a href="source-code-installation.html#cb176-35"></a>  <span class="ex">opencv-2.4.6.zip</span> found locally</span>
+<span id="cb176-36"><a href="source-code-installation.html#cb176-36"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_dependencies at 0x7f9533ffad70<span class="op">&gt;</span></span>
+<span id="cb176-37"><a href="source-code-installation.html#cb176-37"></a>  <span class="ex">2.4.3</span></span>
+<span id="cb176-38"><a href="source-code-installation.html#cb176-38"></a></span>
+<span id="cb176-39"><a href="source-code-installation.html#cb176-39"></a>  <span class="ex">Found</span> imgcnv version 2.4.3</span>
+<span id="cb176-40"><a href="source-code-installation.html#cb176-40"></a></span>
+<span id="cb176-41"><a href="source-code-installation.html#cb176-41"></a></span>
+<span id="cb176-42"><a href="source-code-installation.html#cb176-42"></a>  <span class="ex">Imgcnv</span> is installed and no-precompiled version exists. Using installed version</span>
+<span id="cb176-43"><a href="source-code-installation.html#cb176-43"></a>  <span class="ex">ImarisConvert</span> is up to date</span>
+<span id="cb176-44"><a href="source-code-installation.html#cb176-44"></a>  <span class="ex">No</span> pre-compiled version of openslide exists for your system</span>
+<span id="cb176-45"><a href="source-code-installation.html#cb176-45"></a>  <span class="ex">Please</span> visit our mailing list https://groups.google.com/forum/#!forum/bisque-bioimage for help</span>
+<span id="cb176-46"><a href="source-code-installation.html#cb176-46"></a>  <span class="ex">Bioformats</span> is up to date</span>
+<span id="cb176-47"><a href="source-code-installation.html#cb176-47"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_features at 0x7f9533ffb050<span class="op">&gt;</span></span>
+<span id="cb176-48"><a href="source-code-installation.html#cb176-48"></a>  <span class="ex">Install</span> feature extractors (Feature Server) [<span class="ex">Y</span>]? </span>
+<span id="cb176-49"><a href="source-code-installation.html#cb176-49"></a>  <span class="ex">Unpacking</span> ./external/feature_extractors.zip into ./bqfeature/bq</span>
+<span id="cb176-50"><a href="source-code-installation.html#cb176-50"></a>  <span class="ex">Install</span> source code for feature extractors [N]? </span>
+<span id="cb176-51"><a href="source-code-installation.html#cb176-51"></a>  <span class="ex">To</span> enable the feature service to read OME-bigtiff for feature extraction install</span>
+<span id="cb176-52"><a href="source-code-installation.html#cb176-52"></a>          <span class="ex">libtiff4</span></span>
+<span id="cb176-53"><a href="source-code-installation.html#cb176-53"></a>          <span class="ex">For</span> Debian use the command apt-get install libtiff5-dev</span>
+<span id="cb176-54"><a href="source-code-installation.html#cb176-54"></a>          </span>
+<span id="cb176-55"><a href="source-code-installation.html#cb176-55"></a>  <span class="ex">Install</span> OpenCV-2.4.6 [Y]? </span>
+<span id="cb176-56"><a href="source-code-installation.html#cb176-56"></a>  <span class="ex">Extracted</span> opencv-2.4.6/python2.7/cv.py -<span class="op">&gt;</span> /home/rahul/.virtualenvs/bqdev/lib/python2.7/site-packages/cv.py</span>
+<span id="cb176-57"><a href="source-code-installation.html#cb176-57"></a>  <span class="ex">Extracted</span> opencv-2.4.6/python2.7/cv2.so -<span class="op">&gt;</span> /home/rahul/.virtualenvs/bqdev/lib/python2.7/site-packages/cv2.so</span>
+<span id="cb176-58"><a href="source-code-installation.html#cb176-58"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_plugins at 0x7f9533ff9b18<span class="op">&gt;</span></span>
+<span id="cb176-59"><a href="source-code-installation.html#cb176-59"></a>  <span class="ex">Try</span> to install plugins [Y]? </span>
+<span id="cb176-60"><a href="source-code-installation.html#cb176-60"></a>  <span class="ex">INFO</span> <span class="st">&#39;svn&#39;</span>not found: cannot fetch source repositories with svn </span>
+<span id="cb176-61"><a href="source-code-installation.html#cb176-61"></a>  <span class="ex">INSTALL</span> PLGINS  [<span class="st">&#39;./plugins&#39;</span>]</span>
+<span id="cb176-62"><a href="source-code-installation.html#cb176-62"></a>  <span class="ex">Checking</span> ./plugins for modules</span>
+<span id="cb176-63"><a href="source-code-installation.html#cb176-63"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_public_static at 0x7f9533ffa848<span class="op">&gt;</span></span>
+<span id="cb176-64"><a href="source-code-installation.html#cb176-64"></a>  <span class="ex">Deploy</span> all static resources to public directory [Y]? </span>
+<span id="cb176-65"><a href="source-code-installation.html#cb176-65"></a>  <span class="ex">Creating</span> ./public</span>
+<span id="cb176-66"><a href="source-code-installation.html#cb176-66"></a>  <span class="ex">INFO</span>:bq.image_service.server:Available converters: openslide (1.1.1), <span class="ex">imgcnv</span> (2.4.3), <span class="ex">ImarisConvert</span> (8.0.2), <span class="ex">bioformats</span> (5.1.1)</span>
+<span id="cb176-67"><a href="source-code-installation.html#cb176-67"></a>  <span class="ex">Problem</span> loading registration = bq.registration.controllers.registration_service: <span class="st">&#39;User&#39;</span></span>
+<span id="cb176-68"><a href="source-code-installation.html#cb176-68"></a></span>
+<span id="cb176-69"><a href="source-code-installation.html#cb176-69"></a>  <span class="ex">Generating</span> packaged JS and CSS files</span>
+<span id="cb176-70"><a href="source-code-installation.html#cb176-70"></a></span>
+<span id="cb176-71"><a href="source-code-installation.html#cb176-71"></a>  <span class="ex">INFO</span>:minimatic:Combined -<span class="op">&gt;</span> ./public/core/css/all_css.css:</span>
+<span id="cb176-72"><a href="source-code-installation.html#cb176-72"></a>  <span class="ex">INFO</span>:minimatic:Combined -<span class="op">&gt;</span> ./public/core/js/all_js.js:</span>
+<span id="cb176-73"><a href="source-code-installation.html#cb176-73"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_server_defaults at 0x7f9533ffa410<span class="op">&gt;</span></span>
+<span id="cb176-74"><a href="source-code-installation.html#cb176-74"></a>  <span class="ex">Server</span> config</span>
+<span id="cb176-75"><a href="source-code-installation.html#cb176-75"></a>  <span class="ex">Top</span> level site variables are:</span>
+<span id="cb176-76"><a href="source-code-installation.html#cb176-76"></a>    <span class="ex">bisque.admin_email</span>=YourEmail@YourOrganization</span>
+<span id="cb176-77"><a href="source-code-installation.html#cb176-77"></a>    <span class="ex">bisque.admin_id</span>=admin</span>
+<span id="cb176-78"><a href="source-code-installation.html#cb176-78"></a>    <span class="ex">bisque.organization</span>=Your Organization</span>
+<span id="cb176-79"><a href="source-code-installation.html#cb176-79"></a>    <span class="ex">bisque.paths.root</span>=.</span>
+<span id="cb176-80"><a href="source-code-installation.html#cb176-80"></a>    <span class="ex">bisque.server</span>=http://0.0.0.0:8088</span>
+<span id="cb176-81"><a href="source-code-installation.html#cb176-81"></a>    <span class="ex">bisque.title</span>=Image Repository</span>
+<span id="cb176-82"><a href="source-code-installation.html#cb176-82"></a>  <span class="ex">Change</span> a site variable [N]? Y</span>
+<span id="cb176-83"><a href="source-code-installation.html#cb176-83"></a>  <span class="ex">Enter</span> the root URL of the server  [http://0.0.0.0:8088]? http://loup.ece.ucsb.edu:8080</span>
+<span id="cb176-84"><a href="source-code-installation.html#cb176-84"></a>  <span class="ex">Your</span> real name  administrator account []? </span>
+<span id="cb176-85"><a href="source-code-installation.html#cb176-85"></a>  <span class="ex">A</span> login ID for the administrator account [admin]? </span>
+<span id="cb176-86"><a href="source-code-installation.html#cb176-86"></a>  <span class="ex">An</span> email for the administrator [YourEmail@YourOrganization]? </span>
+<span id="cb176-87"><a href="source-code-installation.html#cb176-87"></a>  <span class="ex">A</span> small organization title for the main page [Your Organization]? </span>
+<span id="cb176-88"><a href="source-code-installation.html#cb176-88"></a>  <span class="ex">The</span> main title for the web page header [Image Repository]? </span>
+<span id="cb176-89"><a href="source-code-installation.html#cb176-89"></a>  <span class="ex">Installation</span> Directory [.]? </span>
+<span id="cb176-90"><a href="source-code-installation.html#cb176-90"></a>  <span class="ex">Do</span> you want to create new server configuations [Y]? </span>
+<span id="cb176-91"><a href="source-code-installation.html#cb176-91"></a>  {<span class="st">&#39;backend&#39;</span>: <span class="st">&#39;paster&#39;</span>,</span>
+<span id="cb176-92"><a href="source-code-installation.html#cb176-92"></a>  <span class="st">&#39;e1.bisque.has_database&#39;</span>: <span class="st">&#39;false&#39;</span>,</span>
+<span id="cb176-93"><a href="source-code-installation.html#cb176-93"></a>  <span class="st">&#39;e1.bisque.static_files&#39;</span>: <span class="st">&#39;false&#39;</span>,</span>
+<span id="cb176-94"><a href="source-code-installation.html#cb176-94"></a>  <span class="st">&#39;e1.services_enabled&#39;</span>: <span class="st">&#39;engine_service&#39;</span>,</span>
+<span id="cb176-95"><a href="source-code-installation.html#cb176-95"></a>  <span class="st">&#39;e1.url&#39;</span>: <span class="st">&#39;http://0.0.0.0:27000&#39;</span>,</span>
+<span id="cb176-96"><a href="source-code-installation.html#cb176-96"></a>  <span class="st">&#39;h1.bisque.static_files&#39;</span>: <span class="st">&#39;true&#39;</span>,</span>
+<span id="cb176-97"><a href="source-code-installation.html#cb176-97"></a>  <span class="st">&#39;h1.services_disabled&#39;</span>: <span class="st">&#39;&#39;</span>,</span>
+<span id="cb176-98"><a href="source-code-installation.html#cb176-98"></a>  <span class="st">&#39;h1.services_enabled&#39;</span>: <span class="st">&#39;&#39;</span>,</span>
+<span id="cb176-99"><a href="source-code-installation.html#cb176-99"></a>  <span class="st">&#39;h1.url&#39;</span>: <span class="st">&#39;http://0.0.0.0:8088&#39;</span>,</span>
+<span id="cb176-100"><a href="source-code-installation.html#cb176-100"></a>  <span class="st">&#39;servers&#39;</span>: <span class="st">&#39;h1&#39;</span>}</span>
+<span id="cb176-101"><a href="source-code-installation.html#cb176-101"></a>  <span class="ex">The</span> server agent for bisque [paster]? </span>
+<span id="cb176-102"><a href="source-code-installation.html#cb176-102"></a>  <span class="ex">list</span> of server entries to be configured [h1]? </span>
+<span id="cb176-103"><a href="source-code-installation.html#cb176-103"></a>  <span class="ex">Install</span> (update) <span class="ex">paster</span> configs (application server and configs) [<span class="ex">Y</span>]? </span>
+<span id="cb176-104"><a href="source-code-installation.html#cb176-104"></a>  <span class="ex">PARAMS</span> {<span class="st">&#39;h1.bisque.static_files&#39;</span>: <span class="st">&#39;true&#39;</span>, <span class="st">&#39;h1.services_enabled&#39;</span>: <span class="st">&#39;&#39;</span>, <span class="st">&#39;e1.bisque.has_database&#39;</span>: <span class="st">&#39;false&#39;</span>, <span class="st">&#39;h1.url&#39;</span>: <span class="st">&#39;http://0.0.0.0:8088&#39;</span>, <span class="st">&#39;servers&#39;</span>: <span class="st">&#39;h1&#39;</span>, <span class="st">&#39;h1.services_disabled&#39;</span>: <span class="st">&#39;&#39;</span>, <span class="st">&#39;e1.url&#39;</span>: <span class="st">&#39;http://0.0.0.0:27000&#39;</span>, <span class="st">&#39;e1.bisque.static_files&#39;</span>: <span class="st">&#39;false&#39;</span>, <span class="st">&#39;e1.services_enabled&#39;</span>: <span class="st">&#39;engine_service&#39;</span>, <span class="st">&#39;backend&#39;</span>: <span class="st">&#39;paster&#39;</span>}</span>
+<span id="cb176-105"><a href="source-code-installation.html#cb176-105"></a>  <span class="ex">h1</span>: the url of the server [http://0.0.0.0:8088]? http://loup.ece.ucsb.edu:8080</span>
+<span id="cb176-106"><a href="source-code-installation.html#cb176-106"></a>  <span class="ex">h1</span>: Services enabled []? </span>
+<span id="cb176-107"><a href="source-code-installation.html#cb176-107"></a>  <span class="ex">h1</span>: Services disabled []? </span>
+<span id="cb176-108"><a href="source-code-installation.html#cb176-108"></a>  <span class="ex">Created</span> paster config:  ./config/h1_paster.cfg</span>
+<span id="cb176-109"><a href="source-code-installation.html#cb176-109"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_mail at 0x7f9533ffa758<span class="op">&gt;</span></span>
+<span id="cb176-110"><a href="source-code-installation.html#cb176-110"></a>  <span class="ex">Enable</span> mail delivery [Y]? N</span>
+<span id="cb176-111"><a href="source-code-installation.html#cb176-111"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_secrets at 0x7f9533ffa8c0<span class="op">&gt;</span></span>
+<span id="cb176-112"><a href="source-code-installation.html#cb176-112"></a>  <span class="ex">Encrypt</span> cookies with secret phrase [CEMWOJ65]? </span>
+<span id="cb176-113"><a href="source-code-installation.html#cb176-113"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_database at 0x7f9533ff9578<span class="op">&gt;</span></span>
+<span id="cb176-114"><a href="source-code-installation.html#cb176-114"></a>  <span class="ex">A</span> database URI [sqlite:///data/bisque.db]? </span>
+<span id="cb176-115"><a href="source-code-installation.html#cb176-115"></a>  <span class="ex">Trying</span> to import driver sqlite3...</span>
+<span id="cb176-116"><a href="source-code-installation.html#cb176-116"></a>  <span class="ex">Driver</span> successfully imported.</span>
+<span id="cb176-117"><a href="source-code-installation.html#cb176-117"></a>  <span class="ex">Create</span> and initialize database [Y]? </span>
+<span id="cb176-118"><a href="source-code-installation.html#cb176-118"></a>  <span class="ex">A</span> database URI [sqlite:///data/bisque.db]? </span>
+<span id="cb176-119"><a href="source-code-installation.html#cb176-119"></a>  <span class="ex">Checking</span> whether database <span class="st">&quot;data/bisque.db&quot;</span> already exists...</span>
+<span id="cb176-120"><a href="source-code-installation.html#cb176-120"></a>  <span class="ex">Yes</span>, it exists.</span>
+<span id="cb176-121"><a href="source-code-installation.html#cb176-121"></a>  <span class="ex">Upgrading</span> database version (alembic)</span>
+<span id="cb176-122"><a href="source-code-installation.html#cb176-122"></a>  <span class="ex">INFO</span>  [alembic.migration] Context impl SQLiteImpl.</span>
+<span id="cb176-123"><a href="source-code-installation.html#cb176-123"></a>  <span class="ex">INFO</span>  [alembic.migration] Will assume non-transactional DDL.</span>
+<span id="cb176-124"><a href="source-code-installation.html#cb176-124"></a>  <span class="ex">CALLING</span>  <span class="op">&lt;</span>function install_preferences at 0x7f9533ffa7d0<span class="op">&gt;</span></span>
+<span id="cb176-125"><a href="source-code-installation.html#cb176-125"></a>  <span class="ex">Initialize</span> Preferences  [Y]? </span>
+<span id="cb176-126"><a href="source-code-installation.html#cb176-126"></a>  <span class="ex">Force</span> initialization  [N]? </span>
+<span id="cb176-127"><a href="source-code-installation.html#cb176-127"></a>  <span class="ex">INFO</span>:bq.config:DATABASE sqlite:///data/bisque.db</span>
+<span id="cb176-128"><a href="source-code-installation.html#cb176-128"></a>  <span class="ex">INFO</span>:bq.config:SQLLite special handling NullPool timoout</span>
+<span id="cb176-129"><a href="source-code-installation.html#cb176-129"></a>  <span class="ex">INFO</span>:bq.image_service.server:Available converters: openslide (1.1.1), <span class="ex">imgcnv</span> (2.4.3), <span class="ex">ImarisConvert</span> (8.0.2), <span class="ex">bioformats</span> (5.1.1)</span>
+<span id="cb176-130"><a href="source-code-installation.html#cb176-130"></a>  <span class="ex">INFO</span>:bq.blobs.mounts:Loaded drivers OrderedDict([(<span class="st">&#39;local&#39;</span>, {<span class="st">&#39;top&#39;</span>: <span class="st">&#39;file://$datadir/imagedir/&#39;</span>, <span class="st">&#39;mounturl&#39;</span>: <span class="st">&#39;file://$datadir/imagedir/$user/&#39;</span>})])</span>
+<span id="cb176-131"><a href="source-code-installation.html#cb176-131"></a>  <span class="ex">WARNING</span>:bq.blobs.mounts:SQLITE does not support subtransactions: some mount service operations will fail</span>
+<span id="cb176-132"><a href="source-code-installation.html#cb176-132"></a>  <span class="ex">INFO</span>:bq.blobs.plugins:Resource plugins: [<span class="st">&#39;(bisque_pipeline, bq)&#39;</span>, <span class="st">&#39;(cellprofiler_pipeline, cppipe)&#39;</span>, <span class="st">&#39;(cellprofiler_pipeline, cp)&#39;</span>, <span class="st">&#39;(dream3d_pipeline, json)&#39;</span>, <span class="st">&#39;(imagej_pipeline, ijm)&#39;</span>, <span class="st">&#39;(text, asc)&#39;</span>, <span class="st">&#39;(text, ascii)&#39;</span>, <span class="st">&#39;(text, zw)&#39;</span>, <span class="st">&#39;(text, hz)&#39;</span>, <span class="st">&#39;(text, txt)&#39;</span>, <span class="st">&#39;(text, utxt)&#39;</span>, <span class="st">&#39;(text, utf8)&#39;</span>, <span class="st">&#39;(table, csv)&#39;</span>, <span class="st">&#39;(table, hdf)&#39;</span>, <span class="st">&#39;(table, hdf5)&#39;</span>, <span class="st">&#39;(table, h5)&#39;</span>, <span class="st">&#39;(table, he5)&#39;</span>, <span class="st">&#39;(table, h5ebsd)&#39;</span>, <span class="st">&#39;(table, dream3d)&#39;</span>, <span class="st">&#39;(table, csv)&#39;</span>, <span class="st">&#39;(table, xls)&#39;</span>, <span class="st">&#39;(table, xlsx)&#39;</span>]</span>
+<span id="cb176-133"><a href="source-code-installation.html#cb176-133"></a>  <span class="ex">WARNING</span>:bq.service:Following service were not found: set([<span class="st">&#39;mnt&#39;</span>])</span>
+<span id="cb176-134"><a href="source-code-installation.html#cb176-134"></a>  <span class="ex">/home/rahul/.virtualenvs/bqdev/local/lib/python2.7/site-packages/sqlalchemy/sql</span>/sqltypes.py:<span class="ex">226</span>: SAWarning: Unicode type received non-unicode bind param value <span class="st">&#39;system&#39;</span>. (this warning may be suppressed after 10 occurrences)</span>
+<span id="cb176-135"><a href="source-code-installation.html#cb176-135"></a>    <span class="kw">(</span><span class="ex">util.ellipses_string</span>(value<span class="kw">)</span>,))</span>
+<span id="cb176-136"><a href="source-code-installation.html#cb176-136"></a>  <span class="ex">NO</span> ACTION: System object initialized at <span class="op">&lt;</span>system created=<span class="st">&quot;2019-02-04T10:51:57.823907&quot;</span> name=<span class="st">&quot;system&quot;</span> owner=<span class="st">&quot;http://localhost/data_service/00-2jimYQLLjB3yy3HuTwQM5c&quot;</span> permission=<span class="st">&quot;published&quot;</span> resource_uniq=<span class="st">&quot;00-UAZfWJYjDKp4yhabV3PP7S&quot;</span> ts=<span class="st">&quot;2019-02-04T10:51:57.823907&quot;</span> uri=<span class="st">&quot;http://localhost/data_service/00-UAZfWJYjDKp4yhabV3PP7S&quot;</span>/<span class="op">&gt;</span> </span>
+<span id="cb176-137"><a href="source-code-installation.html#cb176-137"></a>  <span class="ex">Problem</span> initializing preferences.. please use bq-admin preferences</span>
+<span id="cb176-138"><a href="source-code-installation.html#cb176-138"></a></span>
+<span id="cb176-139"><a href="source-code-installation.html#cb176-139"></a>  <span class="ex">Initialize</span> your database with:</span>
+<span id="cb176-140"><a href="source-code-installation.html#cb176-140"></a>    $ <span class="ex">bq-admin</span> setup createdb</span>
+<span id="cb176-141"><a href="source-code-installation.html#cb176-141"></a></span>
+<span id="cb176-142"><a href="source-code-installation.html#cb176-142"></a>  <span class="ex">You</span> can start bisque with:</span>
+<span id="cb176-143"><a href="source-code-installation.html#cb176-143"></a>    $ <span class="ex">bq-admin</span> server start</span>
+<span id="cb176-144"><a href="source-code-installation.html#cb176-144"></a>  <span class="kw">then</span> <span class="ex">point</span> your browser to:</span>
+<span id="cb176-145"><a href="source-code-installation.html#cb176-145"></a>      <span class="ex">http</span>://loup.ece.ucsb.edu:8080</span>
+<span id="cb176-146"><a href="source-code-installation.html#cb176-146"></a>  <span class="ex">If</span> you need to shutdown the servers, then use:</span>
+<span id="cb176-147"><a href="source-code-installation.html#cb176-147"></a>    $ <span class="ex">bq-admin</span> server stop</span>
+<span id="cb176-148"><a href="source-code-installation.html#cb176-148"></a>  <span class="ex">You</span> can login as admin and change the default password.</span>
+<span id="cb176-149"><a href="source-code-installation.html#cb176-149"></a></span>
+<span id="cb176-150"><a href="source-code-installation.html#cb176-150"></a>  <span class="ex">Send</span> Installation/Registration report [Y]? N</span>
+<span id="cb176-151"><a href="source-code-installation.html#cb176-151"></a>  <span class="kw">(</span><span class="ex">bqdev</span><span class="kw">)</span> <span class="ex">rahul@loup</span>:~/repository/github/bisque$ </span>
+<span id="cb176-152"><a href="source-code-installation.html#cb176-152"></a></span></code></pre></div>
 <ul>
 <li>Add “config/runtime-bisque.cfg” for module configuration and docker image registry
 <ul>
@@ -598,22 +604,22 @@ bq-admin deploy public</code></pre></li>
 <ul>
 <li>Ensure ~/bisque/config/runtime-bisque.cfg has the configuration as below</li>
 </ul>
-<div class="sourceCode" id="cb159"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb159-1"><a href="source-code-installation.html#cb159-1"></a><span class="ex">runtime.staging_base</span> = staging/</span>
-<span id="cb159-2"><a href="source-code-installation.html#cb159-2"></a><span class="ex">docker.hub</span> = biodev.ece.ucsb.edu:5000</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb180-1"><a href="source-code-installation.html#cb180-1"></a><span class="ex">runtime.staging_base</span> = staging/</span>
+<span id="cb180-2"><a href="source-code-installation.html#cb180-2"></a><span class="ex">docker.hub</span> = biodev.ece.ucsb.edu:5000</span></code></pre></div>
 <ul>
 <li>Make sure the runtime-module.cfg is as per below</li>
 </ul>
-<div class="sourceCode" id="cb160"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb160-1"><a href="source-code-installation.html#cb160-1"></a><span class="ex">module_enabled</span> = True</span>
-<span id="cb160-2"><a href="source-code-installation.html#cb160-2"></a><span class="ex">runtime.platforms</span>=command</span>
-<span id="cb160-3"><a href="source-code-installation.html#cb160-3"></a>[<span class="ex">command</span>]</span>
-<span id="cb160-4"><a href="source-code-installation.html#cb160-4"></a><span class="ex">environments</span> = Staged</span>
-<span id="cb160-5"><a href="source-code-installation.html#cb160-5"></a><span class="ex">executable</span> = python MetaData.py</span>
-<span id="cb160-6"><a href="source-code-installation.html#cb160-6"></a><span class="ex">files</span> = MetaData.py</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb181-1"><a href="source-code-installation.html#cb181-1"></a><span class="ex">module_enabled</span> = True</span>
+<span id="cb181-2"><a href="source-code-installation.html#cb181-2"></a><span class="ex">runtime.platforms</span>=command</span>
+<span id="cb181-3"><a href="source-code-installation.html#cb181-3"></a>[<span class="ex">command</span>]</span>
+<span id="cb181-4"><a href="source-code-installation.html#cb181-4"></a><span class="ex">environments</span> = Staged</span>
+<span id="cb181-5"><a href="source-code-installation.html#cb181-5"></a><span class="ex">executable</span> = python MetaData.py</span>
+<span id="cb181-6"><a href="source-code-installation.html#cb181-6"></a><span class="ex">files</span> = MetaData.py</span></code></pre></div>
 <ul>
 <li>Now build/compile this module</li>
 </ul>
-<div class="sourceCode" id="cb161"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb161-1"><a href="source-code-installation.html#cb161-1"></a> <span class="bu">cd</span> ~/bisque/modules/MetaData</span>
-<span id="cb161-2"><a href="source-code-installation.html#cb161-2"></a> <span class="ex">python</span> setup.py</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb182-1"><a href="source-code-installation.html#cb182-1"></a> <span class="bu">cd</span> ~/bisque/modules/MetaData</span>
+<span id="cb182-2"><a href="source-code-installation.html#cb182-2"></a> <span class="ex">python</span> setup.py</span></code></pre></div>
 <p>Open up the Bisque web interface at <a href="http://loup.ece.ucsb.edu:8088" class="uri">http://loup.ece.ucsb.edu:8088</a></p>
 <ul>
 <li>Login using admin:admin</li>
@@ -639,31 +645,31 @@ bq-admin deploy public</code></pre></li>
 <li>The mex identifier (==MEX_ID=00-ZmuAoE43wTxByycmaCnvBF==) observed from URL can be used to locate this execution code &amp; resulting logs in the staging folders</li>
 <li>change directory to this staging folder and observe the files there</li>
 </ul>
-<div class="sourceCode" id="cb164"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb164-1"><a href="source-code-installation.html#cb164-1"></a><span class="bu">cd</span> ~/bisque/staging/00-ZmuAoE43wTxByycmaCnvBF</span>
-<span id="cb164-2"><a href="source-code-installation.html#cb164-2"></a><span class="ex">rahul@loup</span>:~/bisque/staging/00-ZmuAoE43wTxByycmaCnvBF$ tree </span>
-<span id="cb164-3"><a href="source-code-installation.html#cb164-3"></a><span class="ex">.</span></span>
-<span id="cb164-4"><a href="source-code-installation.html#cb164-4"></a>├── <span class="ex">MetaData.log</span></span>
-<span id="cb164-5"><a href="source-code-installation.html#cb164-5"></a>├── <span class="ex">MetaData.py</span></span>
-<span id="cb164-6"><a href="source-code-installation.html#cb164-6"></a>├── <span class="ex">python.log</span></span>
-<span id="cb164-7"><a href="source-code-installation.html#cb164-7"></a>└── <span class="ex">state00-ZmuAoE43wTxByycmaCnvBF.bq</span></span>
-<span id="cb164-8"><a href="source-code-installation.html#cb164-8"></a><span class="ex">0</span> directories, 4 files</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb185-1"><a href="source-code-installation.html#cb185-1"></a><span class="bu">cd</span> ~/bisque/staging/00-ZmuAoE43wTxByycmaCnvBF</span>
+<span id="cb185-2"><a href="source-code-installation.html#cb185-2"></a><span class="ex">rahul@loup</span>:~/bisque/staging/00-ZmuAoE43wTxByycmaCnvBF$ tree </span>
+<span id="cb185-3"><a href="source-code-installation.html#cb185-3"></a><span class="ex">.</span></span>
+<span id="cb185-4"><a href="source-code-installation.html#cb185-4"></a>├── <span class="ex">MetaData.log</span></span>
+<span id="cb185-5"><a href="source-code-installation.html#cb185-5"></a>├── <span class="ex">MetaData.py</span></span>
+<span id="cb185-6"><a href="source-code-installation.html#cb185-6"></a>├── <span class="ex">python.log</span></span>
+<span id="cb185-7"><a href="source-code-installation.html#cb185-7"></a>└── <span class="ex">state00-ZmuAoE43wTxByycmaCnvBF.bq</span></span>
+<span id="cb185-8"><a href="source-code-installation.html#cb185-8"></a><span class="ex">0</span> directories, 4 files</span></code></pre></div>
 <ul>
 <li>Here we can see that the MetaData.log and python.log files are generated</li>
 <li>In case of issues these are the log files that we need to look into for detailed error reporting</li>
 <li>main log file is the bisque_8088.log file at the ~/bisque home directory</li>
 </ul>
-<div class="sourceCode" id="cb165"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb165-1"><a href="source-code-installation.html#cb165-1"></a><span class="ex">13</span>:45:11,996 INFO  [bq.root] [admin] POST http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF?view=short</span>
-<span id="cb165-2"><a href="source-code-installation.html#cb165-2"></a><span class="ex">13</span>:45:12,001 INFO  [bq.module_server] MEX APPEND http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF?view=short</span>
-<span id="cb165-3"><a href="source-code-installation.html#cb165-3"></a><span class="ex">13</span>:45:12,205 INFO  [bq.engine_service.command_run] SUCCESS Command python MetaData.py http://loup.ece.ucsb.edu:8088/data_service/00-6dpWgEAue2iz8YZcKPHejh http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF admin:00-ZmuAoE43wTxByycmaCnvBF with 0</span>
-<span id="cb165-4"><a href="source-code-installation.html#cb165-4"></a><span class="ex">13</span>:45:12,206 INFO  [bq.engine_service.command_run] All processes have returned [<span class="st">&#39;finished&#39;</span>]</span>
-<span id="cb165-5"><a href="source-code-installation.html#cb165-5"></a><span class="ex">13</span>:45:12,206 INFO  [bq.engine_service.command_run] finishing 1 mexes -<span class="op">&gt;</span> [{<span class="st">&#39;files&#39;</span>: [<span class="st">&#39;MetaData.py&#39;</span>], <span class="st">&#39;status&#39;</span>: <span class="st">&#39;finished&#39;</span>, <span class="st">&#39;executable&#39;</span>: [<span class="st">&#39;python&#39;</span>, <span class="st">&#39;MetaData.py&#39;</span>, <span class="st">&#39;http://loup.ece.ucsb.edu:8088/data_service/00-6dpWgEAue2iz8YZcKPHejh&#39;</span>, <span class="st">&#39;http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;admin:00-ZmuAoE43wTxByycmaCnvBF&#39;</span>], <span class="st">&#39;initial_dir&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev&#39;</span>, <span class="st">&#39;module_enabled&#39;</span>: <span class="st">&#39;True&#39;</span>, <span class="st">&#39;named_args&#39;</span>: {<span class="st">&#39;bisque_token&#39;</span>: <span class="st">&#39;admin:00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;image_url&#39;</span>: <span class="st">&#39;http://loup.ece.ucsb.edu:8088/data_service/00-6dpWgEAue2iz8YZcKPHejh&#39;</span>, <span class="st">&#39;mex_url&#39;</span>: <span class="st">&#39;http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>}, <span class="st">&#39;bisque_token&#39;</span>: <span class="ex">u</span><span class="st">&#39;admin:00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;environments&#39;</span>: <span class="st">&#39;Staged&#39;</span>, <span class="st">&#39;runtime.staging_base&#39;</span>: <span class="st">&#39;staging/&#39;</span>, <span class="st">&#39;mex_id&#39;</span>: <span class="st">&#39;00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;runtime.matlab_launcher&#39;</span>: <span class="st">&#39;config-defaults/templates/matlab_launcher_SYS.tmpl&#39;</span>, <span class="st">&#39;arguments&#39;</span>: [], <span class="st">&#39;module_dir&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev&#39;</span>, <span class="st">&#39;staging_path&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev/staging/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;iterables&#39;</span>: False, <span class="st">&#39;log_name&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev/staging/00-ZmuAoE43wTxByycmaCnvBF/python.log&#39;</span>, <span class="st">&#39;runtime.matlab_home&#39;</span>: <span class="st">&#39;&#39;</span>, <span class="st">&#39;mex_url&#39;</span>: <span class="st">&#39;http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;rundir&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev/staging/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;runtime.platforms&#39;</span>: <span class="st">&#39;command&#39;</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb186-1"><a href="source-code-installation.html#cb186-1"></a><span class="ex">13</span>:45:11,996 INFO  [bq.root] [admin] POST http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF?view=short</span>
+<span id="cb186-2"><a href="source-code-installation.html#cb186-2"></a><span class="ex">13</span>:45:12,001 INFO  [bq.module_server] MEX APPEND http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF?view=short</span>
+<span id="cb186-3"><a href="source-code-installation.html#cb186-3"></a><span class="ex">13</span>:45:12,205 INFO  [bq.engine_service.command_run] SUCCESS Command python MetaData.py http://loup.ece.ucsb.edu:8088/data_service/00-6dpWgEAue2iz8YZcKPHejh http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF admin:00-ZmuAoE43wTxByycmaCnvBF with 0</span>
+<span id="cb186-4"><a href="source-code-installation.html#cb186-4"></a><span class="ex">13</span>:45:12,206 INFO  [bq.engine_service.command_run] All processes have returned [<span class="st">&#39;finished&#39;</span>]</span>
+<span id="cb186-5"><a href="source-code-installation.html#cb186-5"></a><span class="ex">13</span>:45:12,206 INFO  [bq.engine_service.command_run] finishing 1 mexes -<span class="op">&gt;</span> [{<span class="st">&#39;files&#39;</span>: [<span class="st">&#39;MetaData.py&#39;</span>], <span class="st">&#39;status&#39;</span>: <span class="st">&#39;finished&#39;</span>, <span class="st">&#39;executable&#39;</span>: [<span class="st">&#39;python&#39;</span>, <span class="st">&#39;MetaData.py&#39;</span>, <span class="st">&#39;http://loup.ece.ucsb.edu:8088/data_service/00-6dpWgEAue2iz8YZcKPHejh&#39;</span>, <span class="st">&#39;http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;admin:00-ZmuAoE43wTxByycmaCnvBF&#39;</span>], <span class="st">&#39;initial_dir&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev&#39;</span>, <span class="st">&#39;module_enabled&#39;</span>: <span class="st">&#39;True&#39;</span>, <span class="st">&#39;named_args&#39;</span>: {<span class="st">&#39;bisque_token&#39;</span>: <span class="st">&#39;admin:00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;image_url&#39;</span>: <span class="st">&#39;http://loup.ece.ucsb.edu:8088/data_service/00-6dpWgEAue2iz8YZcKPHejh&#39;</span>, <span class="st">&#39;mex_url&#39;</span>: <span class="st">&#39;http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>}, <span class="st">&#39;bisque_token&#39;</span>: <span class="ex">u</span><span class="st">&#39;admin:00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;environments&#39;</span>: <span class="st">&#39;Staged&#39;</span>, <span class="st">&#39;runtime.staging_base&#39;</span>: <span class="st">&#39;staging/&#39;</span>, <span class="st">&#39;mex_id&#39;</span>: <span class="st">&#39;00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;runtime.matlab_launcher&#39;</span>: <span class="st">&#39;config-defaults/templates/matlab_launcher_SYS.tmpl&#39;</span>, <span class="st">&#39;arguments&#39;</span>: [], <span class="st">&#39;module_dir&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev&#39;</span>, <span class="st">&#39;staging_path&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev/staging/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;iterables&#39;</span>: False, <span class="st">&#39;log_name&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev/staging/00-ZmuAoE43wTxByycmaCnvBF/python.log&#39;</span>, <span class="st">&#39;runtime.matlab_home&#39;</span>: <span class="st">&#39;&#39;</span>, <span class="st">&#39;mex_url&#39;</span>: <span class="st">&#39;http://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;rundir&#39;</span>: <span class="st">&#39;/home/rahul/repository/github/bisque-dev/staging/00-ZmuAoE43wTxByycmaCnvBF&#39;</span>, <span class="st">&#39;runtime.platforms&#39;</span>: <span class="st">&#39;command&#39;</span>}]</span></code></pre></div>
 <ul>
 <li>This will show us the COMMAND that was run to execute this module with MEX_URL</li>
 </ul>
-<div class="sourceCode" id="cb166"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb166-1"><a href="source-code-installation.html#cb166-1"></a><span class="ex">python</span> MetaData.py \</span>
-<span id="cb166-2"><a href="source-code-installation.html#cb166-2"></a>http://loup.ece.ucsb.edu:8088/data_service/00-6dpWgEAue2iz8YZcKPHejh <span class="dt">\ </span></span>
-<span id="cb166-3"><a href="source-code-installation.html#cb166-3"></a><span class="ex">http</span>://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF \</span>
-<span id="cb166-4"><a href="source-code-installation.html#cb166-4"></a>admin:00-ZmuAoE43wTxByycmaCnvBF</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb187-1"><a href="source-code-installation.html#cb187-1"></a><span class="ex">python</span> MetaData.py \</span>
+<span id="cb187-2"><a href="source-code-installation.html#cb187-2"></a>http://loup.ece.ucsb.edu:8088/data_service/00-6dpWgEAue2iz8YZcKPHejh <span class="dt">\ </span></span>
+<span id="cb187-3"><a href="source-code-installation.html#cb187-3"></a><span class="ex">http</span>://loup.ece.ucsb.edu:8088/module_service/mex/00-ZmuAoE43wTxByycmaCnvBF \</span>
+<span id="cb187-4"><a href="source-code-installation.html#cb187-4"></a>admin:00-ZmuAoE43wTxByycmaCnvBF</span></code></pre></div>
 <ul>
 <li>This is the command that we can use to debug and rerun/replay this MEX in order to update the execution result. This is different from running the module again from the web interface since that will produce a new MEX_ID and create another staging folder corresponding to that.</li>
 </ul>
